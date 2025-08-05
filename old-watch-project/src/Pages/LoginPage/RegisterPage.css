@@ -1,31 +1,24 @@
 * {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
 }
 
-body,
-#root {
-  margin: 0;
-  overflow-x: hidden;
 
-  width: 100%;
+
+body, html {
   height: 100%;
-  background: radial-gradient(circle at center, #1f1f1f 0%, #0e0e0e 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
+  background: #121212;
 }
 
 .background {
-  width: 100%;
-  height: 100vh;
   background: radial-gradient(circle at center, #1f1f1f 0%, #0e0e0e 100%);
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .login-container {
@@ -36,7 +29,8 @@ body,
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   text-align: center;
 
-  border: 1px solid rgba(216, 209, 197, 0.2);
+    border: 1px solid rgba(216, 209, 197, 0.2); 
+  
 }
 
 .title {
@@ -60,10 +54,10 @@ body,
   padding: 5px;
   margin-bottom: 30px;
 
-  border: 1px solid rgba(216, 209, 197, 0.2);
+  border: 1px solid rgba(216, 209, 197, 0.2); 
 }
 
-.toggle-buttons-active {
+.toggle-buttons .inactive {
   width: 50%;
   background: linear-gradient(#a48374, #c49b88);
   border: none;
@@ -73,17 +67,18 @@ body,
   font-weight: 500;
   cursor: pointer;
 
-  box-shadow: 2px 2px 4px rgba(164, 131, 116, 0.3);
+ box-shadow: 2px 2px 4px rgba(164, 131, 116, 0.3);
 }
 
-.toggle-buttons-inactive {
-  width: 173px;
+.toggle-buttons  .active {
+  width: 51%;
   background: none;
   border: none;
   color: #999;
   height: 50px;
   font-weight: 500;
   cursor: pointer;
+
 }
 
 .login-form {
@@ -96,6 +91,7 @@ body,
   margin-bottom: 5px;
   display: block;
 }
+
 .login-form input[type="text"],
 .login-form input[type="email"],
 .login-form input[type="password"] {
@@ -105,9 +101,9 @@ body,
   border: none;
   border-radius: 8px;
   margin-bottom: 20px;
-  color: white;
+  color: rgba(255, 255, 255, 1);
 
-  border: 1px solid rgba(216, 209, 197, 0.2);
+  border: 1px solid rgba(216, 209, 197, 0.2); 
 }
 
 .login-form .form-options {
@@ -120,9 +116,6 @@ body,
 
 .login-form .form-options label {
   color: #d8d1c5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .login-form .form-options a {
@@ -149,13 +142,6 @@ body,
   font-weight: bold;
   cursor: pointer;
 
-  box-shadow: 2px 2px 4px rgba(164, 131, 116, 0.3);
+	box-shadow: 2px 2px 4px rgba(164, 131, 116, 0.3);
 }
 
-.show-hide-text {
-  display: inline;
-  margin-left: 8px;
-}
-.checkbox {
-  cursor: pointer;
-}
