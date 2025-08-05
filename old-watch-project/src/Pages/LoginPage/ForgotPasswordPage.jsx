@@ -1,0 +1,49 @@
+
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import "./RegisterPage.css";
+import { checkBlankInput } from "../../Utils/checkBlankInput";
+
+export function ForgotPasswordPage() {
+  const emailRef = useRef(null);
+  const navigate = useNavigate();
+  const handleInput = (event) => {
+    event.preventDefault();
+    const emailData = emailRef.current.value;
+
+    console.log(emailData);
+
+    if (checkBlankInput([emailData])) {
+      alert("Please fill in all information"); // Check input trong thi bat nhap lai
+      return;
+    }
+    navigate("/SendOtp");
+  };
+  return (
+    <>
+      <title>Forgot Pasword</title>
+      <link rel="icon" type="image/svg+xml" href="/Enter-email-favicon.png" />
+      <div className="background">
+        <div className="login-container">
+          <h1 className="title">Password Recovery</h1>
+          <p className="subtitle">
+            Please enter your Gmail adress so we can send you password recovery
+            instructions
+          </p>
+
+          <form className="login-form" onSubmit={handleInput}>
+            <label>Email Address</label>
+            <input ref={emailRef} type="email" placeholder="Enter email" />
+
+            <button
+              type="submit"
+              className="submit-button"
+            >
+              Receive OTP
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+}

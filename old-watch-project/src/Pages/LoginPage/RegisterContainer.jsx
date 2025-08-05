@@ -95,7 +95,7 @@ export function RegisterContainer() {
         />
 
         <div className="form-options">
-          <Link to="/Login">Already have an account? Log in now</Link>
+          <Link to="/">Already have an account? Log in now</Link>
         </div>
 
         <button type="submit" className="submit-button">
