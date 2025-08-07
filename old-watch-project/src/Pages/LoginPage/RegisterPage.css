@@ -24,7 +24,7 @@
 
 .toggle-buttons .inactive {
   width: 50%;
-  background: linear-gradient(#d16b46, #b25d3d);
+  background-color: #8f5924;
   border: none;
   color: white;
   border-radius: 8px;

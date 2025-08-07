@@ -42,7 +42,7 @@
 
 .toggle-buttons-active {
   width: 50%;
-  background: linear-gradient(#d16b46, #b25d3d);
+  background-color: #8f5924;
   border: none;
   color: white;
   border-radius: 8px;
@@ -82,7 +82,7 @@
   border: none;
   border-radius: 8px;
   margin-bottom: 20px;
-    color: #b25d3d;
+  color: #b25d3d;
   border: 1px solid rgba(216, 209, 197, 0.2);
 }
 .login-form input[type="text"]::placeholder,
@@ -94,7 +94,7 @@
   box-shadow: none;
   outline: none;
   margin-bottom: 20px;
-  color: #b25d3d;
+  color: #8f5924;
 }
 
 .login-form .form-options {
@@ -127,7 +127,7 @@
 .submit-button {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(#d16b46, #b25d3d);
+  background-color: #8f5924;
   border: none;
   border-radius: 8px;
   color: white;

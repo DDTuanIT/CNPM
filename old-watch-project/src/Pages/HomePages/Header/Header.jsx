@@ -13,28 +13,15 @@ export function Header() {
               <span className="logo-text">VintageTime</span>
             </Link>
             <nav className="nav">
-              <a href="#" className="active">
+              <a href="/" className="active">
                 Trang chủ
               </a>
-              <a href="#">Khám phá</a>
+              <Link to="/ExplorePage">Khám phá</Link>
               <a href="#">Thẩm định</a>
               <a href="#">Cộng đồng</a>
             </nav>
           </div>
           <div className="header-actions">
-            <div className="search-box">
-              <svg
-                className="search-icon icon-sm"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.35-4.35" />
-              </svg>
-              <input  type="text" placeholder="Tìm đồng hồ..." />
-            </div>
             <a href="/LoginPage" className="btn btn-outline">
               Đăng nhập
             </a>

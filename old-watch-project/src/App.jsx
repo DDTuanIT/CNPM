@@ -6,6 +6,7 @@ import { CreateNewPasswordPage } from './Pages/LoginPage/CreatePasswordPage';
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import { HomePage } from './Pages/HomePages/HomePage';
+import { ExplorePage } from './Pages/HomePages/ExplorePage/ExplorePage';
 
 function App() {
 
@@ -23,6 +24,8 @@ function App() {
       <Route path="/SendOtp" element={<OtpPage />} />
 
       <Route path="/CreateNewPassword" element={<CreateNewPasswordPage />} />
+
+      <Route path="/ExplorePage" element={<ExplorePage />}/>
     </Routes>
   );
 }

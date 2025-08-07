@@ -1,5 +1,5 @@
-import { Footer } from "./Footer";
-import { Header } from "./Header";
+import { Footer } from "../Footer/Footer";
+import { Header } from "./Header/Header";
 import { useNavigate } from "react-router-dom";
 import './HomePage.css'
 import { WatchesGrid } from "./WatchesGrid";
@@ -9,17 +9,23 @@ export function HomePage() {
     alert("Vui lòng đăng nhập để bán đồng hồ");
     navigate('/LoginPage')
   }
+  function handleSeeDetails() {
+    alert('Vui lòng đăng nhập để xem thêm');
+    navigate('/LoginPage')
+  }
 
   return (
     <>
-			<Header />
+      <title>Home</title>
+      <link rel="icon" type="image/svg+xml" href="./home-favicon.png" />
+      <Header />
       <main className="container">
         <section className="hero">
           <div className="hero-content">
             <div className="badge">
               <svg
                 className="icon-sm"
-                style={{marginRight: 0.25+"rem"}}
+                style={{ marginRight: 0.25 + "rem" }}
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
@@ -37,7 +43,7 @@ export function HomePage() {
               dịch.
             </p>
             <div className="hero-actions">
-              <a href="/LoginPage" className="btn btn-primary">
+              <a href="/ExplorePage" className="btn btn-primary">
                 Khám phá ngay
                 <svg
                   className="icon-sm"
@@ -93,7 +99,7 @@ export function HomePage() {
               </div>
               <div className="form-group">
                 <label>&nbsp;</label>
-                <button className="btn btn-primary" style={{width: "100%"}}>
+                <button className="btn btn-primary" style={{ width: "100%" }}>
                   <svg
                     className="icon-sm"
                     viewBox="0 0 24 24"
@@ -121,7 +127,7 @@ export function HomePage() {
           </div>
           <div className="cards-grid">
             <div className="card">
-              <div className="card-icon" style={{color: "var(--primary)"}}>
+              <div className="card-icon" style={{ color: "var(--primary)" }}>
                 <svg
                   className="icon"
                   viewBox="0 0 24 24"
@@ -180,13 +186,13 @@ export function HomePage() {
                   Hỗ trợ 24/7
                 </li>
               </ul>
-              <button className="btn btn-outline" style={{width: "100%"}}>
+              <button className="btn btn-outline" style={{ width: "100%" }}>
                 Tìm hiểu thêm
               </button>
             </div>
 
             <div className="card">
-              <div className="card-icon" style={{color: "var(--success)"}}>
+              <div className="card-icon" style={{ color: "var(--success)" }}>
                 <svg
                   className="icon"
                   viewBox="0 0 24 24"
@@ -244,13 +250,13 @@ export function HomePage() {
                   Đánh giá minh bạch
                 </li>
               </ul>
-              <button className="btn btn-outline" style={{width: "100%"}}>
+              <button className="btn btn-outline" style={{ width: "100%" }}>
                 Tìm hiểu thêm
               </button>
             </div>
 
             <div className="card">
-              <div className="card-icon" style={{color: "var(--luxury)"}}>
+              <div className="card-icon" style={{ color: "var(--luxury)" }}>
                 <svg
                   className="icon"
                   viewBox="0 0 24 24"
@@ -307,7 +313,7 @@ export function HomePage() {
                   Mạng lưới chuyên gia
                 </li>
               </ul>
-              <button className="btn btn-outline" style={{width: "100%"}}>
+              <button className="btn btn-outline" style={{ width: "100%" }}>
                 Tìm hiểu thêm
               </button>
             </div>
@@ -322,7 +328,13 @@ export function HomePage() {
                 Những chiếc đồng hồ cũ được thẩm định và đánh giá cao
               </p>
             </div>
-            <div style={{display: "flex", alignItems: "center", gap: 0.5+"rem"}}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 0.5 + "rem",
+              }}
+            >
               <button className="btn btn-outline">
                 <svg
                   className="icon-sm"
@@ -338,8 +350,8 @@ export function HomePage() {
             </div>
           </div>
           <WatchesGrid />
-          <div style={{textAlign: "center", marginTop: 2+"rem"}}>
-            <button className="btn btn-outline">
+          <div style={{ textAlign: "center", marginTop: 2 + "rem" }}>
+            <button className="btn btn-outline" onChange={handleSeeDetails}>
               Xem tất cả đồng hồ
               <svg
                 className="icon-sm"
