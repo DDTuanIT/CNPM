@@ -3,6 +3,11 @@
 
 
 export function WatchCard() {
+
+	function handleSeeDetails() {
+		
+		alert("Vui lòng đăng nhập để xem chi tiết sản phẩm");
+	}
     return (
       <div className="watch-card">
         <div className="watch-image">
@@ -57,6 +62,7 @@ export function WatchCard() {
           <button
             className="btn btn-primary"
             style={{ width: "100%", marginTop: 1 + "rem" }}
+						onClick={handleSeeDetails}
           >
             Xem chi tiết
           </button>

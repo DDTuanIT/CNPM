@@ -123,6 +123,8 @@
 .btn-primary {
   background-color: var(--luxury);
   color: var(--luxury-foreground);
+  padding-top: 11px;
+  padding-bottom: 11px;
 }
 
 .btn-primary:hover {

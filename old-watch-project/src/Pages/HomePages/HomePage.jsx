@@ -1,9 +1,15 @@
 import { Footer } from "./Footer";
 import { Header } from "./Header";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './HomePage.css'
 import { WatchesGrid } from "./WatchesGrid";
 export function HomePage() {
+  const navigate = useNavigate();
+  function handleUploadButton() {
+    alert("Vui lòng đăng nhập để bán đồng hồ");
+    navigate('/LoginPage')
+  }
+
   return (
     <>
 			<Header />
@@ -357,7 +363,7 @@ export function HomePage() {
               của chúng tôi
             </p>
             <div className="cta-actions">
-              <Link to="/LoginPage" className="btn btn-primary">
+              <button className="btn btn-primary" onClick={handleUploadButton}>
                 <svg
                   className="icon-sm"
                   viewBox="0 0 24 24"
@@ -369,7 +375,7 @@ export function HomePage() {
                   <path d="m12 5 7 7-7 7" />
                 </svg>
                 Đăng bán đồng hồ
-              </Link>
+              </button>
               <a href="#" className="btn btn-outline">
                 Tìm hiểu thêm
               </a>
