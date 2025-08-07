@@ -5,13 +5,16 @@ import { OtpPage } from './Pages/LoginPage/OtpPage';
 import { CreateNewPasswordPage } from './Pages/LoginPage/CreatePasswordPage';
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
+import { HomePage } from './Pages/HomePages/HomePage';
 
 function App() {
 
 
   return (
     <Routes>
-      <Route index path="/" element={<LoginPage />} />
+      <Route index path="/" element={<HomePage />} />
+
+      <Route path="/LoginPage" element={<LoginPage />} />
 
       <Route path="/Register" element={<RegisterPage />} />
 

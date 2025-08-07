@@ -1,32 +1,11 @@
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
 }
 
-
-
-body, html {
-  background: radial-gradient(circle at center, #201f1fff -190%, #0e0e0e 100%);
-  height: 100%;
-  width: 100%;
-  
-}
-#root {
-    background: radial-gradient(circle at center, #201f1fff 5%, #0e0e0e 95%);
-}
-.background {
-  background: radial-gradient(circle at center, #1f1f1f 0%, #0e0e0e 100%);
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-
-}
-
-.login-container {
+.login-containeru {
   width: 420px;
   padding: 40px 30px;
   border-radius: 16px;
@@ -34,37 +13,18 @@ body, html {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   text-align: center;
 
-    border: 1px solid rgba(216, 209, 197, 0.2); 
-  
-}
-
-.title {
-  font-size: 30px;
-  font-weight: 700;
-  color: #e2cfc1;
-  margin-bottom: 10px;
+  border: 1px solid rgba(216, 209, 197, 0.2);
 }
 
 .subtitle {
   font-size: 14px;
-  color: #d8d1c5;
+  color: #7a6a5e;
   margin-bottom: 30px;
-}
-
-.toggle-buttons {
-  display: flex;
-  justify-content: space-between;
-  background: #2a2a2a;
-  border-radius: 12px;
-  padding: 5px;
-  margin-bottom: 30px;
-
-  border: 1px solid rgba(216, 209, 197, 0.2); 
 }
 
 .toggle-buttons .inactive {
   width: 50%;
-  background: linear-gradient(#a48374, #c49b88);
+  background: linear-gradient(#d16b46, #b25d3d);
   border: none;
   color: white;
   border-radius: 8px;
@@ -72,18 +32,17 @@ body, html {
   font-weight: 500;
   cursor: pointer;
 
- box-shadow: 2px 2px 4px rgba(164, 131, 116, 0.3);
+  box-shadow: 2px 2px 4px rgba(164, 131, 116, 0.3);
 }
 
-.toggle-buttons  .active {
+.toggle-buttons .active {
   width: 51%;
   background: none;
   border: none;
-  color: #999;
+  color: white;
   height: 50px;
   font-weight: 500;
   cursor: pointer;
-
 }
 
 .login-form {
@@ -91,24 +50,10 @@ body, html {
 }
 
 .login-form label {
-  color: #d8d1c5;
+  color: #7a5c4d;
   font-size: 13px;
   margin-bottom: 5px;
   display: block;
-}
-
-.login-form input[type="text"],
-.login-form input[type="email"],
-.login-form input[type="password"] {
-  width: 100%;
-  padding: 12px;
-  background: rgba(42, 42, 42, 0.8);
-  border: none;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  color: rgba(255, 255, 255, 1);
-
-  border: 1px solid rgba(216, 209, 197, 0.2); 
 }
 
 .login-form .form-options {
@@ -124,29 +69,10 @@ body, html {
 }
 
 .login-form .form-options a {
-  color: #c49b88;
+  color: #7a5c4d;
   text-decoration: none;
 }
 .login-form .form-options a {
-  color: #c49b88;
+  color: #7a5c4d;
   text-decoration: none;
 }
-
-.login-form .form-options a:hover {
-  color: #c49b88;
-  text-decoration: underline;
-}
-.submit-button {
-  width: 100%;
-  padding: 15px;
-  background: linear-gradient(#a48374, #c49b88);
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-
-	box-shadow: 2px 2px 4px rgba(164, 131, 116, 0.3);
-}
-

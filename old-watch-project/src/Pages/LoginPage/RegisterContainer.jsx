@@ -63,7 +63,7 @@ export function RegisterContainer() {
       <p className="subtitle">Fill in information</p>
 
       <div className="toggle-buttons">
-        <Link to="/" className="active">
+        <Link to="/LoginPage" className="active">
           <button className="active">Sign In</button>
         </Link>
         <button className="inactive">Sign Up</button>
@@ -95,7 +95,7 @@ export function RegisterContainer() {
         />
 
         <div className="form-options">
-          <Link to="/">Already have an account? Log in now</Link>
+          <Link to="/LoginPage">Already have an account? Log in now</Link>
         </div>
 
         <button type="submit" className="submit-button">

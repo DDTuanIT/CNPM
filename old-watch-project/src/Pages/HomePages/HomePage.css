@@ -1,0 +1,704 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--border);
+  background-color: rgba(var(--background), 0.95);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle at 2px 2px,
+      rgba(101, 67, 33, 0.06) 1px,
+      transparent 0
+    ),
+    linear-gradient(
+      0deg,
+      transparent 48%,
+      rgba(139, 99, 66, 0.02) 49%,
+      rgba(139, 99, 66, 0.02) 51%,
+      transparent 52%
+    );
+  background-size: 30px 30px, 8px 8px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  border: 10px;
+  border-color: red;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav a {
+  color: var(--muted-foreground);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--primary);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-box {
+  position: relative;
+  display: none;
+	margin-left: 20px;
+}
+
+.search-box input {
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  background-color: var(--background);
+  color: var(--foreground);
+  width: 16rem;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-foreground);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background-color: var(--luxury);
+  color: var(--luxury-foreground);
+}
+
+.btn-primary:hover {
+  background-color: hsl(30, 60%, 30%);
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+.btn-outline:hover {
+  background-color: var(--secondary);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 0 6rem;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      ellipse at center,
+      rgba(101, 67, 33, 0.05) 0%,
+      transparent 50%
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(139, 99, 66, 0.03) 10px,
+      rgba(139, 99, 66, 0.03) 20px
+    ),
+    linear-gradient(
+      135deg,
+      rgba(101, 67, 33, 0.01) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(101, 67, 33, 0.01) 75%
+    );
+  background-size: 60px 60px, 40px 40px, 16px 16px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  background-color: rgba(var(--luxury), 0.1);
+  color: var(--luxury);
+  border: 1px solid rgba(var(--luxury), 0.2);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.text-luxury {
+  color: var(--luxury);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--muted-foreground);
+  margin-bottom: 2rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .search-box {
+    display: block;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* Search Section */
+.search-section {
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.search-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  background-image: linear-gradient(
+      45deg,
+      transparent 24%,
+      rgba(101, 67, 33, 0.03) 25%,
+      rgba(101, 67, 33, 0.03) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(101, 67, 33, 0.03) 75%,
+      rgba(101, 67, 33, 0.03) 76%,
+      transparent 77%,
+      transparent
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(139, 99, 66, 0.02) 0%,
+      transparent 70%
+    );
+  background-size: 20px 20px, 60px 60px;
+}
+
+.search-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-group select {
+  padding: 0.625rem;
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Cards Section */
+.section {
+  padding: 4rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: clamp(1.875rem, 4vw, 2.25rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: all 0.3s;
+  background-image: linear-gradient(
+      45deg,
+      transparent 24%,
+      rgba(101, 67, 33, 0.03) 25%,
+      rgba(101, 67, 33, 0.03) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(101, 67, 33, 0.03) 75%,
+      rgba(101, 67, 33, 0.03) 76%,
+      transparent 77%,
+      transparent
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(139, 99, 66, 0.02) 0%,
+      transparent 70%
+    );
+  background-size: 20px 20px, 60px 60px;
+}
+
+.card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.card-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background-color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--muted-foreground);
+  margin-bottom: 1rem;
+}
+
+.features-list {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.checkmark {
+  color: var(--success);
+}
+
+/* Featured Watches */
+.watches-section {
+  padding: 4rem 0;
+}
+
+.watches-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.watches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.watch-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.3s;
+  background-image: linear-gradient(
+      45deg,
+      transparent 24%,
+      rgba(101, 67, 33, 0.03) 25%,
+      rgba(101, 67, 33, 0.03) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(101, 67, 33, 0.03) 75%,
+      rgba(101, 67, 33, 0.03) 76%,
+      transparent 77%,
+      transparent
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(139, 99, 66, 0.02) 0%,
+      transparent 70%
+    );
+  background-size: 20px 20px, 60px 60px;
+}
+
+.watch-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.watch-image {
+  aspect-ratio: 1;
+  background-color: rgba(var(--muted), 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.watch-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: var(--success);
+  color: var(--success-foreground);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.watch-content {
+  padding: 1.5rem;
+}
+
+.watch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.watch-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.watch-subtitle {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.watch-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--luxury);
+}
+
+.watch-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.watch-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.watch-location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--muted-foreground);
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.cta-card {
+  max-width: 42rem;
+  margin: 0 auto;
+  background-color: rgba(var(--luxury), 0.05);
+  border: 1px solid rgba(var(--luxury), 0.2);
+  border-radius: 0.5rem;
+  padding: 3rem 2rem;
+  background-image: linear-gradient(
+      45deg,
+      transparent 24%,
+      rgba(101, 67, 33, 0.03) 25%,
+      rgba(101, 67, 33, 0.03) 26%,
+      transparent 27%,
+      transparent 74%,
+      rgba(101, 67, 33, 0.03) 75%,
+      rgba(101, 67, 33, 0.03) 76%,
+      transparent 77%,
+      transparent
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(139, 99, 66, 0.02) 0%,
+      transparent 70%
+    );
+  background-size: 20px 20px, 60px 60px;
+}
+
+.cta-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cta-subtitle {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  margin-bottom: 2rem;
+}
+
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  background-color: rgba(var(--muted), 0.3);
+  position: relative;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle at 2px 2px,
+      rgba(101, 67, 33, 0.06) 1px,
+      transparent 0
+    ),
+    linear-gradient(
+      0deg,
+      transparent 48%,
+      rgba(139, 99, 66, 0.02) 49%,
+      rgba(139, 99, 66, 0.02) 51%,
+      transparent 52%
+    );
+  background-size: 30px 30px, 8px 8px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer-content {
+  padding: 3rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section h3 {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+
+  align-items: start;
+  flex-direction: column;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--muted-foreground);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--foreground);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+@media (min-width: 640px) {
+  .search-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .cta-actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav {
+    display: none;
+  }
+}
+
+/* Icon styles */
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+.icon-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon-lg {
+  width: 3rem;
+  height: 3rem;
+}
+.logo-web {
+  width: 35px;
+}
+.image-product {
+
+}

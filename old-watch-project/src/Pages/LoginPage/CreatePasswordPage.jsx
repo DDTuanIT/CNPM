@@ -20,7 +20,7 @@ export function CreateNewPasswordPage() {
       alert("2 passwords do not match, please re-enter");
       return;
     }
-    navigate("/");
+    navigate("/LoginPage");
   };
   return (
     <>

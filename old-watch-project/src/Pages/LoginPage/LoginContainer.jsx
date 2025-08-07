@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 import { useState, useRef } from "react";
 
 export function LoginContainer() {
   const [statePassword, setStatePassword] = useState(false);
   const emailRef = useRef(null); // lấy Data thông qua ref
   const passwordRef = useRef(null); //
+  const navigate = useNavigate();
 
   const handleCheckboxChange = () => {
     statePassword ? setStatePassword(false) : setStatePassword(true);
@@ -20,7 +22,7 @@ export function LoginContainer() {
       alert("Please fill in all information"); // Lệnh kiểm tra có dữ liệu đầu vào không
       return;
     }
-
+    navigate('/')
     console.log(emailData); // Lệnh kiểm tra hoạt động không
     console.log(passwordData);
   };
