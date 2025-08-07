@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { checkBlankInput } from "../../Utils/checkBlankInput";
 
@@ -11,16 +11,6 @@ export function RegisterContainer() {
   const navigate = useNavigate();
 
   //
-  useEffect(() => {
-    const savedData = JSON.parse(localStorage.getItem("Data")) || {};
-    if (fullnameRef.current)
-      fullnameRef.current.value = savedData.fullnameData || "";
-    if (emailRef.current) emailRef.current.value = savedData.emailData || "";
-    if (passwordRef.current)
-      passwordRef.current.value = savedData.passwordData || "";
-    if (confirmPasswordRef.current)
-      confirmPasswordRef.current.value = savedData.confirmPasswordData || "";
-  }, []);
   const handleSubmitButton = (event) => {
     event.preventDefault();
     const fullnameData = fullnameRef.current.value;
