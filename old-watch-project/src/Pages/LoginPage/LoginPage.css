@@ -82,7 +82,7 @@
   border: none;
   border-radius: 8px;
   margin-bottom: 20px;
-  color: #b25d3d;
+    color: #b25d3d;
   border: 1px solid rgba(216, 209, 197, 0.2);
 }
 .login-form input[type="text"]::placeholder,
@@ -145,4 +145,10 @@
 }
 .checkbox {
   cursor: pointer;
+}
+.background {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

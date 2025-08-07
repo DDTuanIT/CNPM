@@ -19,19 +19,19 @@ export function HomePage() {
               >
                 <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
               </svg>
-              Nền tảng đồng hồ cổ hàng đầu
+              Nền tảng đồng hồ cũ hàng đầu
             </div>
             <h1>
-              Thế giới <span className="text-luxury">đồng hồ cổ</span> <br />
+              Thế giới <span className="text-luxury">đồng hồ cũ</span> <br />
               đẳng cấp và tin cậy
             </h1>
             <p>
-              Nền tảng giao dịch đồng hồ cổ chuyên nghiệp với hệ thống thẩm định
+              Nền tảng giao dịch đồng hồ cũ chuyên nghiệp với hệ thống thẩm định
               minh bạch, đảm bảo tính xác thực và giá trị công bằng cho mọi giao
               dịch.
             </p>
             <div className="hero-actions">
-              <a href="#" className="btn btn-primary">
+              <a href="/LoginPage" className="btn btn-primary">
                 Khám phá ngay
                 <svg
                   className="icon-sm"
@@ -130,7 +130,7 @@ export function HomePage() {
               </div>
               <h3>Người bán</h3>
               <p>
-                Đăng bán đồng hồ cổ của bạn với hệ thống thẩm định chuyên nghiệp
+                Đăng bán đồng hồ cũ của bạn với hệ thống thẩm định chuyên nghiệp
               </p>
               <ul className="features-list">
                 <li>
@@ -194,7 +194,7 @@ export function HomePage() {
               </div>
               <h3>Người mua</h3>
               <p>
-                Khám phá và mua những chiếc đồng hồ cổ được thẩm định chất lượng
+                Khám phá và mua những chiếc đồng hồ cũ được thẩm định chất lượng
               </p>
               <ul className="features-list">
                 <li>
@@ -313,7 +313,7 @@ export function HomePage() {
             <div>
               <h2 className="section-title">Đồng hồ nổi bật</h2>
               <p className="section-subtitle">
-                Những chiếc đồng hồ cổ được thẩm định và đánh giá cao
+                Những chiếc đồng hồ cũ được thẩm định và đánh giá cao
               </p>
             </div>
             <div style={{display: "flex", alignItems: "center", gap: 0.5+"rem"}}>
@@ -353,7 +353,7 @@ export function HomePage() {
           <div className="cta-card">
             <h2 className="cta-title">Sẵn sàng tham gia cộng đồng?</h2>
             <p className="cta-subtitle">
-              Hàng nghìn người đã tin tưởng giao dịch đồng hồ cổ trên nền tảng
+              Hàng nghìn người đã tin tưởng giao dịch đồng hồ cũ trên nền tảng
               của chúng tôi
             </p>
             <div className="cta-actions">

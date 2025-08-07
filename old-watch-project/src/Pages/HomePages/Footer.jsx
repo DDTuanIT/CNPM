@@ -1,5 +1,5 @@
 
-
+import './Footer.css'
 
 
 export function Footer() {
@@ -13,8 +13,8 @@ export function Footer() {
                   <img className="logo-web" src="logo-web.png" alt="" />
                   <span className="logo-text">VintageTime</span>
                 </div>
-                <p style={{color: "var(--muted-foreground)", fontSize: 0.875+"rem"}}>
-                  Nền tảng giao dịch đồng hồ cổ hàng đầu với hệ thống thẩm định
+                <p style={{color: "var(--muted-foreground)", fontSize: 0.875+"rem", textAlign: "left"}}>
+                  Nền tảng giao dịch đồng hồ cũ hàng đầu với hệ thống thẩm định
                   minh bạch và đáng tin cậy.
                 </p>
               </div>
@@ -71,8 +71,8 @@ export function Footer() {
               </div>
             </div>
             <div className="footer-bottom">
-              © 2024 VintageTime. Tất cả quyền được bảo lưu. | Nền tảng giao
-              dịch đồng hồ cổ đáng tin cậy
+              © 2025 VintageTime. Tất cả quyền được bảo lưu. | Nền tảng giao
+              dịch đồng hồ cũ đáng tin cậy
             </div>
           </div>
         </div>
