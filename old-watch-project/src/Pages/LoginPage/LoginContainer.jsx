@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-
 import { useState, useRef } from "react";
+import axios from "axios";
 
 export function LoginContainer() {
   const [statePassword, setStatePassword] = useState(false);
@@ -22,10 +22,19 @@ export function LoginContainer() {
       alert("Please fill in all information"); // Lệnh kiểm tra có dữ liệu đầu vào không
       return;
     }
-    navigate('/')
-    console.log(emailData); // Lệnh kiểm tra hoạt động không
-    console.log(passwordData);
+
+    getLogin();
+    console.log(dataLogin);
+    navigate("/");
   };
+  //////////
+
+  const [dataLogin, setDataLogin] = useState([]);
+  const getLogin = async () => {
+    const response = await axios.get("/api/login");
+    setDataLogin(response.target.value);
+  };
+
   return (
     <div className="login-container">
       <h1 className="title">Welcome</h1>

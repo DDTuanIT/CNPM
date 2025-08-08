@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useRef,  } from "react";
 import { useNavigate } from "react-router-dom";
 import { checkBlankInput } from "../../Utils/checkBlankInput";
+import axios from "axios";
 
 export function RegisterContainer() {
   const fullnameRef = useRef(null);
@@ -11,6 +12,7 @@ export function RegisterContainer() {
   const navigate = useNavigate();
 
   //
+
   const handleSubmitButton = (event) => {
     event.preventDefault();
     const fullnameData = fullnameRef.current.value;
@@ -44,9 +46,23 @@ export function RegisterContainer() {
     }
 
     alert("Registration successful!");
+    function storeDataRegister() {
+      const retrievedData = JSON.parse(localStorage.getItem("Data"));
+      const postRegister = async () => {
+        const response = await axios.post("/api/register", {
+          id: crypto.randomUUID(),
+          email: retrievedData.emailData,
+          password: retrievedData.passwordData,
+          role: "buyer",
+        });
+        response;
+
+      };
+      postRegister();
+    }
+    storeDataRegister();
     navigate("/");
   };
-
   return (
     <div className="login-container">
       <h1 className="title">Register an account</h1>

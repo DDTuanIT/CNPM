@@ -6,7 +6,7 @@ export function LoginPage() {
     <>
       <title>Login</title>
       <link rel="icon" type="image/svg+xml" href="/Login-favicon.png" />
-      <div  className="background">
+      <div className="background">
         <LoginContainer />
       </div>
     </>
