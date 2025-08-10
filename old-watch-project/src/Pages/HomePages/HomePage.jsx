@@ -1,6 +1,7 @@
 import { Footer } from "../Footer/Footer";
 import { Header } from "./Header/Header";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './HomePage.css'
 import { WatchesGrid } from "./WatchesGrid";
 export function HomePage() {
@@ -43,7 +44,7 @@ export function HomePage() {
               dịch.
             </p>
             <div className="hero-actions">
-              <a href="/ExplorePage" className="btn btn-primary">
+              <Link to="/ExplorePage" className="btn btn-primary">
                 Khám phá ngay
                 <svg
                   className="icon-sm"
@@ -55,10 +56,10 @@ export function HomePage() {
                   <path d="M5 12h14" />
                   <path d="m12 5 7 7-7 7" />
                 </svg>
-              </a>
-              <a href="#" className="btn btn-outline">
+              </Link>
+              <Link to="/AppraiserHomePage" className="btn btn-outline">
                 Tìm hiểu thẩm định
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -388,9 +389,9 @@ export function HomePage() {
                 </svg>
                 Đăng bán đồng hồ
               </button>
-              <a href="#" className="btn btn-outline">
+              <Link to="/LoginPage" className="btn btn-outline">
                 Tìm hiểu thêm
-              </a>
+              </Link>
             </div>
           </div>
         </section>

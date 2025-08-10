@@ -1,6 +1,6 @@
 import { Footer } from "../../Footer/Footer";
 import { Header } from "../Header/Header";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../HomePage.css";
 import { WatchCard } from "../WatchCard";
 export function ExplorePage() {
@@ -56,66 +56,14 @@ export function ExplorePage() {
                   <path d="m12 5 7 7-7 7" />
                 </svg>
               </a>
-              <a href="#" className="btn btn-outline">
+              <Link to="/AppraiserHomePage" className="btn btn-outline">
                 Tìm hiểu thẩm định
-              </a>
+              </Link>
             </div>
           </div>
         </section>
 
-        <section className="search-section">
-          <div className="search-card">
-            <h2 className="search-title">Tìm kiếm đồng hồ</h2>
-            <div className="search-grid">
-              <div className="form-group">
-                <label>Thương hiệu</label>
-                <select>
-                  <option>Tất cả</option>
-                  <option>Rolex</option>
-                  <option>Omega</option>
-                  <option>Patek Philippe</option>
-                  <option>Cartier</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label>Khoảng giá</label>
-                <select>
-                  <option>Chọn giá</option>
-                  <option>Dưới $1,000</option>
-                  <option>$1,000 - $5,000</option>
-                  <option>$5,000 - $15,000</option>
-                  <option>Trên $15,000</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label>Năm sản xuất</label>
-                <select>
-                  <option>Chọn năm</option>
-                  <option>2010-2019</option>
-                  <option>2000-2009</option>
-                  <option>1990-1999</option>
-                  <option>Trước 1990</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label>&nbsp;</label>
-                <button className="btn btn-primary" style={{ width: "100%" }}>
-                  <svg
-                    className="icon-sm"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <circle cx="11" cy="11" r="8" />
-                    <path d="m21 21-4.35-4.35" />
-                  </svg>
-                  Tìm kiếm
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
+
 
         <section className="section">
           <div className="section-header">

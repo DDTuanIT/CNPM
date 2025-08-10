@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import { HomePage } from './Pages/HomePages/HomePage';
 import { ExplorePage } from './Pages/HomePages/ExplorePage/ExplorePage';
+import { AppraiserHomePage } from './Pages/HomePages/AppraiserHomePage/AppraiserHomePage';
 
 function App() {
 
@@ -26,6 +27,8 @@ function App() {
       <Route path="/CreateNewPassword" element={<CreateNewPasswordPage />} />
 
       <Route path="/ExplorePage" element={<ExplorePage />}/>
+
+      <Route path='AppraiserHomePage' element={<AppraiserHomePage />}/>
     </Routes>
   );
 }

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.css'
 export function Header() {
   return (
@@ -8,17 +9,32 @@ export function Header() {
           <div
             style={{ display: "flex", alignItems: "center", gap: 1.5 + "rem" }}
           >
-            <Link to='/' className="logo">
+            <Link to="/" className="logo">
               <img className="logo-web" src="logo-web.png" alt="" />
               <span className="logo-text">VintageTime</span>
             </Link>
             <nav className="nav">
-              <a href="/" className="active">
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? "active" : "")}
+                end
+              >
                 Trang chủ
-              </a>
-              <Link to="/ExplorePage">Khám phá</Link>
-              <a href="#">Thẩm định</a>
-              <a href="#">Cộng đồng</a>
+              </NavLink>
+
+              <NavLink
+                to="/ExplorePage"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                Khám phá
+              </NavLink>
+
+              <NavLink
+                to="/AppraiserHomePage"
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                Thẩm định
+              </NavLink>
             </nav>
           </div>
           <div className="header-actions">
