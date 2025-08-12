@@ -43,8 +43,8 @@ export function ExplorePage() {
               dịch.
             </p>
             <div className="hero-actions">
-              <a href="/ExplorePage" className="btn btn-primary">
-                Khám phá ngay
+              <Link to="/LoginPage" className="btn btn-primary">
+                Đăng nhập
                 <svg
                   className="icon-sm"
                   viewBox="0 0 24 24"
@@ -55,7 +55,7 @@ export function ExplorePage() {
                   <path d="M5 12h14" />
                   <path d="m12 5 7 7-7 7" />
                 </svg>
-              </a>
+              </Link>
               <Link to="/AppraiserHomePage" className="btn btn-outline">
                 Tìm hiểu thẩm định
               </Link>
@@ -126,9 +126,9 @@ export function ExplorePage() {
                 </svg>
                 Đăng bán đồng hồ
               </button>
-              <a href="#" className="btn btn-outline">
+              <Link to="/LoginPage" className="btn btn-outline">
                 Tìm hiểu thêm
-              </a>
+              </Link>
             </div>
           </div>
         </section>
