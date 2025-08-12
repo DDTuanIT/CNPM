@@ -1,0 +1,24 @@
+from domain.models.message import Message
+from domain.models.imessage_remository import IMessageRepository
+from typing import List, Optional
+
+class MessageService:
+    def __init__(self, repository: IMessageRepository):
+        self.repository = repository
+
+    def create_message(self, message_id: int, content: str, create_at, sender_id: int, receiver_id: int) -> Message:
+        message = Message(message_id=message_id, content=content, create_at=create_at, sender_id=sender_id, receiver_id=receiver_id)
+        return self.repository.add(message)
+
+    def get_message(self, message_id: int) -> Optional[Message]:
+        return self.repository.get_by_id(message_id)
+
+    def list_messages(self) -> List[Message]:
+        return self.repository.list()
+
+    def update_message(self, message_id: int, content: str, create_at, sender_id: int, receiver_id: int) -> Message:
+        message = Message(message_id=message_id, message_id=message_id, content=content, create_at=create_at, sender_id=sender_id, receiver_id=receiver_id)
+        return self.repository.update(message)
+
+    def delete_message(self, message_id: int) -> None:
+        self.repository.delete(message_id) 
