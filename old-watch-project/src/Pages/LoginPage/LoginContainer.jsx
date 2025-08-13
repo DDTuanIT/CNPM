@@ -4,7 +4,7 @@ import axios from "axios";
 
 export function LoginContainer() {
   const [statePassword, setStatePassword] = useState(false);
-  const emailRef = useRef(null); // lấy Data thông qua ref
+  const emailRef = useRef(null); // 
   const passwordRef = useRef(null); //
   const navigate = useNavigate();
 
@@ -12,14 +12,14 @@ export function LoginContainer() {
     statePassword ? setStatePassword(false) : setStatePassword(true);
   };
 
-  // Hàm xử lý dữ liệu
+  // 
   const handleSubmitbutton = (event) => {
     event.preventDefault();
-    const emailData = emailRef.current.value; // Biến chữa dữ liệu của email dc nhập vào
-    const passwordData = emailRef.current.value; // Biến chứa dữ liệu của password để nhập vào
+    const emailData = emailRef.current.value; 
+    const passwordData = emailRef.current.value; 
 
     if (!emailData || !passwordData) {
-      alert("Please fill in all information"); // Lệnh kiểm tra có dữ liệu đầu vào không
+      alert("Please fill in all information"); 
       return;
     }
 
@@ -27,7 +27,7 @@ export function LoginContainer() {
     console.log(dataLogin);
     navigate("/");
   };
-  //////////
+  //
 
   const [dataLogin, setDataLogin] = useState([]);
   const getLogin = async () => {

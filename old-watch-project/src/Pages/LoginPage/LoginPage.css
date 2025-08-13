@@ -88,13 +88,15 @@
 .login-form input[type="text"]::placeholder,
 .login-form input[type="email"]::placeholder,
 .login-form input[type="password"]::placeholder {
-  width: 125px;
+  width: 220px;
   background-color: #c1b6ae;
   border: none;
   box-shadow: none;
   outline: none;
   margin-bottom: 20px;
   color: #8f5924;
+  font-size: 13px;
+  opacity: 0.6;
 }
 
 .login-form .form-options {

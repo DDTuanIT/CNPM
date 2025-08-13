@@ -14,7 +14,7 @@ def register():
         user_repo = UserRepository(db)
         service = UserService(user_repo)
 
-        service.register(data["email"], data["password"], data["role"])
+        service.register(data['user_id'],data['fullname'],data["email"], data["password"], data["role"])
         return jsonify({"message": "Register successful"}), 201
     except Exception as e:
         return jsonify({"error": str(e)}), 400

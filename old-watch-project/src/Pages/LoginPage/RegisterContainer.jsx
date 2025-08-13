@@ -51,17 +51,18 @@ export function RegisterContainer() {
       const postRegister = async () => {
         const response = await axios.post("/api/register", {
           id: crypto.randomUUID(),
+          fullname: retrievedData.fullnameData,
           email: retrievedData.emailData,
           password: retrievedData.passwordData,
           role: "buyer",
         });
-        response;
+        console.log(response);
 
       };
       postRegister();
     }
     storeDataRegister();
-    navigate("/");
+    //navigate("/");
   };
   return (
     <div className="login-container">
