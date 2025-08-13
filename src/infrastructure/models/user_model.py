@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey
+from sqlalchemy.dialects.mssql import UNIQUEIDENTIFIER
 from infrastructure.databases.base import Base
 from sqlalchemy.orm import relationship
 
@@ -6,11 +7,10 @@ class UserModel(Base):
     __tablename__ = 'user'
     __table_args__ = {'extend_existing': True}  # Thêm dòng này
 
-    user_id = Column(Integer, primary_key=True)
-    fullname = Column(String(18), nullable=False)
+    user_id = Column(UNIQUEIDENTIFIER, primary_key=True)
     user_name = Column(String(18), nullable=False)
     user_password = Column(String(18), nullable=False)
-    adress = Column(String(30), nullable=True)
+    address = Column(String(30), nullable=True)
     email = Column(String(18), nullable=False)
     phone_number = Column(String(10), nullable=True)
     role_name = Column(String(10), nullable=False)

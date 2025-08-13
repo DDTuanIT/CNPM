@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy.dialects.mssql import UNIQUEIDENTIFIER
 from sqlalchemy.orm import relationship
 from infrastructure.databases.base import Base
 
@@ -6,8 +7,8 @@ class SupportTickerModel(Base):
     __tablename__ = 'support_ticket'
     __table_args__ = {'extend_existing': True}  # Thêm dòng này
 
-    support_ticket_id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('user.user_id'),nullable=False)
+    support_ticket_id = Column(UNIQUEIDENTIFIER, primary_key=True)
+    user_id = Column(UNIQUEIDENTIFIER, ForeignKey('user.user_id'),nullable=False)
     issue_description = Column(String(255), nullable=False)
     create_at = Column(DateTime)
     response_at = Column(DateTime)

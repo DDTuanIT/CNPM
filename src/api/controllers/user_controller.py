@@ -14,10 +14,22 @@ def register():
         user_repo = UserRepository(db)
         service = UserService(user_repo)
 
-        service.register(data['user_id'],data['fullname'],data["email"], data["password"], data["role"])
+        service.create_user(
+            data['user_id'],
+            data['user_name'],
+            data["user_password"],
+            data['address'],
+            data["email"],
+            data['phone_number'],
+            data["role_name"]
+        )
         return jsonify({"message": "Register successful"}), 201
     except Exception as e:
-        return jsonify({"error": str(e)}), 400
+        import traceback
+        print("Register error traceback:\n", traceback.format_exc())  # In lỗi ra console
+        return jsonify({"error": str(e)}), 500
+
+
 
 @auth_bp.route("/login", methods=["POST"])
 def login():
@@ -27,7 +39,7 @@ def login():
         user_repo = UserRepository(db)
         service = UserService(user_repo)
 
-        result = service.login(data["email"], data["password"])
+        result = service.login(data["user_name"], data["password"])
         return jsonify({"message": "Login successful", "user": result})
     except Exception as e:
         return jsonify({"error": str(e)}), 401

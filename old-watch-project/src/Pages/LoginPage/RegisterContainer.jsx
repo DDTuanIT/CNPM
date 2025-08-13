@@ -5,7 +5,7 @@ import { checkBlankInput } from "../../Utils/checkBlankInput";
 import axios from "axios";
 
 export function RegisterContainer() {
-  const fullnameRef = useRef(null);
+  const userNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
@@ -15,14 +15,14 @@ export function RegisterContainer() {
 
   const handleSubmitButton = (event) => {
     event.preventDefault();
-    const fullnameData = fullnameRef.current.value;
+    const userNameData = userNameRef.current.value;
     const emailData = emailRef.current.value;
     const passwordData = passwordRef.current.value;
     const confirmPasswordData = confirmPasswordRef.current.value;
     localStorage.setItem(
       "Data",
       JSON.stringify({
-        fullnameData,
+        userNameData,
         emailData,
         passwordData,
         confirmPasswordData,
@@ -30,7 +30,7 @@ export function RegisterContainer() {
     );
     if (
       checkBlankInput([
-        fullnameData,
+        userNameData,
         emailData,
         passwordData,
         confirmPasswordData,
@@ -50,14 +50,15 @@ export function RegisterContainer() {
       const retrievedData = JSON.parse(localStorage.getItem("Data"));
       const postRegister = async () => {
         const response = await axios.post("/api/register", {
-          id: crypto.randomUUID(),
-          fullname: retrievedData.fullnameData,
-          email: retrievedData.emailData,
-          password: retrievedData.passwordData,
-          role: "buyer",
+          user_id: String(crypto.randomUUID()),
+          user_name: String(retrievedData.userNameData),
+          user_password: String(retrievedData.passwordData),
+          address: '',
+          email: String(retrievedData.emailData),
+          phone_number: '',
+          role_name: "buyer",
         });
         console.log(response);
-
       };
       postRegister();
     }
@@ -77,11 +78,11 @@ export function RegisterContainer() {
       </div>
 
       <form className="login-form" onSubmit={handleSubmitButton}>
-        <label>Full Name</label>
+        <label>User Name</label>
         <input
-          ref={fullnameRef}
+          ref={userNameRef}
           type="text"
-          placeholder="Enter your full name"
+          placeholder="Enter your user name"
         />
 
         <label>Email Address</label>

@@ -1,5 +1,5 @@
 from domain.models.iuser_reposiory import IUserRepository
-from domain.models.user import User
+from domain.models.user	 import User
 from typing import List, Optional
 from dotenv import load_dotenv
 import os
@@ -9,7 +9,7 @@ from config import Config
 from sqlalchemy import Column, Integer, String, DateTime
 from infrastructure.databases import Base
 from sqlalchemy.orm import Session
-from infrastructure.models.user_model import UserModel
+from domain.models.user import User
 from infrastructure.databases.mssql import session
 
 class UserRepository(IUserRepository):
@@ -26,9 +26,9 @@ class UserRepository(IUserRepository):
 			return user
 		except Exception:
 			self.session.rollback()   
-			raise ValueError('user not found')
+			raise ValueError('Transaction not found')
 		finally:
-			self.session.close()      
+			self.session.close()       
 
 	def get_by_id(self, user_id: int) -> Optional[User]:
 		return self.session.query(User).filter_by(id=user_id).first()

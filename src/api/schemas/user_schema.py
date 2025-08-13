@@ -1,11 +1,16 @@
 from marshmallow import Schema, fields, validate
 
 class RegisterSchema(Schema):
+    user_id = fields.UUID(required=True)
+    user_name = fields.Str(required=True)
+    user_password = fields.Str(required=True, validate=validate.Length(min=4))
+    address = fields.Str(required=False, allow_none=True)
     email = fields.Email(required=True)
-    password = fields.Str(required=True, validate=validate.Length(min=4))
-    role = fields.Str(required=True, validate=validate.OneOf([
+    phone_number = fields.Str(required=False, allow_none=True)
+    role_name = fields.Str(required=True, validate=validate.OneOf([
         "seller", "buyer", "appraiser", "admin", "support"
     ]))
+
 
 class LoginSchema(Schema):
     email = fields.Email(required=True)
