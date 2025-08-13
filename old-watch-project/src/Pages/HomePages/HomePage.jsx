@@ -1,18 +1,18 @@
 import { Footer } from "../Footer/Footer";
-import { Header } from "./Header/Header";
+import { Header } from "../Header/Header";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import './HomePage.css'
+import "./HomePage.css";
 import { WatchesGrid } from "./WatchesGrid";
 export function HomePage() {
   const navigate = useNavigate();
   function handleUploadButton() {
     alert("Vui lòng đăng nhập để bán đồng hồ");
-    navigate('/LoginPage')
+    navigate("/LoginPage");
   }
   function handleSeeDetails() {
-    alert('Vui lòng đăng nhập để xem thêm');
-    navigate('/LoginPage')
+    alert("Vui lòng đăng nhập để xem thêm");
+    navigate("/LoginPage");
   }
 
   return (

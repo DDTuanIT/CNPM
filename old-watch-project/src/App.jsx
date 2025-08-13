@@ -8,6 +8,7 @@ import './App.css'
 import { HomePage } from './Pages/HomePages/HomePage';
 import { ExplorePage } from './Pages/HomePages/ExplorePage/ExplorePage';
 import { AppraiserHomePage } from './Pages/HomePages/AppraiserHomePage/AppraiserHomePage';
+import { SellerDashBoard } from './Pages/SellerPage/SellerDashBoard';
 
 function App() {
 
@@ -28,7 +29,9 @@ function App() {
 
       <Route path="/ExplorePage" element={<ExplorePage />}/>
 
-      <Route path='AppraiserHomePage' element={<AppraiserHomePage />}/>
+      <Route path='/AppraiserHomePage' element={<AppraiserHomePage />}/>
+
+      <Route path='/SellerDashBoard' element={<SellerDashBoard />}/>
     </Routes>
   );
 }

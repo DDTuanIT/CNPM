@@ -1,16 +1,15 @@
 import { Footer } from "../../Footer/Footer";
-import { Header } from "../Header/Header";
+import { Header } from "../../Header/Header";
 import { Link } from "react-router-dom";
-import "./AppraiserHomePage.css"
+import "./AppraiserHomePage.css";
 export function AppraiserHomePage() {
-
   return (
     <>
       <title>Appraisal</title>
       <link rel="icon" type="image/svg+xml" href="./home-favicon.png" />
       <Header />
 
-      <section className="pt-16 pb-20 hero" >
+      <section className="pt-16 pb-20 hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1

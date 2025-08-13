@@ -1,5 +1,5 @@
 import { Footer } from "../../Footer/Footer";
-import { Header } from "../Header/Header";
+import { Header } from "../../Header/Header";
 import { useNavigate, Link } from "react-router-dom";
 import "../HomePage.css";
 import { WatchCard } from "../WatchCard";
@@ -62,8 +62,6 @@ export function ExplorePage() {
             </div>
           </div>
         </section>
-
-
 
         <section className="section">
           <div className="section-header">
