@@ -16,9 +16,9 @@
 }
 
 .btn-primary {
-    background-color: #8b5a2b;
+    background-color: #8f5924;
     color: white;
-    border-color: #8b5a2b;
+    border-color: #8f5924;
 }
 
 .btn-primary:hover {
@@ -28,12 +28,12 @@
 
 .btn-outline {
     background-color: transparent;
-    color: #8b5a2b;
-    border-color: #8b5a2b;
+    color: #8f5924;
+    border-color: #8f5924;
 }
 
 .btn-outline:hover {
-    background-color: #8b5a2b;
+    background-color: #8f5924;
     color: white;
 }
 
@@ -111,7 +111,7 @@
 .stat-number {
     font-size: 2rem;
     font-weight: 700;
-    color: #0f172a;
+    color: #8f5924;
 }
 
 .stat-change {
@@ -157,9 +157,9 @@
 }
 
 .tab-btn.active {
-    color: #8b5a2b;
+    color: #8f5924;
     background-color: white;
-    border-bottom-color: #8b5a2b;
+    border-bottom-color: #8f5924;
 }
 
 .tab-content {
@@ -184,6 +184,7 @@
     border: 1px solid #e2e8f0;
     border-radius: 0.75rem;
     overflow: hidden;
+    margin-bottom: 30px;
 }
 
 .card-header {
@@ -193,7 +194,7 @@
 .card-title {
     font-size: 1.125rem;
     font-weight: 600;
-    color: #0f172a;
+    color: #8f5924;
 }
 
 .card-content {
@@ -220,11 +221,14 @@
     transition: all 0.2s;
     text-decoration: none;
     color: inherit;
+
+    align-items: center;
+    justify-content: center;
 }
 
 .quick-action-btn:hover {
     background: #f1f5f9;
-    border-color: #8b5a2b;
+    border-color: #8f5924;
 }
 
 .action-icon {
@@ -366,10 +370,13 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #0f172a;
+    color: #8f5924;
 }
 
 .empty-description {
     color: #64748b;
     margin-bottom: 1.5rem;
+}
+.page-title {
+    color: #8f5724;
 }
