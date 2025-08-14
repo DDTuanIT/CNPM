@@ -93,7 +93,6 @@ export function AddProductPage() {
                     />
                   </div>
                 </div>
-
               </div>
             </div>
 
@@ -120,13 +119,15 @@ export function AddProductPage() {
             </div>
 
             <div className="form-actions form-bottom">
-              <button
-                type="button"
-                className="btn btn-outline"
-                //onclick="showPage('dashboard')"
-              >
-                Hủy
-              </button>
+              <Link to='/SellerDashBoard' className="btn btn-outline">
+                <button
+                  type="button"
+                  //onclick="showPage('dashboard')"
+                >
+                  Hủy
+                </button>
+              </Link>
+
               <button type="submit" className="btn btn-primary">
                 🔄 Lưu nháp
               </button>

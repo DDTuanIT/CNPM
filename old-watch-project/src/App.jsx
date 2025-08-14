@@ -10,6 +10,7 @@ import { ExplorePage } from './Pages/HomePages/ExplorePage/ExplorePage';
 import { AppraiserHomePage } from './Pages/HomePages/AppraiserHomePage/AppraiserHomePage';
 import { SellerDashBoard } from './Pages/SellerPage/SellerDashBoard';
 import { AddProductPage } from './Pages/SellerPage/AddProductPage';
+import { ProductManagePage } from './Pages/SellerPage/ProductManagePage';
 
 function App() {
 
@@ -35,6 +36,8 @@ function App() {
       <Route path='/SellerDashBoard' element={<SellerDashBoard />}/>
 
       <Route path='/AddProductPage' element={<AddProductPage />}/>
+
+      <Route path='/ProductManagePage' element={<ProductManagePage />} />
     </Routes>
   );
 }

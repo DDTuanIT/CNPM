@@ -35,3 +35,4 @@ class UserService:
 
     def delete_user(self, user_id: UNIQUEIDENTIFIER) -> None:
         self.repository.delete(user_id) 
+        

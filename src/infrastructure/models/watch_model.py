@@ -19,7 +19,7 @@ class WatchModel(Base):
     produce_at = Column(DateTime)
     status = Column(String(10), nullable=False)
     image = Column(String(50), nullable=False)
-    description = Column(String(250), nullbale=True)
+    description = Column(String(250), nullable=True)
     report_id = Column(UNIQUEIDENTIFIER, ForeignKey('appraisal_report.appraisal_report_id'),nullable=True)
 
     # one to one
