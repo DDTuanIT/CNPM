@@ -1,18 +1,15 @@
-import { Link } from "react-router-dom";
+
+import { Footer } from "../Footer/Footer";
+import { Header } from "./Header";
 export function ProductManagePage() {
   return (
     <>
+			<Header />
       <div id="product-management-page">
         <div className="container">
           <div className="page-header">
             <div>
-              <Link to="/SellerDashBoard">
-                <button
-                  className="btn btn-outline back-button" //onclick="showPage('dashboard')"
-                >
-                  ← Quay lại Dashboard
-                </button>
-              </Link>
+  
 
               <h1 className="page-title">Quản lý sản phẩm</h1>
               <p className="page-subtitle">
@@ -20,16 +17,15 @@ export function ProductManagePage() {
               </p>
             </div>
             <div className="page-actions">
-              <button className="btn btn-outline">🔍 Tìm kiếm</button>
-              <button className="btn btn-primary">➕ Thêm sản phẩm</button>
+            
             </div>
           </div>
 
           <div className="card">
             <div className="card-content">
               <div className="filter-tabs">
-                <button className="filter-btn active">Tất cả (24)</button>
-                <button className="filter-btn">Đang bán (18)</button>
+                <button className="filter-btn ">Tất cả (24)</button>
+                <button className="filter-btn active">Đang bán (18)</button>
                 <button className="filter-btn">Chờ duyệt (3)</button>
                 <button className="filter-btn">Đã bán (15)</button>
                 <button className="filter-btn">Nháp (2)</button>
@@ -231,15 +227,10 @@ export function ProductManagePage() {
             </div>
           </div>
 
-          <div className="pagination">
-            <button className="page-btn">← Trước</button>
-            <button className="page-btn active">1</button>
-            <button className="page-btn">2</button>
-            <button className="page-btn">3</button>
-            <button className="page-btn">Tiếp →</button>
-          </div>
+         
         </div>
       </div>
+			<Footer />
     </>
   );
 }

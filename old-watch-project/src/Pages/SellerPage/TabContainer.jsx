@@ -7,15 +7,13 @@ export function TabContainer() {
         <button className="tab-btn active" data-tab="overview">
           📊 Tổng quan
         </button>
-        <button className="tab-btn" data-tab="products">
-          📦 Sản phẩm
-        </button>
-        <button className="tab-btn" data-tab="orders">
-          🛒 Đơn hàng
-        </button>
-        <button className="tab-btn" data-tab="analytics">
-          📈 Thống kê
-        </button>
+        <Link to="/ProductManagePage" className="tab-btn">
+          <button data-tab="products">📦 Sản phẩm</button>
+        </Link>
+
+        <Link to="/OrderPage" className="tab-btn">
+          <button>🛒 Đơn hàng</button>
+        </Link>
       </div>
 
       <div className="tab-content active" id="overview">
@@ -47,13 +45,12 @@ export function TabContainer() {
                   <span className="action-icon">💬</span>
                   <span className="action-text">Tin nhắn</span>
                 </button>
-                <button
-                  className="quick-action-btn"
-                  //onclick="showPage('settings')"
-                >
-                  <span className="action-icon">⚙️</span>
-                  <span className="action-text">Cài đặt</span>
-                </button>
+                <Link className="quick-action-btn" to="/SettingPage">
+                  <button>
+                    <span className="action-icon">⚙️</span>
+                    <span className="action-text">Cài đặt</span>
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

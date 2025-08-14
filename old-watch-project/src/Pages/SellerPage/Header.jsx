@@ -13,21 +13,18 @@ export function Header() {
             </Link>
 
             <nav className="nav-menu">
-              <a href="#" className="nav-link active">
-                Dashboard
-              </a>
-              <a href="#" className="nav-link">
+              <Link to="/SellerDashBoard" className="nav-link active">
+                Trang chủ
+              </Link>
+              <Link to="/ProductManagePage" className="nav-link">
                 Sản phẩm
-              </a>
-              <a href="#" className="nav-link">
+              </Link>
+              <Link to="/OrderPage" className="nav-link">
                 Đơn hàng
-              </a>
-              <a href="#" className="nav-link">
-                Thống kê
-              </a>
-              <a href="#" className="nav-link">
+              </Link>
+              <Link to="/SettingPage" className="nav-link">
                 Cài đặt
-              </a>
+              </Link>
             </nav>
 
             <div className="header-actions">

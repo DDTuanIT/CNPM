@@ -150,6 +150,9 @@
     color: #64748b;
     transition: all 0.2s;
     border-bottom: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tab-btn:hover {
@@ -379,4 +382,5 @@
 }
 .page-title {
     color: #8f5724;
+    margin-top: 30px;
 }
