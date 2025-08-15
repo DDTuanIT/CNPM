@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useRef,  } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { checkBlankInput } from "../../Utils/checkBlankInput";
 import axios from "axios";
@@ -13,21 +13,13 @@ export function RegisterContainer() {
 
   //
 
-  const handleSubmitButton = (event) => {
+  const handleSubmitButton = async (event) => {
     event.preventDefault();
     const userNameData = userNameRef.current.value;
     const emailData = emailRef.current.value;
     const passwordData = passwordRef.current.value;
     const confirmPasswordData = confirmPasswordRef.current.value;
-    localStorage.setItem(
-      "Data",
-      JSON.stringify({
-        userNameData,
-        emailData,
-        passwordData,
-        confirmPasswordData,
-      })
-    );
+
     if (
       checkBlankInput([
         userNameData,
@@ -45,24 +37,24 @@ export function RegisterContainer() {
       return;
     }
 
-    alert("Registration successful!");
-    function storeDataRegister() {
-      const retrievedData = JSON.parse(localStorage.getItem("Data"));
-      const postRegister = async () => {
-        const response = await axios.post("/api/register", {
-          user_id: String(crypto.randomUUID()),
-          user_name: String(retrievedData.userNameData),
-          user_password: String(retrievedData.passwordData),
-          address: '',
-          email: String(retrievedData.emailData),
-          phone_number: '',
-          role_name: "buyer",
-        });
-        console.log(response);
-      };
-      postRegister();
+    try {
+      const response = await axios.post("/api/register", {
+        user_id: String(crypto.randomUUID()),
+        user_name: userNameData,
+        user_password: passwordData,
+        address: "",
+        email: emailData,
+        phone_number: "",
+        role_name: "buyer",
+      });
+
+      console.log(response.data);
+      alert("Registration successful!");
+    } catch (error) {
+      console.error("Registration failed:", error);
+      alert("Registration failed! Please try again.");
     }
-    storeDataRegister();
+
     //navigate("/");
   };
   return (
