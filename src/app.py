@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from api.swagger import spec
 from api.controllers.todo_controller import bp as todo_bp
+from api.controllers.user_controller import user_bp
 from api.middleware import middleware
 from api.responses import success_response
 from infrastructure.databases import init_db
@@ -8,14 +9,18 @@ from config import Config
 from flasgger import Swagger
 from config import SwaggerConfig
 from flask_swagger_ui import get_swaggerui_blueprint
+from flask_cors import CORS
+
+
 
 
 def create_app():
     app = Flask(__name__)
+    CORS(app, origins=["http://localhost:5173"])
     Swagger(app)
     # Đăng ký blueprint trước
     app.register_blueprint(todo_bp)
-
+    app.register_blueprint(user_bp)
      # Thêm Swagger UI blueprint
     SWAGGER_URL = '/docs'
     API_URL = '/swagger.json'
@@ -50,3 +55,7 @@ def create_app():
 if __name__ == '__main__':
     app = create_app()
     app.run(host='0.0.0.0', port=6868, debug=True)
+
+print("Routes available:")
+for rule in app.url_map.iter_rules():
+    print(rule)

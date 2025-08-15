@@ -3,7 +3,7 @@ from sqlalchemy.dialects.mssql import UNIQUEIDENTIFIER
 from sqlalchemy.orm import relationship
 from infrastructure.databases.base import Base
 
-class SupportTickerModel(Base):
+class SupportTicketModel(Base):
     __tablename__ = 'support_ticket'
     __table_args__ = {'extend_existing': True}  # Thêm dòng này
 

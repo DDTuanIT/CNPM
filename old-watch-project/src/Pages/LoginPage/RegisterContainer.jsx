@@ -38,24 +38,30 @@ export function RegisterContainer() {
     }
 
     try {
-      const response = await axios.post("/api/register", {
-        user_id: String(crypto.randomUUID()),
-        user_name: userNameData,
-        user_password: passwordData,
-        address: "",
-        email: emailData,
-        phone_number: "",
-        role_name: "buyer",
-      });
+      const response = await axios.post(
+        "http://localhost:6868/api/register",
+        {
+          user_id: crypto.randomUUID(),
+          user_name: userNameData,
+          user_password: passwordData,
+          address: "",
+          email: emailData,
+          phone_number: "",
+          role_name: "buyer",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       console.log(response.data);
       alert("Registration successful!");
+      navigate("/");
     } catch (error) {
-      console.error("Registration failed:", error);
-      alert("Registration failed! Please try again.");
+      alert(`Registration failed! Please try again with error is ${error}`);
     }
-
-    //navigate("/");
   };
   return (
     <div className="login-container">

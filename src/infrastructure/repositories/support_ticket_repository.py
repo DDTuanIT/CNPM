@@ -1,5 +1,4 @@
 from domain.models.isupport_ticket_repository import ISupportTicketRepository
-from domain.models.support_ticket import SupportTicket
 from typing import List, Optional
 from dotenv import load_dotenv
 import os
@@ -18,7 +17,7 @@ class SupportTicketRepository(ISupportTicketRepository):
 		self.__id__counter = 1
 		self.session = session
 
-	def add(self, support_ticket: SupportTicket) -> SupportTicket:
+	def add(self, support_ticket: SupportTicketModel) -> SupportTicketModel:
 		try:
 			self.session.add(support_ticket)   
 			self.session.commit()    
@@ -30,14 +29,14 @@ class SupportTicketRepository(ISupportTicketRepository):
 		finally:
 			self.session.close()      
 
-	def get_by_id(self, support_ticket_id: int) -> Optional[SupportTicket]:
-		return self.session.query(SupportTicket).filter_by(id=support_ticket_id).first()
+	def get_by_id(self, support_ticket_id: int) -> Optional[SupportTicketModel]:
+		return self.session.query(SupportTicketModel).filter_by(id=support_ticket_id).first()
 
-	def list(self) -> List[SupportTicket]:
-		self._support_tickets = session.query(SupportTicket).all()
+	def list(self) -> List[SupportTicketModel]:
+		self._support_tickets = session.query(SupportTicketModel).all()
 		return self._support_tickets
 
-	def update(self, support_ticket: SupportTicket) -> SupportTicket:
+	def update(self, support_ticket: SupportTicketModel) -> SupportTicketModel:
 		try:
 			self.session.merge(support_ticket)
 			self.session.commit()
@@ -50,6 +49,6 @@ class SupportTicketRepository(ISupportTicketRepository):
 			
 	def delete(self, support_ticket_id: int) -> None:
 		support_ticket = self.get_by_id(support_ticket_id)
-		if SupportTicket:
+		if support_ticket:
 			self.session.delete(support_ticket)
 			self.session.commit()

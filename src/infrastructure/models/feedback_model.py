@@ -13,4 +13,4 @@ class FeedbackModel(Base):
     rating = Column(Float, nullable=False)
     content = Column(String(200), nullable=False)
 
-    transaction = relationship('TransactionModel', foreign_keys='FeedbackModel.feedback_id',back_populates='feedback', uselist=False)
+    transaction = relationship('TransactionModel', back_populates='feedback', uselist=False)

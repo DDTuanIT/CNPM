@@ -1,5 +1,4 @@
 from domain.models.iuser_reposiory import IUserRepository
-from domain.models.user	 import User
 from typing import List, Optional
 from dotenv import load_dotenv
 import os
@@ -9,35 +8,36 @@ from config import Config
 from sqlalchemy import Column, Integer, String, DateTime
 from infrastructure.databases import Base
 from sqlalchemy.orm import Session
-from domain.models.user import User
-from infrastructure.databases.mssql import session
+from infrastructure.models.user_model import UserModel
+from infrastructure.databases.mssql import get_db_session
 
 class UserRepository(IUserRepository):
-	def __init__(self, session: Session = session):
-		self.users = []
-		self.__id__counter = 1
-		self.session = session
+	def __init__(self, session: Optional[Session] = None):
+		self.session = session or get_db_session()
 
-	def add(self, user: User) -> User:
+	def add(self, user: UserModel) -> UserModel:
 		try:
 			self.session.add(user)   
 			self.session.commit()    
 			self.session.refresh(user)
 			return user
-		except Exception:
+		except Exception as e:
 			self.session.rollback()   
-			raise ValueError('Transaction not found')
+			raise ValueError(f"Error adding user {e}")
 		finally:
 			self.session.close()       
 
-	def get_by_id(self, user_id: int) -> Optional[User]:
-		return self.session.query(User).filter_by(id=user_id).first()
+	def get_by_id(self, user_id: int) -> Optional[UserModel]:
+		return self.session.query(UserModel).filter_by(user_id=user_id).first()
 
-	def list(self) -> List[User]:
-		self._users = session.query(User).all()
+	def get_by_user_name(self, user_name: str) -> Optional[UserModel]:
+		return self.session.query(UserModel).filter_by(user_name=user_name).first()
+
+	def list(self) -> List[UserModel]:
+		self._users = Session.query(UserModel).all()
 		return self._users
 
-	def update(self, user: User) -> User:
+	def update(self, user: UserModel) -> UserModel:
 		try:
 			self.session.merge(user)
 			self.session.commit()

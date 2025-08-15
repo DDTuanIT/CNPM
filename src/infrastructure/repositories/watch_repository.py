@@ -1,5 +1,4 @@
 from domain.models.iwatch_repository import IWatchRepository
-from domain.models.watch import Watch
 from typing import List, Optional
 from dotenv import load_dotenv
 import os
@@ -18,7 +17,7 @@ class WatchRepository(IWatchRepository):
 		self.__id__counter = 1
 		self.session = session
 
-	def add(self, watch: Watch) -> Watch:
+	def add(self, watch: WatchModel) -> WatchModel:
 		try:
 			self.session.add(watch)   
 			self.session.commit()    
@@ -26,18 +25,18 @@ class WatchRepository(IWatchRepository):
 			return watch
 		except Exception:
 			self.session.rollback()   
-			raise ValueError('Watch not found')
+			raise ValueError('WatchModel not found')
 		finally:
 			self.session.close()      
 
-	def get_by_id(self, watch_id: int) -> Optional[Watch]:
-		return self.session.query(Watch).filter_by(id=watch_id).first()
+	def get_by_id(self, watch_id: int) -> Optional[WatchModel]:
+		return self.session.query(WatchModel).filter_by(id=watch_id).first()
 
-	def list(self) -> List[Watch]:
-		self._watchs = session.query(Watch).all()
+	def list(self) -> List[WatchModel]:
+		self._watchs = session.query(WatchModel).all()
 		return self._watchs
 
-	def update(self, watch: Watch) -> Watch:
+	def update(self, watch: WatchModel) -> WatchModel:
 		try:
 			self.session.merge(watch)
 			self.session.commit()
@@ -50,6 +49,6 @@ class WatchRepository(IWatchRepository):
 			
 	def delete(self, watch_id: int) -> None:
 		watch = self.get_by_id(watch_id)
-		if Watch:
+		if watch:
 			self.session.delete(watch)
 			self.session.commit()

@@ -12,6 +12,10 @@ class IUserRepository(ABC):
         pass
 
     @abstractmethod
+    def get_by_user_name(self, user_name: int) -> Optional[User]:
+        pass
+
+    @abstractmethod
     def list(self) -> List[User]:
         pass
 

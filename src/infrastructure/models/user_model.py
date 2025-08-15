@@ -3,6 +3,7 @@ from sqlalchemy.dialects.mssql import UNIQUEIDENTIFIER
 from infrastructure.databases.base import Base
 from sqlalchemy.orm import relationship
 
+
 class UserModel(Base):
     __tablename__ = 'user'
     __table_args__ = {'extend_existing': True}  # Thêm dòng này

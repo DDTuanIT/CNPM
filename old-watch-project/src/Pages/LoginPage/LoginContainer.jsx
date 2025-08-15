@@ -4,7 +4,7 @@ import axios from "axios";
 
 export function LoginContainer() {
   const [statePassword, setStatePassword] = useState(false);
-  const emailRef = useRef(null); // 
+  const userRef = useRef(null); //
   const passwordRef = useRef(null); //
   const navigate = useNavigate();
 
@@ -12,28 +12,38 @@ export function LoginContainer() {
     statePassword ? setStatePassword(false) : setStatePassword(true);
   };
 
-  // 
-  const handleSubmitbutton = (event) => {
+  //
+  const handleSubmitbutton = async (event) => {
     event.preventDefault();
-    const emailData = emailRef.current.value; 
-    const passwordData = emailRef.current.value; 
+    const userData = userRef.current.value;
+    const passwordData = passwordRef.current.value;
 
-    if (!emailData || !passwordData) {
-      alert("Please fill in all information"); 
+    if (!userData || !passwordData) {
+      alert("Please fill in all information");
       return;
     }
 
-    getLogin();
-    console.log(dataLogin);
-    navigate("/");
+    try {
+      const response = await axios.post(
+        "http://localhost:6868/api/login",
+        {
+          user_name: userData,
+          user_password: passwordData,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response.data);
+      alert("Login sucessfull");
+      navigate("/");
+    } catch (err) {
+      alert(`Login failed with error is ${err}`);
+    }
   };
   //
-
-  const [dataLogin, setDataLogin] = useState([]);
-  const getLogin = async () => {
-    const response = await axios.get("/api/login");
-    setDataLogin(response.target.value);
-  };
 
   return (
     <div className="login-container">
@@ -48,8 +58,8 @@ export function LoginContainer() {
       </div>
 
       <form className="login-form" onSubmit={handleSubmitbutton}>
-        <label>Email Address</label>
-        <input ref={emailRef} type="email" placeholder="Enter your email" />
+        <label>User Name</label>
+        <input ref={userRef} type="text" placeholder="Enter your User Name" />
 
         <label>Password</label>
         <input

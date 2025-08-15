@@ -1,5 +1,4 @@
 from domain.models.itransaction_repository import ITransactionRepository
-from domain.models.transaction import Transaction
 from typing import List, Optional
 from dotenv import load_dotenv
 import os
@@ -18,7 +17,7 @@ class TransactionRepository(ITransactionRepository):
 		self.__id__counter = 1
 		self.session = session
 
-	def add(self, transaction: Transaction) -> Transaction:
+	def add(self, transaction: TransactionModel) -> TransactionModel:
 		try:
 			self.session.add(transaction)   
 			self.session.commit()    
@@ -30,14 +29,14 @@ class TransactionRepository(ITransactionRepository):
 		finally:
 			self.session.close()      
 
-	def get_by_id(self, transaction_id: int) -> Optional[Transaction]:
-		return self.session.query(Transaction).filter_by(id=transaction_id).first()
+	def get_by_id(self, transaction_id: int) -> Optional[TransactionModel]:
+		return self.session.query(TransactionModel).filter_by(id=transaction_id).first()
 
-	def list(self) -> List[Transaction]:
-		self._transactions = session.query(Transaction).all()
+	def list(self) -> List[TransactionModel]:
+		self._transactions = session.query(TransactionModel).all()
 		return self._transactions
 
-	def update(self, transaction: Transaction) -> Transaction:
+	def update(self, transaction: TransactionModel) -> TransactionModel:
 		try:
 			self.session.merge(transaction)
 			self.session.commit()
@@ -50,6 +49,6 @@ class TransactionRepository(ITransactionRepository):
 			
 	def delete(self, transaction_id: int) -> None:
 		transaction = self.get_by_id(transaction_id)
-		if Transaction:
+		if transaction:
 			self.session.delete(transaction)
 			self.session.commit()

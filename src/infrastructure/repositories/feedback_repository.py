@@ -1,5 +1,4 @@
 from domain.models.ifeedback_repository import IFeedbackRepository
-from domain.models.feedback import Feedback
 from typing import List, Optional
 from dotenv import load_dotenv
 import os
@@ -18,7 +17,7 @@ class FeedbackRepository(IFeedbackRepository):
 		self.__id__counter = 1
 		self.session = session
 
-	def add(self, feedback: Feedback) -> Feedback:
+	def add(self, feedback: FeedbackModel) -> FeedbackModel:
 		try:
 			self.session.add(feedback)   
 			self.session.commit()    
@@ -30,14 +29,14 @@ class FeedbackRepository(IFeedbackRepository):
 		finally:
 			self.session.close()      
 
-	def get_by_id(self, feedback_id: int) -> Optional[Feedback]:
-		return self.session.query(Feedback).filter_by(id=feedback_id).first()
+	def get_by_id(self, feedback_id: int) -> Optional[FeedbackModel]:
+		return self.session.query(FeedbackModel).filter_by(id=feedback_id).first()
 
-	def list(self) -> List[Feedback]:
-		self._feedbacks = session.query(Feedback).all()
+	def list(self) -> List[FeedbackModel]:
+		self._feedbacks = session.query(FeedbackModel).all()
 		return self._feedbacks
 
-	def update(self, feedback: Feedback) -> Feedback:
+	def update(self, feedback: FeedbackModel) -> FeedbackModel:
 		try:
 			self.session.merge(feedback)
 			self.session.commit()

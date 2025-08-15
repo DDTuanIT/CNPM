@@ -1,5 +1,4 @@
 from domain.models.iappraisal_repository import IAppraisalReportRepository
-from domain.models.appraisal_report import AppraisalReport
 from typing import List, Optional
 from dotenv import load_dotenv
 import os
@@ -18,7 +17,7 @@ class AppraisalReportRepository(IAppraisalReportRepository):
 		self.__id__counter = 1
 		self.session = session
 
-	def add(self, appraisal_report: AppraisalReport) -> AppraisalReport:
+	def add(self, appraisal_report: AppraisalReportModel) -> AppraisalReportModel:
 		try:
 			self.session.add(appraisal_report)   
 			self.session.commit()    
@@ -30,14 +29,14 @@ class AppraisalReportRepository(IAppraisalReportRepository):
 		finally:
 			self.session.close()      
 
-	def get_by_id(self, appraisal_report_id: int) -> Optional[AppraisalReport]:
-		return self.session.query(AppraisalReport).filter_by(id=appraisal_report_id).first()
+	def get_by_id(self, appraisal_report_id: int) -> Optional[AppraisalReportModel]:
+		return self.session.query(AppraisalReportModel).filter_by(id=appraisal_report_id).first()
 
-	def list(self) -> List[AppraisalReport]:
-		self._appraisal_reports = session.query(AppraisalReport).all()
+	def list(self) -> List[AppraisalReportModel]:
+		self._appraisal_reports = session.query(AppraisalReportModel).all()
 		return self._appraisal_reports
 
-	def update(self, appraisal_report: AppraisalReport) -> AppraisalReport:
+	def update(self, appraisal_report: AppraisalReportModel) -> AppraisalReportModel:
 		try:
 			self.session.merge(appraisal_report)
 			self.session.commit()
