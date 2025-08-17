@@ -14,4 +14,5 @@ def create_app():
     setup_middleware(app)
     register_routes(app)
 
+    print(">>> Using DATABASE_URI:", app.config["DATABASE_URI"])
     return app

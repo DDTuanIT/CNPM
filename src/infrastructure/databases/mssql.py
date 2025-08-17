@@ -3,17 +3,10 @@ from sqlalchemy.orm import sessionmaker
 from config import Config
 from infrastructure.databases.base import Base
 
-# Database configuration
-#DATABASE_CONFIG ={
-#    "user":"test_db",
-#    "password":"Hwx2SkzNhHjz4xns",
-#    "port":3306,
-#    "host":"localhost",
-#    "database":"test_db"
-#}
+
 
 DATABASE_URL = Config.DATABASE_URI
-#DATABASE_URL = "mysql+mysqlconnector://test_db:Hwx2SkzNHhjz4xns@103.167.89.98:888/test_db"
+
 
 print(DATABASE_URL)
 # Create a new SQLAlchemy engine instance

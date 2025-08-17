@@ -28,4 +28,4 @@ class WatchModel(Base):
     seller = relationship('UserModel', foreign_keys=[seller_id],back_populates='sell')
     report = relationship('AppraisalReportModel', foreign_keys=[report_id], back_populates='watch')
 
-    
+    watch_cart = relationship('CartItemsModel', foreign_keys='CartItemsModel.watch_id', back_populates='watch')

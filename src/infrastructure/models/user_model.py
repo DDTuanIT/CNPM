@@ -23,3 +23,5 @@ class UserModel(Base):
 
     send = relationship('MessageModel', foreign_keys='MessageModel.sender_id', back_populates='sender')
     receive = relationship('MessageModel', foreign_keys='MessageModel.receiver_id', back_populates='receiver')
+
+    carts = relationship('CartsModel', foreign_keys='CartsModel.user_id', back_populates='user_cart')
