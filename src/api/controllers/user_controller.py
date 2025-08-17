@@ -2,7 +2,8 @@ from flask import Blueprint, request, jsonify
 from infrastructure.databases.mssql import get_db_session 
 from infrastructure.repositories.user_repository import UserRepository
 from services.user_service import UserService
-from api.schemas.user_schema import RegisterSchema, LoginSchema
+from api.schemas.user_schema import RegisterSchema, LoginSchema, Otp_ForgotPassword, ChangePassword
+from services.otp_service import OTPService
 
 user_bp = Blueprint("user", __name__, url_prefix="/api")
 
@@ -48,4 +49,65 @@ def login():
     except Exception as e:
         import traceback
         traceback.print_exc()
+        return jsonify({"error": str(e)}), 400
+
+@user_bp.route("/forgotpassword", methods=["POST"])
+def forgot_password():
+    try:
+        email = request.json.get("email")
+        db = get_db_session()
+        user_repo = UserRepository(db)
+        service = UserService(user_repo)
+        
+        user = service.get_user_email(email)
+        if not user:
+            return jsonify({"error":"Email not found"}),
+        otp_service = OTPService()
+        otp_service.generate_and_end_otp(email)
+        return jsonify({"message":"OTP sent"}),
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error":str(e)}), 400
+        
+@user_bp.route("/verifyotp",methods=["POST"])
+def verify_otp():
+    try:
+        data = Otp_ForgotPassword().load(request.json)
+        email = request.json.get("email")
+        otp_service = OTPService()
+        if otp_service.vertify_otp(email, str(data["otp"])):
+            return jsonify({"message":"Verified"}),
+        else:
+            return jsonify({"error":"Invalid"}),
+    except Exception as e:
+        return jsonify({"error":str(e)}),400
+
+@user_bp.route("/changepassword", methods=["POST"])
+def change_password():
+    try:
+        data = ChangePassword().load(request.json)
+        email = request.json.get("email")
+
+        if data["new_password"] != data["confirm_password"]:
+            return jsonify({"error": "Not match"}), 400
+
+        db = get_db_session()
+        user_repo = UserRepository(db)
+        service = UserService(user_repo)
+        user = service.get_user_email(email)
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+
+        service.update_user(
+            user.user_id,
+            user.user_name,
+            data["new_password"],
+            user.address,
+            user.email,
+            user.phone_number,
+            user.role_name
+        )
+        return jsonify({"message": "Password changed"}), 200
+    except Exception as e:
         return jsonify({"error": str(e)}), 400

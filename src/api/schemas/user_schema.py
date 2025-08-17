@@ -15,3 +15,10 @@ class RegisterSchema(Schema):
 class LoginSchema(Schema):
     user_name = fields.Str(required=True)
     user_password = fields.Str(required=True, validate=validate.Length(min=4))
+    
+class Otp_ForgotPassword(Schema):
+    otp = fields.Int(required=True)
+
+class ChangePassword(Schema):
+    new_password = fields.Str(required=True, validate=validate.Length(min=4))
+    confirm_password = fields.Str(required=True, validate=validate.Length(min=4))
