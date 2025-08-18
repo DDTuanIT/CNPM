@@ -1,22 +1,38 @@
-
-import { useRef} from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./RegisterPage.css";
 import { checkBlankInput } from "../../Utils/checkBlankInput";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 export function OtpPage() {
-	const otpRef = useRef(null);
-	const navigate = useNavigate();
-	const confirmHandler = (event) => {
-		event.preventDefault();
-		const otpData = otpRef.current.value; // data otp
+  const otpRef = useRef(null);
+  const location = useLocation();
+  const email = location.state?.email;
+  const navigate = useNavigate();
+  const confirmHandler = async (event) => {
+    event.preventDefault();
 
-		if (checkBlankInput([otpData])) {
-			alert("Please fill in all information"); // check input blank
-			return;
-		}
-		navigate('/CreateNewPassword');
-	}
+    const otpData = otpRef.current.value; // data otp
+
+    if (checkBlankInput([otpData])) {
+      alert("Please fill in all information"); // check input blank
+      return;
+    }
+    try {
+      const response = await axios.post("api/verifyotp", {
+        email: email,
+        otp: otpData,
+      });
+      if (response.data.success) {
+        await navigate("/CreateNewPassword", { state: { email: email } });
+      } else {
+        alert("Incorrect OTP");
+      }
+    } catch (err) {
+      alert(`Error with ${err}`);
+    }
+  };
   return (
     <>
       <title>Forgot Password</title>
@@ -29,10 +45,9 @@ export function OtpPage() {
           <form className="login-form" onSubmit={confirmHandler}>
             <input ref={otpRef} type="text" placeholder="" />
 
-              <button type="submit" className="submit-button">
-                Confirm
-              </button>
-
+            <button type="submit" className="submit-button">
+              Confirm
+            </button>
           </form>
         </div>
       </div>

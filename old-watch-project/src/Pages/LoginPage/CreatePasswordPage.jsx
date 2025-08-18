@@ -2,12 +2,16 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./RegisterPage.css";
 import { checkBlankInput } from "../../Utils/checkBlankInput";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 export function CreateNewPasswordPage() {
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
+  const location = useLocation();
+  const email = location.state?.email;
   const navigate = useNavigate();
-  const handleSubmitButton = (event) => {
+  const handleSubmitButton = async (event) => {
 		event.preventDefault();
     const passwordData = passwordRef.current.value;
     const confirmPasswordData = confirmPasswordRef.current.value;
@@ -20,7 +24,13 @@ export function CreateNewPasswordPage() {
       alert("2 passwords do not match, please re-enter");
       return;
     }
-    navigate("/LoginPage");
+
+    const response = await axios.post("/api/changepassword", {
+      'email': email,
+      'new_password': passwordData
+    });
+    console.log(response);
+    await navigate("/LoginPage");
   };
   return (
     <>

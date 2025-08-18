@@ -55,16 +55,16 @@ def login():
 def forgot_password():
     try:
         email = request.json.get("email")
-        db = get_db_session()
+        db = get_db_session() 
         user_repo = UserRepository(db)
         service = UserService(user_repo)
         
         user = service.get_user_email(email)
         if not user:
-            return jsonify({"error":"Email not found"}),
+            return jsonify({"error":"Email not found"}), 404
         otp_service = OTPService()
         otp_service.generate_and_send_otp(email)
-        return jsonify({"message":"OTP sent"})
+        return jsonify({"success": True, "message":"OTP sent"}), 200
     except Exception as e:
         import traceback
         traceback.print_exc()
@@ -76,9 +76,9 @@ def verify_otp():
         data = Otp_ForgotPassword().load(request.json)
         otp_service = OTPService()
         if otp_service.verify_otp(data['email'], data["otp"]):
-            return jsonify({"message":"Verified"})
+            return jsonify({"success": True, "message":"Verified"})
         else:
-            return jsonify({"error":"Invalid"})
+            return jsonify({"success": False, "error":"Invalid"})
     except Exception as e:
         import traceback
         traceback.print_exc()
@@ -94,7 +94,7 @@ def change_password():
         service = UserService(user_repo)
         user = service.get_user_email(data['email'])
         if not user:
-            return jsonify({"error": "User not found"}), 404
+            return jsonify({"success": False, "error": "User not found"}), 404
 
         service.update_user(
             user.user_id,
@@ -105,6 +105,6 @@ def change_password():
             user.phone_number,
             user.role_name
         )
-        return jsonify({"message": "Password changed"}), 200
+        return jsonify({"success": True, "message": "Password changed"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 400
