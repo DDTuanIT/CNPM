@@ -74,28 +74,25 @@ def forgot_password():
 def verify_otp():
     try:
         data = Otp_ForgotPassword().load(request.json)
-        email = request.json.get("email")
         otp_service = OTPService()
-        if otp_service.vertify_otp(email, str(data["otp"])):
-            return jsonify({"message":"Verified"}),
+        if otp_service.verify_otp(data['email'], data["otp"]):
+            return jsonify({"message":"Verified"})
         else:
-            return jsonify({"error":"Invalid"}),
+            return jsonify({"error":"Invalid"})
     except Exception as e:
-        return jsonify({"error":str(e)}),400
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error":str(e)}), 400
 
 @user_bp.route("/changepassword", methods=["POST"])
 def change_password():
     try:
         data = ChangePassword().load(request.json)
-        email = request.json.get("email")
-
-        if data["new_password"] != data["confirm_password"]:
-            return jsonify({"error": "Not match"}), 400
 
         db = get_db_session()
         user_repo = UserRepository(db)
         service = UserService(user_repo)
-        user = service.get_user_email(email)
+        user = service.get_user_email(data['email'])
         if not user:
             return jsonify({"error": "User not found"}), 404
 

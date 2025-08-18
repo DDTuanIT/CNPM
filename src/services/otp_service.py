@@ -18,7 +18,9 @@ class OTPService:
 
     def verify_otp(self, email: str, otp: str):
         stored = self.redis.get(email)
-        if stored and stored == otp:
+        print(type(stored))
+        print(type(otp))
+        if stored and str(stored) == str(otp):
             self.redis.delete(email)
             return True
         return False

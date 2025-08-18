@@ -17,8 +17,9 @@ class LoginSchema(Schema):
     user_password = fields.Str(required=True, validate=validate.Length(min=4))
     
 class Otp_ForgotPassword(Schema):
+    email = fields.Str(required=True)
     otp = fields.Int(required=True)
 
 class ChangePassword(Schema):
-    new_password = fields.Str(required=True, validate=validate.Length(min=4))
-    confirm_password = fields.Str(required=True, validate=validate.Length(min=4))
+    email = fields.Str(required=True)    
+    new_password = fields.Str(required=True, validate=validate.Length(min=4))   
