@@ -1,4 +1,4 @@
-from domain.models.ifeedback_repository import IFeedbackRepository
+from domain.models.icart_items_repository import ICartItemsRepository
 from typing import List, Optional
 from dotenv import load_dotenv
 import os
@@ -8,47 +8,46 @@ from config import Config
 from sqlalchemy import Column, Integer, String, DateTime
 from infrastructure.databases import Base
 from sqlalchemy.orm import Session
-from infrastructure.models.cart_items_model import CartItesmsModel
-from infrastructure.databases.mssql import session
+from infrastructure.models.cart_items_model import CartItemsModel
+from infrastructure.databases.mssql import get_db_session
 
-class FeedbackRepository(IFeedbackRepository):
-	def __init__(self, session: Session = session):
-		self.feedbacks = []
-		self.__id__counter = 1
-		self.session = session
 
-	def add(self, cart_items: CartItesmsModel) -> CartItesmsModel:
-		try:
-			self.session.add(cart_items)   
-			self.session.commit()    
-			self.session.refresh(cart_items)
-			return cart_items
-		except Exception:
-			self.session.rollback()   
-			raise ValueError('cart_items not found')
-		finally:
-			self.session.close()      
+class CartItemsRepository(ICartItemsRepository):
+    def __init__(self, session: Optional[Session] = None):
+        self.session = session or get_db_session()
 
-	def get_by_id(self, feedback_id: int) -> Optional[CartItesmsModel]:
-		return self.session.query(CartItesmsModel).filter_by(id=feedback_id).first()
+    def add(self, cart_Item: CartItemsModel) -> CartItemsModel:
+        try:
+            self.session.add(cart_Item)
+            self.session.commit()
+            self.session.refresh(cart_Item)
+            return cart_Item
+        except Exception as e:
+            self.session.rollback()
+            raise ValueError(f"Error adding cart_Item {e}")
+        finally:
+            self.session.close()
 
-	def list(self) -> List[CartItesmsModel]:
-		self._feedbacks = session.query(CartItesmsModel).all()
-		return self._feedbacks
+    def get_by_id(self, cart_Item_id: int) -> Optional[CartItemsModel]:
+        return self.session.query(CartItemsModel).filter_by(cart_Item_id=cart_Item_id).first()
 
-	def update(self, cart_items: CartItesmsModel) -> CartItesmsModel:
-		try:
-			self.session.merge(cart_items)
-			self.session.commit()
-			return cart_items
-		except Exception:
-			self.session.rollback()
-			raise ValueError('cart_items not found')
-		finally:
-			self.session.close()
-			
-	def delete(self, feedback_id: int) -> None:
-		cart_items = self.get_by_id(feedback_id)
-		if cart_items:
-			self.session.delete(cart_items)
-			self.session.commit()
+    def list(self) -> List[CartItemsModel]:
+        self._cart_Items = Session.query(CartItemsModel).all()
+        return self._cart_Items
+
+    def update(self, cart_Item: CartItemsModel) -> CartItemsModel:
+        try:
+            self.session.merge(cart_Item)
+            self.session.commit()
+            return cart_Item
+        except Exception:
+            self.session.rollback()
+            raise ValueError('cart_Item not found')
+        finally:
+            self.session.close()
+
+    def delete(self, cart_Item_id: int) -> None:
+        cart_Item = self.get_by_id(cart_Item_id)
+        if cart_Item:
+            self.session.delete(cart_Item)
+            self.session.commit()

@@ -10,8 +10,7 @@ class CartItemsModel(Base):
     id =Column(UNIQUEIDENTIFIER, primary_key=True)
     cart_id = Column(UNIQUEIDENTIFIER, ForeignKey('carts.cart_id'), nullable=False)
     watch_id = Column(UNIQUEIDENTIFIER, ForeignKey('watch.watch_id'),nullable=False)
-    quantity = Column(Integer, nullable=False)
-    delivery_option_id = Column(Integer, nullable=False)
+    quantity = Column(Integer, default=1,nullable=False)
 
     carts = relationship('CartsModel', foreign_keys=[cart_id],back_populates='cart_items')
 

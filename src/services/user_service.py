@@ -6,20 +6,7 @@ class UserService:
 
     def __init__(self, repository: IUserRepository):
         self.repository = repository
-    '''
-    def register(self, email, password, role):
-        existing_user = self.repository.get_by_email(email)
-        if existing_user:
-            raise Exception("Email đã được dùng")
 
-        return self.repository.create_user(email, password, role)
-
-    def login(self, email, password):
-        user = self.repository.verify_user(email, password)
-        if not user:
-            raise Exception("Sai thông tin đăng nhập")
-        return {"email": user.email, "role": user.role}
-    '''
     def create_user(self, user_id: UNIQUEIDENTIFIER, user_name: str, user_password: str, address: str, email: str, phone_number: str, role_name: str) -> UserModel:
         user = UserModel(user_id=user_id, user_name=user_name, user_password=user_password, address=address, email=email, phone_number=phone_number, role_name=role_name)
         return self.repository.add(user)    
@@ -40,4 +27,6 @@ class UserService:
 
     def delete_user(self, user_id: UNIQUEIDENTIFIER) -> None:
         self.repository.delete(user_id) 
-        
+    
+    def get_user_email(self, email: str) -> Optional[UserModel]:
+        return self.repository.get_by_user_email(email)

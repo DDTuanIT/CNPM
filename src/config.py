@@ -10,6 +10,18 @@ class Config:
     DATABASE_URI = os.environ.get('DATABASE_URI') or 'mssql+pymssql://sa:Aa%40123456@127.0.0.1:1434/FlaskApiDB'
     CORS_HEADERS = 'Content-Type'
 
+    # Redis
+    REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
+    REDIS_PORT = int(os.environ.get('REDIS_PORT', 6379))
+    REDIS_DB = int(os.environ.get('REDIS_DB', 0))
+    OTP_EXPIRE_SECONDS = int(os.environ.get('OTP_EXPIRE_SECONDS', 300))
+
+    # Email
+    SMTP_SERVER = os.environ.get('SMTP_SERVER', 'mail.newbiemt.id.vn')
+    SMTP_PORT = int(os.environ.get('SMTP_PORT', 465))
+    SENDER_EMAIL = os.environ.get('SENDER_EMAIL', 'otpender@newbiemt.id.vn')
+    SENDER_PASSWORD = os.environ.get('SENDER_PASSWORD', '02022006@Aa')
+    
 class DevelopmentConfig(Config):
     """Development configuration."""
     DEBUG = True

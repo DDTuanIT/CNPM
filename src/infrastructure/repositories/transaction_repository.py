@@ -9,46 +9,45 @@ from sqlalchemy import Column, Integer, String, DateTime
 from infrastructure.databases import Base
 from sqlalchemy.orm import Session
 from infrastructure.models.transaction_model import TransactionModel
-from infrastructure.databases.mssql import session
+from infrastructure.databases.mssql import get_db_session
+
 
 class TransactionRepository(ITransactionRepository):
-	def __init__(self, session: Session = session):
-		self.transactions = []
-		self.__id__counter = 1
-		self.session = session
+    def __init__(self, session: Optional[Session] = None):
+        self.session = session or get_db_session()
 
-	def add(self, transaction: TransactionModel) -> TransactionModel:
-		try:
-			self.session.add(transaction)   
-			self.session.commit()    
-			self.session.refresh(transaction)
-			return transaction
-		except Exception:
-			self.session.rollback()   
-			raise ValueError('Transaction not found')
-		finally:
-			self.session.close()      
+    def add(self, transaction: TransactionModel) -> TransactionModel:
+        try:
+            self.session.add(transaction)
+            self.session.commit()
+            self.session.refresh(transaction)
+            return transaction
+        except Exception as e:
+            self.session.rollback()
+            raise ValueError(f"Error adding transaction {e}")
+        finally:
+            self.session.close()
 
-	def get_by_id(self, transaction_id: int) -> Optional[TransactionModel]:
-		return self.session.query(TransactionModel).filter_by(id=transaction_id).first()
+    def get_by_id(self, transaction_id: int) -> Optional[TransactionModel]:
+        return self.session.query(TransactionModel).filter_by(transaction_id=transaction_id).first()
 
-	def list(self) -> List[TransactionModel]:
-		self._transactions = session.query(TransactionModel).all()
-		return self._transactions
+    def list(self) -> List[TransactionModel]:
+        self._transactions = Session.query(TransactionModel).all()
+        return self._transactions
 
-	def update(self, transaction: TransactionModel) -> TransactionModel:
-		try:
-			self.session.merge(transaction)
-			self.session.commit()
-			return transaction
-		except Exception:
-			self.session.rollback()
-			raise ValueError('Transaction not found')
-		finally:
-			self.session.close()
-			
-	def delete(self, transaction_id: int) -> None:
-		transaction = self.get_by_id(transaction_id)
-		if transaction:
-			self.session.delete(transaction)
-			self.session.commit()
+    def update(self, transaction: TransactionModel) -> TransactionModel:
+        try:
+            self.session.merge(transaction)
+            self.session.commit()
+            return transaction
+        except Exception:
+            self.session.rollback()
+            raise ValueError('transaction not found')
+        finally:
+            self.session.close()
+
+    def delete(self, transaction_id: int) -> None:
+        transaction = self.get_by_id(transaction_id)
+        if transaction:
+            self.session.delete(transaction)
+            self.session.commit()

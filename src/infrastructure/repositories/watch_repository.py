@@ -9,46 +9,45 @@ from sqlalchemy import Column, Integer, String, DateTime
 from infrastructure.databases import Base
 from sqlalchemy.orm import Session
 from infrastructure.models.watch_model import WatchModel
-from infrastructure.databases.mssql import session
+from infrastructure.databases.mssql import get_db_session
+
 
 class WatchRepository(IWatchRepository):
-	def __init__(self, session: Session = session):
-		self.watchs = []
-		self.__id__counter = 1
-		self.session = session
+    def __init__(self, session: Optional[Session] = None):
+        self.session = session or get_db_session()
 
-	def add(self, watch: WatchModel) -> WatchModel:
-		try:
-			self.session.add(watch)   
-			self.session.commit()    
-			self.session.refresh(watch)
-			return watch
-		except Exception:
-			self.session.rollback()   
-			raise ValueError('WatchModel not found')
-		finally:
-			self.session.close()      
+    def add(self, watch: WatchModel) -> WatchModel:
+        try:
+            self.session.add(watch)
+            self.session.commit()
+            self.session.refresh(watch)
+            return watch
+        except Exception as e:
+            self.session.rollback()
+            raise ValueError(f"Error adding watch {e}")
+        finally:
+            self.session.close()
 
-	def get_by_id(self, watch_id: int) -> Optional[WatchModel]:
-		return self.session.query(WatchModel).filter_by(id=watch_id).first()
+    def get_by_id(self, watch_id: int) -> Optional[WatchModel]:
+        return self.session.query(WatchModel).filter_by(watch_id=watch_id).first()
 
-	def list(self) -> List[WatchModel]:
-		self._watchs = session.query(WatchModel).all()
-		return self._watchs
+    def list(self) -> List[WatchModel]:
+        self._watchs = Session.query(WatchModel).all()
+        return self._watchs
 
-	def update(self, watch: WatchModel) -> WatchModel:
-		try:
-			self.session.merge(watch)
-			self.session.commit()
-			return watch
-		except Exception:
-			self.session.rollback()
-			raise ValueError('Watch not found')
-		finally:
-			self.session.close()
-			
-	def delete(self, watch_id: int) -> None:
-		watch = self.get_by_id(watch_id)
-		if watch:
-			self.session.delete(watch)
-			self.session.commit()
+    def update(self, watch: WatchModel) -> WatchModel:
+        try:
+            self.session.merge(watch)
+            self.session.commit()
+            return watch
+        except Exception:
+            self.session.rollback()
+            raise ValueError('watch not found')
+        finally:
+            self.session.close()
+
+    def delete(self, watch_id: int) -> None:
+        watch = self.get_by_id(watch_id)
+        if watch:
+            self.session.delete(watch)
+            self.session.commit()

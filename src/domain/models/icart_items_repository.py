@@ -2,17 +2,13 @@ from abc import ABC, abstractmethod
 from .cart_items import CartItems
 from typing import List, Optional
 
-class IUserRepository(ABC):
+class ICartItemsRepository(ABC):
     @abstractmethod
-    def add(self, user: CartItems) -> CartItems:
+    def add(self, cart_itemss: CartItems) -> CartItems:
         pass
 
     @abstractmethod
-    def get_by_id(self, user_id: int) -> Optional[CartItems]:
-        pass
-
-    @abstractmethod
-    def get_by_user_name(self, user_name: int) -> Optional[CartItems]:
+    def get_by_id(self, id: int) -> Optional[CartItems]:
         pass
 
     @abstractmethod
@@ -20,9 +16,9 @@ class IUserRepository(ABC):
         pass
 
     @abstractmethod
-    def update(self, user: CartItems) -> CartItems:
+    def update(self, cart_items: CartItems) -> CartItems:
         pass
 
     @abstractmethod
-    def delete(self, user_id: int) -> None:
+    def delete(self, id: int) -> None:
         pass 

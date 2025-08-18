@@ -1,6 +1,6 @@
 from infrastructure.models.message_model import MessageModel
 from sqlalchemy.dialects.mssql import UNIQUEIDENTIFIER
-from domain.models.imessage_remository import IMessageRepository
+from domain.models.imessage_repository import IMessageRepository
 from typing import List, Optional
 
 class MessageService:

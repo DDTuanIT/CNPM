@@ -12,7 +12,7 @@ class UserModel(Base):
     user_name = Column(String(18), nullable=False)
     user_password = Column(String(18), nullable=False)
     address = Column(String(30), nullable=True)
-    email = Column(String(18), nullable=False)
+    email = Column(String(50), nullable=False)
     phone_number = Column(String(10), nullable=True)
     role_name = Column(String(10), nullable=False)
 

@@ -15,3 +15,4 @@ class AppraisalReportModel(Base):
     description = Column(String(250), nullable=False)
 
     watch = relationship('WatchModel', foreign_keys='WatchModel.report_id', back_populates='report')
+    
