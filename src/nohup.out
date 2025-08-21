@@ -1,0 +1,667 @@
+sqlite:///default.db
+Adding path: /todos/ -> <function list_todos at 0x758502d0af20>
+Adding path: /todos/<int:todo_id> -> <function get_todo at 0x758502d0b060>
+Adding path: /todos/ -> <function create_todo at 0x758502d0b1a0>
+Adding path: /todos/<int:todo_id> -> <function update_todo at 0x758502d0b2e0>
+Adding path: /todos/<int:todo_id> -> <function delete_todo at 0x758502d0b420>
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6868
+ * Running on http://103.167.89.98:6868
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-028-302
+[2025-08-18 04:48:46,882] DEBUG in middleware: Headers: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+Accept: text/html, application/xhtml+xml, application/xml; q=0.9, image/avif, image/webp, image/apng, */*; q=0.8, application/signed-exchange; v=b3; q=0.7
+Accept-Language: en-US, en; q=0.9, zh-CN; q=0.8, zh; q=0.7
+Cache-Control: no-store, no-cache, max-age=0
+Pragma: no-cache
+Priority: u=0, i
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Upgrade-Insecure-Requests: 1
+Host: 103.167.89.98:6868
+Connection: Keep-Alive
+
+
+[2025-08-18 04:48:46,883] DEBUG in middleware: Body: b''
+20.26.44.161 - - [18/Aug/2025 04:48:46] "[35m[1mGET / HTTP/1.1[0m" 500 -
+sqlite:///default.db
+Adding path: /todos/ -> <function list_todos at 0x705f5e702f20>
+Adding path: /todos/<int:todo_id> -> <function get_todo at 0x705f5e703060>
+Adding path: /todos/ -> <function create_todo at 0x705f5e7031a0>
+Adding path: /todos/<int:todo_id> -> <function update_todo at 0x705f5e7032e0>
+Adding path: /todos/<int:todo_id> -> <function delete_todo at 0x705f5e703420>
+ * Serving Flask app 'app'
+ * Debug mode: on
+Address already in use
+Port 6868 is in use by another program. Either identify and stop that program, or start the server with a different port.
+[2025-08-18 04:50:26,115] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: rank=list; pro_end=-1; ltd_end=-1; force=0; load_page=null; load_type=null; load_search=undefined; file_paths=/www/wwwroot/newbiemt.id.vn; vcodesum=10; record_paste=null; record_paste_type=null; Path=/www/wwwroot/newbiemt.id.vn/CNPMPRJ
+
+
+[2025-08-18 04:50:26,118] DEBUG in middleware: Body: b''
+1.55.44.10 - - [18/Aug/2025 04:50:26] "GET /docs/ HTTP/1.1" 200 -
+[2025-08-18 04:50:26,236] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+Accept: text/css,*/*;q=0.1
+Referer: http://103.167.89.98:6868/docs/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: rank=list; pro_end=-1; ltd_end=-1; force=0; load_page=null; load_type=null; load_search=undefined; file_paths=/www/wwwroot/newbiemt.id.vn; vcodesum=10; record_paste=null; record_paste_type=null; Path=/www/wwwroot/newbiemt.id.vn/CNPMPRJ
+If-None-Match: "1755328830.239912-202-1736385907"
+If-Modified-Since: Sat, 16 Aug 2025 07:20:30 GMT
+
+
+[2025-08-18 04:50:26,238] DEBUG in middleware: Body: b''
+[2025-08-18 04:50:26,251] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+Accept: text/css,*/*;q=0.1
+Referer: http://103.167.89.98:6868/docs/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: rank=list; pro_end=-1; ltd_end=-1; force=0; load_page=null; load_type=null; load_search=undefined; file_paths=/www/wwwroot/newbiemt.id.vn; vcodesum=10; record_paste=null; record_paste_type=null; Path=/www/wwwroot/newbiemt.id.vn/CNPMPRJ
+If-None-Match: "1755328830.2809122-154986-686171990"
+If-Modified-Since: Sat, 16 Aug 2025 07:20:30 GMT
+
+
+[2025-08-18 04:50:26,251] DEBUG in middleware: Body: b''
+[2025-08-18 04:50:26,255] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+Accept: */*
+Referer: http://103.167.89.98:6868/docs/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: rank=list; pro_end=-1; ltd_end=-1; force=0; load_page=null; load_type=null; load_search=undefined; file_paths=/www/wwwroot/newbiemt.id.vn; vcodesum=10; record_paste=null; record_paste_type=null; Path=/www/wwwroot/newbiemt.id.vn/CNPMPRJ
+If-None-Match: "1755328830.274912-229223-39529984"
+If-Modified-Since: Sat, 16 Aug 2025 07:20:30 GMT
+
+
+[2025-08-18 04:50:26,272] DEBUG in middleware: Body: b''
+[2025-08-18 04:50:26,267] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+Accept: */*
+Referer: http://103.167.89.98:6868/docs/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: rank=list; pro_end=-1; ltd_end=-1; force=0; load_page=null; load_type=null; load_search=undefined; file_paths=/www/wwwroot/newbiemt.id.vn; vcodesum=10; record_paste=null; record_paste_type=null; Path=/www/wwwroot/newbiemt.id.vn/CNPMPRJ
+If-None-Match: "1755328830.252912-1468326-481044881"
+If-Modified-Since: Sat, 16 Aug 2025 07:20:30 GMT
+
+
+[2025-08-18 04:50:26,276] DEBUG in middleware: Body: b''
+1.55.44.10 - - [18/Aug/2025 04:50:26] "[36mGET /docs/index.css HTTP/1.1[0m" 304 -
+1.55.44.10 - - [18/Aug/2025 04:50:26] "[36mGET /docs/swagger-ui.css HTTP/1.1[0m" 304 -
+1.55.44.10 - - [18/Aug/2025 04:50:26] "[36mGET /docs/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+1.55.44.10 - - [18/Aug/2025 04:50:26] "[36mGET /docs/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+[2025-08-18 04:50:26,741] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+Accept: application/json,*/*
+Referer: http://103.167.89.98:6868/docs/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: rank=list; pro_end=-1; ltd_end=-1; force=0; load_page=null; load_type=null; load_search=undefined; file_paths=/www/wwwroot/newbiemt.id.vn; vcodesum=10; record_paste=null; record_paste_type=null; Path=/www/wwwroot/newbiemt.id.vn/CNPMPRJ
+
+
+[2025-08-18 04:50:26,742] DEBUG in middleware: Body: b''
+1.55.44.10 - - [18/Aug/2025 04:50:26] "GET /swagger.json HTTP/1.1" 200 -
+[2025-08-18 04:50:28,101] DEBUG in middleware: Headers: Accept: application/json, */*
+Host: 103.167.89.98:6868
+Connection: Keep-Alive
+User-Agent: swagger-validator
+Accept-Encoding: gzip,deflate
+
+
+[2025-08-18 04:50:28,102] DEBUG in middleware: Body: b''
+44.196.175.104 - - [18/Aug/2025 04:50:28] "GET /swagger.json HTTP/1.1" 200 -
+[2025-08-18 04:50:35,905] DEBUG in middleware: Headers: Content-Type: application/json
+User-Agent: PostmanRuntime/7.45.0
+Accept: */*
+Postman-Token: 0d9aeb2a-7dbc-4f2f-92aa-98922b803e61
+Host: 103.167.89.98:6868
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 185
+
+
+[2025-08-18 04:50:35,906] DEBUG in middleware: Body: b'{\n  "user_id": 1,\n  "user_name": "buyer1",\n  "user_password": "1234",\n  "address": "HCM",\n  "email": "anhtuanmai706@gmail.com",\n  "phone_number": "0123456789",\n  "role_name": "buyer"\n}\n'
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/api/controllers/user_controller.py", line 13, in register
+    data = RegisterSchema().load(request.json)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/marshmallow/schema.py", line 730, in load
+    return self._do_load(
+           ^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/marshmallow/schema.py", line 938, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'user_id': ['Not a valid UUID.']}
+1.55.44.10 - - [18/Aug/2025 04:50:35] "[31m[1mPOST /api/register HTTP/1.1[0m" 400 -
+[2025-08-18 04:50:51,242] DEBUG in middleware: Headers: Content-Type: application/json
+User-Agent: PostmanRuntime/7.45.0
+Accept: */*
+Postman-Token: 051111b4-db1f-4be2-be5a-9aff28715af0
+Host: 103.167.89.98:6868
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 149
+
+
+[2025-08-18 04:50:51,243] DEBUG in middleware: Body: b'{\n  "user_name": "buyer1",\n  "user_password": "1234",\n  "email": "anhtuanmai706@gmail.com",\n  "phone_number": "0123456789",\n  "role_name": "buyer"\n}\n'
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/api/controllers/user_controller.py", line 13, in register
+    data = RegisterSchema().load(request.json)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/marshmallow/schema.py", line 730, in load
+    return self._do_load(
+           ^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/marshmallow/schema.py", line 938, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'user_id': ['Missing data for required field.']}
+1.55.44.10 - - [18/Aug/2025 04:50:51] "[31m[1mPOST /api/register HTTP/1.1[0m" 400 -
+[2025-08-18 04:51:08,020] DEBUG in middleware: Headers: Content-Type: application/json
+User-Agent: PostmanRuntime/7.45.0
+Accept: */*
+Postman-Token: 06147830-c5a0-4a59-b0f8-d8f1830c9fcf
+Host: 103.167.89.98:6868
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 190
+
+
+[2025-08-18 04:51:08,021] DEBUG in middleware: Body: b'{\n  "user_id": 123132,\n  "user_name": "buyer1",\n  "user_password": "1234",\n  "address": "HCM",\n  "email": "anhtuanmai706@gmail.com",\n  "phone_number": "0123456789",\n  "role_name": "buyer"\n}\n'
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/api/controllers/user_controller.py", line 13, in register
+    data = RegisterSchema().load(request.json)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/marshmallow/schema.py", line 730, in load
+    return self._do_load(
+           ^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/marshmallow/schema.py", line 938, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'user_id': ['Not a valid UUID.']}
+1.55.44.10 - - [18/Aug/2025 04:51:08] "[31m[1mPOST /api/register HTTP/1.1[0m" 400 -
+[2025-08-18 04:51:21,935] DEBUG in middleware: Headers: Content-Type: application/json
+User-Agent: PostmanRuntime/7.45.0
+Accept: */*
+Postman-Token: fd95624b-c756-4dc3-a5e6-a628909959b2
+Host: 103.167.89.98:6868
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 186
+
+
+[2025-08-18 04:51:21,936] DEBUG in middleware: Body: b'{\n  "user_id": "",\n  "user_name": "buyer1",\n  "user_password": "1234",\n  "address": "HCM",\n  "email": "anhtuanmai706@gmail.com",\n  "phone_number": "0123456789",\n  "role_name": "buyer"\n}\n'
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/api/controllers/user_controller.py", line 13, in register
+    data = RegisterSchema().load(request.json)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/marshmallow/schema.py", line 730, in load
+    return self._do_load(
+           ^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/marshmallow/schema.py", line 938, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'user_id': ['Not a valid UUID.']}
+1.55.44.10 - - [18/Aug/2025 04:51:21] "[31m[1mPOST /api/register HTTP/1.1[0m" 400 -
+[2025-08-18 04:54:25,462] DEBUG in middleware: Headers: Content-Type: application/json
+User-Agent: PostmanRuntime/7.45.0
+Accept: */*
+Postman-Token: 4884788e-c85b-46ac-baed-05570527119b
+Host: 103.167.89.98:6868
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 186
+
+
+[2025-08-18 04:54:25,465] DEBUG in middleware: Body: b'{\n  "user_id": "",\n  "user_name": "buyer1",\n  "user_password": "1234",\n  "address": "HCM",\n  "email": "anhtuanmai706@gmail.com",\n  "phone_number": "0123456789",\n  "role_name": "buyer"\n}\n'
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/api/controllers/user_controller.py", line 13, in register
+    data = RegisterSchema().load(request.json)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/marshmallow/schema.py", line 730, in load
+    return self._do_load(
+           ^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/marshmallow/schema.py", line 938, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'user_id': ['Not a valid UUID.']}
+1.55.44.10 - - [18/Aug/2025 04:54:25] "[31m[1mPOST /api/register HTTP/1.1[0m" 400 -
+[2025-08-18 05:02:17,782] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+User-Agent: curl/8.14.1
+Accept: */*
+
+
+[2025-08-18 05:02:17,784] DEBUG in middleware: Body: b''
+1.55.44.10 - - [18/Aug/2025 05:02:17] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+[2025-08-18 05:02:30,535] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+User-Agent: curl/8.14.1
+Accept: */*
+
+
+[2025-08-18 05:02:30,537] DEBUG in middleware: Body: b''
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/api/controllers/user_controller.py", line 13, in register
+    data = RegisterSchema().load(request.json)
+                                 ^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+1.55.44.10 - - [18/Aug/2025 05:02:30] "[31m[1mPOST /api/register HTTP/1.1[0m" 400 -
+[2025-08-18 05:02:50,977] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+User-Agent: curl/8.14.1
+Accept: */*
+
+
+[2025-08-18 05:02:50,978] DEBUG in middleware: Body: b''
+1.55.44.10 - - [18/Aug/2025 05:02:50] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+[2025-08-18 05:03:25,856] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+User-Agent: curl/8.14.1
+Accept: */*
+Content-Type: application/json
+Content-Length: 2
+
+
+[2025-08-18 05:03:25,859] DEBUG in middleware: Body: b'{\\'
+1.55.44.10 - - [18/Aug/2025 05:03:25] "[35m[1mPOST /register HTTP/1.1[0m" 500 -
+[2025-08-18 05:03:49,124] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+User-Agent: curl/8.14.1
+Accept: */*
+Content-Type: application/json
+Content-Length: 2
+
+
+[2025-08-18 05:03:49,126] DEBUG in middleware: Body: b'{\\'
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 611, in get_json
+    rv = self.json_module.loads(data)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/flask/json/provider.py", line 187, in loads
+    return json.loads(s, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/api/controllers/user_controller.py", line 13, in register
+    data = RegisterSchema().load(request.json)
+                                 ^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 620, in get_json
+    rv = self.on_json_loading_failed(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 645, in on_json_loading_failed
+    raise BadRequest(f"Failed to decode JSON object: {e}")
+werkzeug.exceptions.BadRequest: 400 Bad Request: Failed to decode JSON object: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+1.55.44.10 - - [18/Aug/2025 05:03:49] "[31m[1mPOST /api/register HTTP/1.1[0m" 400 -
+[2025-08-18 05:04:18,155] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+User-Agent: curl/8.14.1
+Accept: */*
+Content-Type: application/json
+Content-Length: 2
+
+
+[2025-08-18 05:04:18,156] DEBUG in middleware: Body: b'{\\'
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 611, in get_json
+    rv = self.json_module.loads(data)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/flask/json/provider.py", line 187, in loads
+    return json.loads(s, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/api/controllers/user_controller.py", line 13, in register
+    data = RegisterSchema().load(request.json)
+                                 ^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 620, in get_json
+    rv = self.on_json_loading_failed(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 645, in on_json_loading_failed
+    raise BadRequest(f"Failed to decode JSON object: {e}")
+werkzeug.exceptions.BadRequest: 400 Bad Request: Failed to decode JSON object: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+1.55.44.10 - - [18/Aug/2025 05:04:18] "[31m[1mPOST /api/register HTTP/1.1[0m" 400 -
+[2025-08-18 05:04:54,652] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+User-Agent: curl/8.14.1
+Accept: */*
+Content-Type: application/json
+Content-Length: 2
+
+
+[2025-08-18 05:04:54,654] DEBUG in middleware: Body: b'{\\'
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 611, in get_json
+    rv = self.json_module.loads(data)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/flask/json/provider.py", line 187, in loads
+    return json.loads(s, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/api/controllers/user_controller.py", line 13, in register
+    data = RegisterSchema().load(request.json)
+                                 ^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 620, in get_json
+    rv = self.on_json_loading_failed(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/werkzeug/wrappers/request.py", line 645, in on_json_loading_failed
+    raise BadRequest(f"Failed to decode JSON object: {e}")
+werkzeug.exceptions.BadRequest: 400 Bad Request: Failed to decode JSON object: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+1.55.44.10 - - [18/Aug/2025 05:04:54] "[31m[1mPOST /api/register HTTP/1.1[0m" 400 -
+[2025-08-18 05:14:44,169] DEBUG in middleware: Headers: Content-Type: application/json
+User-Agent: PostmanRuntime/7.45.0
+Accept: */*
+Postman-Token: 467d666e-e734-40ff-8947-8e85fc2d9b73
+Host: 103.167.89.98:6868
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Content-Length: 186
+
+
+[2025-08-18 05:14:44,170] DEBUG in middleware: Body: b'{\n  "user_id": "",\n  "user_name": "buyer1",\n  "user_password": "1234",\n  "address": "HCM",\n  "email": "anhtuanmai706@gmail.com",\n  "phone_number": "0123456789",\n  "role_name": "buyer"\n}\n'
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/api/controllers/user_controller.py", line 13, in register
+    data = RegisterSchema().load(request.json)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/marshmallow/schema.py", line 730, in load
+    return self._do_load(
+           ^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/marshmallow/schema.py", line 938, in _do_load
+    raise exc
+marshmallow.exceptions.ValidationError: {'user_id': ['Not a valid UUID.']}
+1.55.44.10 - - [18/Aug/2025 05:14:44] "[31m[1mPOST /api/register HTTP/1.1[0m" 400 -
+[2025-08-18 07:41:37,690] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: rank=list; pro_end=-1; ltd_end=-1; force=0; load_page=null; load_type=null; load_search=undefined; file_paths=/www/wwwroot/newbiemt.id.vn; vcodesum=10; record_paste=null; record_paste_type=null; Path=/www/wwwroot
+
+
+[2025-08-18 07:41:37,695] DEBUG in middleware: Body: b''
+1.55.44.10 - - [18/Aug/2025 07:41:37] "GET /docs/ HTTP/1.1" 200 -
+[2025-08-18 07:41:37,798] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+Accept: text/css,*/*;q=0.1
+Referer: http://103.167.89.98:6868/docs/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: rank=list; pro_end=-1; ltd_end=-1; force=0; load_page=null; load_type=null; load_search=undefined; file_paths=/www/wwwroot/newbiemt.id.vn; vcodesum=10; record_paste=null; record_paste_type=null; Path=/www/wwwroot
+If-None-Match: "1755328830.239912-202-1736385907"
+If-Modified-Since: Sat, 16 Aug 2025 07:20:30 GMT
+
+
+[2025-08-18 07:41:37,799] DEBUG in middleware: Body: b''
+[2025-08-18 07:41:37,799] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+Accept: text/css,*/*;q=0.1
+Referer: http://103.167.89.98:6868/docs/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: rank=list; pro_end=-1; ltd_end=-1; force=0; load_page=null; load_type=null; load_search=undefined; file_paths=/www/wwwroot/newbiemt.id.vn; vcodesum=10; record_paste=null; record_paste_type=null; Path=/www/wwwroot
+If-None-Match: "1755328830.2809122-154986-686171990"
+If-Modified-Since: Sat, 16 Aug 2025 07:20:30 GMT
+
+
+[2025-08-18 07:41:37,801] DEBUG in middleware: Body: b''
+1.55.44.10 - - [18/Aug/2025 07:41:37] "[36mGET /docs/index.css HTTP/1.1[0m" 304 -
+[2025-08-18 07:41:37,804] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+Accept: */*
+Referer: http://103.167.89.98:6868/docs/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: rank=list; pro_end=-1; ltd_end=-1; force=0; load_page=null; load_type=null; load_search=undefined; file_paths=/www/wwwroot/newbiemt.id.vn; vcodesum=10; record_paste=null; record_paste_type=null; Path=/www/wwwroot
+If-None-Match: "1755328830.252912-1468326-481044881"
+If-Modified-Since: Sat, 16 Aug 2025 07:20:30 GMT
+
+
+1.55.44.10 - - [18/Aug/2025 07:41:37] "[36mGET /docs/swagger-ui.css HTTP/1.1[0m" 304 -
+[2025-08-18 07:41:37,805] DEBUG in middleware: Body: b''
+1.55.44.10 - - [18/Aug/2025 07:41:37] "[36mGET /docs/swagger-ui-bundle.js HTTP/1.1[0m" 304 -
+[2025-08-18 07:41:37,928] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+Accept: */*
+Referer: http://103.167.89.98:6868/docs/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: rank=list; pro_end=-1; ltd_end=-1; force=0; load_page=null; load_type=null; load_search=undefined; file_paths=/www/wwwroot/newbiemt.id.vn; vcodesum=10; record_paste=null; record_paste_type=null; Path=/www/wwwroot
+If-None-Match: "1755328830.274912-229223-39529984"
+If-Modified-Since: Sat, 16 Aug 2025 07:20:30 GMT
+
+
+[2025-08-18 07:41:37,929] DEBUG in middleware: Body: b''
+1.55.44.10 - - [18/Aug/2025 07:41:37] "[36mGET /docs/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 -
+[2025-08-18 07:41:38,131] DEBUG in middleware: Headers: Host: 103.167.89.98:6868
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+Accept: application/json,*/*
+Referer: http://103.167.89.98:6868/docs/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9,vi;q=0.8
+Cookie: rank=list; pro_end=-1; ltd_end=-1; force=0; load_page=null; load_type=null; load_search=undefined; file_paths=/www/wwwroot/newbiemt.id.vn; vcodesum=10; record_paste=null; record_paste_type=null; Path=/www/wwwroot
+
+
+[2025-08-18 07:41:38,132] DEBUG in middleware: Body: b''
+1.55.44.10 - - [18/Aug/2025 07:41:38] "GET /swagger.json HTTP/1.1" 200 -
+[2025-08-18 07:41:39,326] DEBUG in middleware: Headers: Accept: application/json, */*
+Host: 103.167.89.98:6868
+Connection: Keep-Alive
+User-Agent: swagger-validator
+Accept-Encoding: gzip,deflate
+
+
+[2025-08-18 07:41:39,327] DEBUG in middleware: Body: b''
+52.87.88.179 - - [18/Aug/2025 07:41:39] "GET /swagger.json HTTP/1.1" 200 -
+ * Detected change in '/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/infrastructure/databases/__init__.py', reloading
+sqlite:///default.db
+Adding path: /todos/ -> <function list_todos at 0x71102b0faf20>
+Adding path: /todos/<int:todo_id> -> <function get_todo at 0x71102b0fb060>
+Adding path: /todos/ -> <function create_todo at 0x71102b0fb1a0>
+Adding path: /todos/<int:todo_id> -> <function update_todo at 0x71102b0fb2e0>
+Adding path: /todos/<int:todo_id> -> <function delete_todo at 0x71102b0fb420>
+ * Restarting with stat
+mssql+pymssql://sa:Aa%40123456@127.0.0.1:1434/FlaskApiDB
+Traceback (most recent call last):
+  File "src/pymssql/_pymssql.pyx", line 650, in pymssql._pymssql.connect
+  File "src/pymssql/_mssql.pyx", line 2158, in pymssql._mssql.connect
+  File "src/pymssql/_mssql.pyx", line 712, in pymssql._mssql.MSSQLConnection.__init__
+  File "src/pymssql/_mssql.pyx", line 1884, in pymssql._mssql.maybe_raise_MSSQLDatabaseException
+  File "src/pymssql/_mssql.pyx", line 1901, in pymssql._mssql.raise_MSSQLDatabaseException
+pymssql._mssql.MSSQLDatabaseException: (18456, b"Login failed for user 'sa'.DB-Lib error message 20018, severity 14:\nGeneral SQL Server error: Check messages from the SQL Server\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (127.0.0.1)\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (127.0.0.1)\n")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    with util.safe_reraise():
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 673, in __init__
+    self.__connect()
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 899, in __connect
+    with util.safe_reraise():
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/pymssql/_pymssql.pyx", line 659, in pymssql._pymssql.connect
+pymssql.exceptions.OperationalError: (18456, b"Login failed for user 'sa'.DB-Lib error message 20018, severity 14:\nGeneral SQL Server error: Check messages from the SQL Server\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (127.0.0.1)\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (127.0.0.1)\n")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/app.py", line 57, in <module>
+    app = create_app()
+          ^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/app.py", line 35, in create_app
+    init_db(app)
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/infrastructure/databases/__init__.py", line 5, in init_db
+    init_mssql(app)
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/src/infrastructure/databases/mssql.py", line 25, in init_mssql
+    Base.metadata.create_all(bind=engine)
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/sql/schema.py", line 5924, in create_all
+    bind._run_ddl_visitor(
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3251, in _run_ddl_visitor
+    with self.begin() as conn:
+  File "/usr/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3241, in begin
+    with self.connect() as conn:
+         ^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
+    with util.safe_reraise():
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/impl.py", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 673, in __init__
+    self.__connect()
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 899, in __connect
+    with util.safe_reraise():
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/pool/base.py", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/create.py", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/www/wwwroot/newbiemt.id.vn/CNPMPRJ/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/pymssql/_pymssql.pyx", line 659, in pymssql._pymssql.connect
+sqlalchemy.exc.OperationalError: (pymssql.exceptions.OperationalError) (18456, b"Login failed for user 'sa'.DB-Lib error message 20018, severity 14:\nGeneral SQL Server error: Check messages from the SQL Server\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (127.0.0.1)\nDB-Lib error message 20002, severity 9:\nAdaptive Server connection failed (127.0.0.1)\n")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
