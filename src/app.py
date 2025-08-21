@@ -1,8 +1,8 @@
 from flask import Flask, jsonify
 from api.swagger import spec
-from api.controllers.todo_controller import bp as todo_bp
 from api.controllers.user_controller import user_bp
 from api.controllers.carts_controller import cart_bp
+from api.controllers.watch_controler import watch_bp
 from api.middleware import middleware
 from api.responses import success_response
 from infrastructure.databases import init_db
@@ -17,12 +17,20 @@ from flask_cors import CORS
 
 def create_app():
     app = Flask(__name__)
-    CORS(app)
+
+    CORS(app,
+        resources={r"/*": {"origins": "http://localhost:5173"}},
+        supports_credentials=True,
+        allow_headers=["Content-Type", "Authorization"],
+        methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
+
+
+
     Swagger(app)
     # Đăng ký blueprint trước
-    app.register_blueprint(todo_bp)
     app.register_blueprint(user_bp)
     app.register_blueprint(cart_bp)
+    app.register_blueprint(watch_bp)
      # Thêm Swagger UI blueprint
     SWAGGER_URL = '/docs'
     API_URL = '/swagger.json'
@@ -32,7 +40,6 @@ def create_app():
         config={'app_name': "Todo API"}
     )
     app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
-
     init_db(app)
 
     # Register middleware

@@ -16,6 +16,10 @@ class IUserRepository(ABC):
         pass
 
     @abstractmethod
+    def get_by_user_email(self, emai: str) ->Optional[User]:
+        pass
+
+    @abstractmethod
     def list(self) -> List[User]:
         pass
 

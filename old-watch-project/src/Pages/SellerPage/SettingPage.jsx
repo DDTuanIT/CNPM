@@ -1,10 +1,51 @@
-import { Link } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "../Footer/Footer";
+import { UserContext } from "../Context/UserContext";
+import { useContext, useRef } from "react";
+import axios from "axios";
+
 export function SettingPage() {
+  const { user, setUser } = useContext(UserContext);
+  const fullNameRef = useRef(null);
+  const emailRef = useRef(null);
+  const addressRef = useRef(null);
+  const phoneNumberRef = useRef(null);
+
+  const handleSubmitButton = async () => {
+    const fullNameData = fullNameRef.current.value;
+    const emailData = emailRef.current.value;
+    const addressData = addressRef.current.value;
+    const phoneNumberData = phoneNumberRef.current.value;
+
+    const updateUser = {
+      user_id: user.user_id,
+      user_name: user.user_name,
+      full_name: fullNameData,
+      address: addressData,
+      email: emailData,
+      phone_number: phoneNumberData,
+      role_name: user.role_name,
+    };
+    setUser(updateUser);
+    console.log(updateUser);
+    try {
+      const response = await axios.put(
+        "http://localhost:6868/Login",
+        updateUser,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+
+      alert("Sửa thông tin thành công");
+      response;
+    } catch (err) {
+      alert(`ERROR: ${err}`);
+    }
+  };
   return (
     <>
-			<Header />
+      <Header />
       <div id="settings-page">
         <div className="container">
           <div className="page-header">
@@ -53,7 +94,12 @@ export function SettingPage() {
                       <input
                         type="text"
                         className="form-input"
-                        value="Nguyễn Văn An"
+                        defaultValue={
+                          !user.full_name
+                            ? "Vui lòng điền thông tin"
+                            : user.full_name
+                        }
+                        ref={fullNameRef}
                       />
                     </div>
                     <div className="form-group">
@@ -61,7 +107,23 @@ export function SettingPage() {
                       <input
                         type="email"
                         className="form-input"
-                        value="nguyen.van.an@email.com"
+                        defaultValue={
+                          !user.email ? "Vui lòng điền thông tin" : user.email
+                        }
+                        ref={emailRef}
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label>Địa chỉ</label>
+                      <input
+                        type="text"
+                        className="form-input"
+                        defaultValue={
+                          !user.address
+                            ? "Vui lòng điền thông tin"
+                            : user.address
+                        }
+                        ref={addressRef}
                       />
                     </div>
                     <div className="form-group">
@@ -69,10 +131,20 @@ export function SettingPage() {
                       <input
                         type="tel"
                         className="form-input"
-                        value="0901234567"
+                        defaultValue={
+                          !user.phone_number
+                            ? "Vui lòng điền thông tin"
+                            : user.phone_number
+                        }
+                        ref={phoneNumberRef}
                       />
                     </div>
-                    <button className="btn btn-primary">💾 Lưu thay đổi</button>
+                    <button
+                      className="btn btn-primary"
+                      onClick={handleSubmitButton}
+                    >
+                      💾 Lưu thay đổi
+                    </button>
                   </div>
                 </div>
               </div>
@@ -149,7 +221,7 @@ export function SettingPage() {
           </div>
         </div>
       </div>
-			<Footer />
+      <Footer />
     </>
   );
 }

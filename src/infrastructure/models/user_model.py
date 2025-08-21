@@ -9,10 +9,11 @@ class UserModel(Base):
     __table_args__ = {'extend_existing': True}  # Thêm dòng này
 
     user_id = Column(UNIQUEIDENTIFIER, primary_key=True)
-    user_name = Column(String(18), nullable=False)
-    user_password = Column(String(18), nullable=False)
+    user_name = Column(String(18), unique=True,nullable=False)
+    full_name = Column(String(30), nullable=True)
+    user_password = Column(String(30), nullable=False)
     address = Column(String(30), nullable=True)
-    email = Column(String(50), nullable=False)
+    email = Column(String(50), unique=True, nullable=False)
     phone_number = Column(String(10), nullable=True)
     role_name = Column(String(10), nullable=False)
 

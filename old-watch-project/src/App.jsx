@@ -1,51 +1,52 @@
-import { LoginPage } from './Pages/LoginPage/LoginPage'
-import { RegisterPage } from './Pages/LoginPage/RegisterPage';
-import { ForgotPasswordPage } from './Pages/LoginPage/ForgotPasswordPage';
-import { OtpPage } from './Pages/LoginPage/OtpPage';
-import { CreateNewPasswordPage } from './Pages/LoginPage/CreatePasswordPage';
-import { Routes, Route } from 'react-router-dom'
-import './App.css'
-import { HomePage } from './Pages/HomePages/HomePage';
-import { ExplorePage } from './Pages/HomePages/ExplorePage/ExplorePage';
-import { AppraiserHomePage } from './Pages/HomePages/AppraiserHomePage/AppraiserHomePage';
-import { SellerDashBoard } from './Pages/SellerPage/SellerDashBoard';
-import { AddProductPage } from './Pages/SellerPage/AddProductPage';
-import { ProductManagePage } from './Pages/SellerPage/ProductManagePage';
-import { OrderPage } from './Pages/SellerPage/OrderPage';
-import { SettingPage } from './Pages/SellerPage/SettingPage';
+import { LoginPage } from "./Pages/LoginPage/LoginPage";
+import { RegisterPage } from "./Pages/LoginPage/RegisterPage";
+import { ForgotPasswordPage } from "./Pages/LoginPage/ForgotPasswordPage";
+import { OtpPage } from "./Pages/LoginPage/OtpPage";
+import { CreateNewPasswordPage } from "./Pages/LoginPage/CreatePasswordPage";
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import { HomePage } from "./Pages/HomePages/HomePage";
+import { ExplorePage } from "./Pages/HomePages/ExplorePage/ExplorePage";
+import { AppraiserHomePage } from "./Pages/HomePages/AppraiserHomePage/AppraiserHomePage";
+import { SellerDashBoard } from "./Pages/SellerPage/SellerDashBoard";
+import { AddProductPage } from "./Pages/SellerPage/AddProductPage";
+import { ProductManagePage } from "./Pages/SellerPage/ProductManagePage";
+import { OrderPage } from "./Pages/SellerPage/OrderPage";
+import { SettingPage } from "./Pages/SellerPage/SettingPage";
+import { UserProvider } from "./Pages/Context/UserContext";
 
 function App() {
-
-
   return (
-    <Routes>
-      <Route index path="/" element={<HomePage />} />
+    <UserProvider>
+      <Routes>
+        <Route path="/LoginPage" element={<LoginPage />} />
 
-      <Route path="/LoginPage" element={<LoginPage />} />
+        <Route path="/SellerDashBoard" element={<SellerDashBoard />} />
 
-      <Route path="/Register" element={<RegisterPage />} />
+        <Route path="/AddProductPage" element={<AddProductPage />} />
 
-      <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
+        <Route path="/ProductManagePage" element={<ProductManagePage />} />
 
-      <Route path="/SendOtp" element={<OtpPage />} />
+        <Route path="/OrderPage" element={<OrderPage />} />
 
-      <Route path="/CreateNewPassword" element={<CreateNewPasswordPage />} />
+        <Route path="/SettingPage" element={<SettingPage />} />
 
-      <Route path="/ExplorePage" element={<ExplorePage />}/>
+        <Route index path="/" element={<HomePage />} />
 
-      <Route path='/AppraiserHomePage' element={<AppraiserHomePage />}/>
+        <Route path="/Register" element={<RegisterPage />} />
 
-      <Route path='/SellerDashBoard' element={<SellerDashBoard />}/>
+        <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
 
-      <Route path='/AddProductPage' element={<AddProductPage />}/>
+        <Route path="/SendOtp" element={<OtpPage />} />
 
-      <Route path='/ProductManagePage' element={<ProductManagePage />} />
+        <Route path="/CreateNewPassword" element={<CreateNewPasswordPage />} />
 
-      <Route path='/OrderPage' element={<OrderPage />}/>
+        <Route path="/ExplorePage" element={<ExplorePage />} />
 
-      <Route path='/SettingPage' element={<SettingPage />} />
-    </Routes>
+        <Route path="/AppraiserHomePage" element={<AppraiserHomePage />} />
+      </Routes>
+    </UserProvider>
   );
 }
 
-export default App
+export default App;

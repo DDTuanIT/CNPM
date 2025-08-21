@@ -26,7 +26,7 @@ def get_carts(cart_id):
     except Exception as e:
         import traceback
         traceback.print_exc()
-        return jsonify({"error": str(e)}), 400
+        return jsonify({"error": str(e)}), 400 
 
 
 @cart_bp.route("/cart", methods=['POST'])
