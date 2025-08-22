@@ -9,7 +9,7 @@ from infrastructure.repositories.order_items_repository import OrderItemsReposit
 from sqlalchemy.orm import joinedload
 order_bp = Blueprint("order", __name__, url_prefix="/api")
 
-@order_bp.route("/orders", methods=["GET"])
+@order_bp.route("/orders/<uuid:order_id>", methods=["GET"]) 
 def get_orders(order_id):
     try:
         db = get_db_session()

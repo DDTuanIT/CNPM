@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import List, Optional
-from domain.models.order_items import OrderItems
+from domain.models.oder_items import OrderItems
 
 class IOrderItemsRepository(ABC):
     @abstractmethod

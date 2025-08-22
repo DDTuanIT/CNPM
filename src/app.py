@@ -3,6 +3,7 @@ from api.swagger import spec
 from api.controllers.user_controller import user_bp
 from api.controllers.carts_controller import cart_bp
 from api.controllers.watch_controler import watch_bp
+from api.controllers.orders_controller import order_bp
 from api.middleware import middleware
 from api.responses import success_response
 from infrastructure.databases import init_db
@@ -31,6 +32,7 @@ def create_app():
     app.register_blueprint(user_bp)
     app.register_blueprint(cart_bp)
     app.register_blueprint(watch_bp)
+    app.register_blueprint(order_bp)
      # Thêm Swagger UI blueprint
     SWAGGER_URL = '/docs'
     API_URL = '/swagger.json'

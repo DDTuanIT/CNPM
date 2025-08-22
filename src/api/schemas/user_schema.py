@@ -33,4 +33,3 @@ class UserDataSchema(Schema):
     email = fields.Str(required=True)
     phone_number = fields.Str(required=True)
     role_name = fields.Str(required=True)
-

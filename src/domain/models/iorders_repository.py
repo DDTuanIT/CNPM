@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from .orders import Orders
+from domain.models.oders import Orders
 from typing import List, Optional
 
 class IOrdersRepository(ABC):

@@ -16,7 +16,7 @@ class WatchSchema(Schema):
 
 class OrderItemsSchema(Schema):
     id = fields.UUID()
-    watch = fields.Nested(WatchSchema)
+    watch = fields.Nested(WatchSchema) 
     quantity = fields.Integer()
     estimate_delivery_time = fields.DateTime()
 
