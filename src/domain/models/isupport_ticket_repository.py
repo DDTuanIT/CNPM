@@ -8,7 +8,7 @@ class ISupportTicketRepository(ABC):
         pass
 
     @abstractmethod
-    def get_by_id(self, support_ticket_id: int) -> Optional[SupportTicket]:
+    def get_by_id(self, support_ticket_id: str) -> Optional[SupportTicket]:
         pass
 
     @abstractmethod
@@ -20,5 +20,5 @@ class ISupportTicketRepository(ABC):
         pass
 
     @abstractmethod
-    def delete(self, support_ticket_id: int) -> None:
-        pass 
+    def delete(self, support_ticket_id: str) -> None:
+        pass

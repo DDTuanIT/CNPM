@@ -10,7 +10,16 @@ user_bp = Blueprint("user", __name__, url_prefix="/api")
 @user_bp.route("/register", methods=["POST"])
 def register():
     try:
-        data = RegisterSchema().load(request.json)
+        if not request.is_json:
+            return jsonify({"error": "Request must be JSON"}), 415
+            
+        json_data = request.get_json()
+        if not json_data:
+            return jsonify({"error": "No input data provided"}), 400
+            
+        # Validate and deserialize input
+        data = RegisterSchema().load(json_data)
+        
         db = get_db_session()
         user_repo = UserRepository(db)
         service = UserService(user_repo)
@@ -24,7 +33,7 @@ def register():
             data['phone_number'],
             data["role_name"]
         )
-        return jsonify('Register suceessful'), 201
+        return jsonify({"message": "Register successful"}), 201
     except Exception as e:
         import traceback
         traceback.print_exc()
