@@ -30,7 +30,7 @@ export function SettingPage() {
     console.log(updateUser);
     try {
       const response = await axios.put(
-        "http://localhost:6868/Login",
+        "http://localhost:6868/api/Login",
         updateUser,
         {
           headers: { "Content-Type": "application/json" },
