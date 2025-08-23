@@ -18,7 +18,7 @@ class MessageService:
         return self.repository.list()
 
     def update_message(self, message_id: UNIQUEIDENTIFIER, content: str, create_at, sender_id: UNIQUEIDENTIFIER, receiver_id: UNIQUEIDENTIFIER) -> MessageModel:
-        message = MessageModel(message_id=message_id, message_id=message_id, content=content, create_at=create_at, sender_id=sender_id, receiver_id=receiver_id)
+        message = MessageModel(message_id=message_id, content=content, create_at=create_at, sender_id=sender_id, receiver_id=receiver_id)
         return self.repository.update(message)
 
     def delete_message(self, message_id: UNIQUEIDENTIFIER) -> None:
