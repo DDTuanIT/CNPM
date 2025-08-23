@@ -144,6 +144,7 @@ def change_password():
         service.update_user(
             user.user_id,
             user.user_name,
+            user.full_name,
             data["new_password"],
             user.address,
             user.email,

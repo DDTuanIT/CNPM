@@ -14,7 +14,6 @@ class SupportTicketModel(Base):
     response_at = Column(DateTime, nullable=True)
     status = Column(String(50), nullable=False)
     
-    user = relationship('UserModel', back_populates='support_tickets')
 
     def to_domain(self):
         from domain.models.support_ticket import SupportTicket
@@ -26,3 +25,4 @@ class SupportTicketModel(Base):
             response_at=self.response_at,
             status=self.status
         )
+    user_ticket = relationship('UserModel', back_populates='support_tickets')

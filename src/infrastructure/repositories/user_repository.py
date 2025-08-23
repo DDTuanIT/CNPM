@@ -19,59 +19,34 @@ class UserRepository(IUserRepository):
 
     def add(self, user: User) -> User:
         try:
-            model = UserModel(
-                user_id=user.user_id,
-                user_name=user.user_name,
-                user_password=user.user_password,
-                address=user.address,
-                email=user.email,
-                phone_number=user.phone_number,
-                role_name=user.role_name
-            )
-            self.session.add(model)
+            self.session.add(user)
             self.session.commit()
-            self.session.refresh(model)
-            return model.to_domain()
+            self.session.refresh(user)
+            return user
         except Exception as e:
             self.session.rollback()
             raise ValueError(f"Error adding user {e}")
 
     def get_by_id(self, user_id: str) -> Optional[User]:
-        model = self.session.query(UserModel).filter_by(user_id=user_id).first()
-        return model.to_domain() if model else None
+         return self.session.query(UserModel).filter_by(user_id=user_id).first()
 
     def get_by_user_name(self, user_name: str) -> Optional[User]:
-        model = self.session.query(UserModel).filter_by(user_name=user_name).first()
-        return model.to_domain() if model else None
+        return self.session.query(UserModel).filter_by(user_name=user_name).first()
 
     def get_by_user_email(self, email: str) -> Optional[User]:
-        model = self.session.query(UserModel).filter_by(email=email).first()
-        return model.to_domain() if model else None
-
+        return self.session.query(UserModel).filter_by(email=email).first()
+    
     def list(self) -> List[User]:
-        models = self.session.query(UserModel).all()
-        return [model.to_domain() for model in models]
+        return self.session.query(UserModel).all()
 
     def update(self, user: User) -> User:
         try:
-            model = self.session.query(UserModel).filter_by(user_id=user.user_id).first()
-            if not model:
-                raise ValueError("User not found")
-            
-            model.user_name = user.user_name
-            model.user_password = user.user_password
-            model.address = user.address
-            model.email = user.email
-            model.phone_number = user.phone_number
-            model.role_name = user.role_name
-            
+            self.session.merge(user)
             self.session.commit()
-            self.session.refresh(model)
-            return model.to_domain()
+            return user
         except Exception as e:
             self.session.rollback()
             raise ValueError(f"Error updating user: {e}")
-            raise ValueError('user not found')
         finally:
             self.session.close()
 
@@ -80,4 +55,3 @@ class UserRepository(IUserRepository):
         if user:
             self.session.delete(user)
             self.session.commit()
-z

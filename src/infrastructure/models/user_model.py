@@ -20,9 +20,11 @@ class UserModel(Base):
     # to transactionModel
     purchase = relationship('TransactionModel', foreign_keys='TransactionModel.buyer_id', back_populates='buyer')
     sell = relationship('WatchModel', foreign_keys='WatchModel.seller_id', back_populates='seller')
-    support_ticket = relationship('SupportTicketModel', foreign_keys='SupportTicketModel.user_id', back_populates='user_ticket')
+    support_tickets = relationship('SupportTicketModel', foreign_keys='SupportTicketModel.user_id', back_populates='user_ticket')
 
     send = relationship('MessageModel', foreign_keys='MessageModel.sender_id', back_populates='sender')
     receive = relationship('MessageModel', foreign_keys='MessageModel.receiver_id', back_populates='receiver')
 
     carts = relationship('CartsModel', foreign_keys='CartsModel.user_id', back_populates='user_cart')
+
+    orders = relationship('OrdersModel', foreign_keys='OrdersModel.user_id', back_populates='user_order')
