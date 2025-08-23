@@ -4,11 +4,13 @@ from .api.middleware import setup_middleware
 from .api.routes import register_routes
 from .infrastructure.databases import init_db
 from .app_logging import setup_logging
+from api.controllers.feedback_controller import feedback_bp
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
     app.register_blueprint(auth_bp)
+    app.register_blueprint(feedback_bp)
     setup_logging(app)
     init_db(app)
     setup_middleware(app)

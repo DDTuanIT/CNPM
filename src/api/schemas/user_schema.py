@@ -3,6 +3,7 @@ from marshmallow import Schema, fields, validate
 class RegisterSchema(Schema):
     user_id = fields.UUID(required=True)
     user_name = fields.Str(required=True)
+    full_name = fields.Str(required=False, allow_none=True)
     user_password = fields.Str(required=True, validate=validate.Length(min=4))
     address = fields.Str(required=False, allow_none=True)
     email = fields.Email(required=True)
@@ -23,3 +24,12 @@ class Otp_ForgotPassword(Schema):
 class ChangePassword(Schema):
     email = fields.Str(required=True)    
     new_password = fields.Str(required=True, validate=validate.Length(min=4))   
+
+class UserDataSchema(Schema):
+    user_id = fields.UUID(required=True)
+    user_name = fields.Str(required=True)
+    full_name = fields.Str(required=True)
+    address = fields.Str(required=True)
+    email = fields.Str(required=True)
+    phone_number = fields.Str(required=True)
+    role_name = fields.Str(required=True)

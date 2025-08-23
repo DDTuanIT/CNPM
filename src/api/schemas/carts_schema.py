@@ -22,7 +22,7 @@ class CartItemsSchema(Schema):
 class CartsSchema(Schema):
     cart_id = fields.UUID()
     user_id = fields.UUID()
-
+ 
     items = fields.List(fields.Nested(CartItemsSchema))
 
 #post

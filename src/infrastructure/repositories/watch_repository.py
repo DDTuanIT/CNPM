@@ -19,7 +19,7 @@ class WatchRepository(IWatchRepository):
     def add(self, watch: WatchModel) -> WatchModel:
         try:
             self.session.add(watch)
-            self.session.commit()
+            self.session.commit() 
             self.session.refresh(watch)
             return watch
         except Exception as e:
@@ -32,7 +32,7 @@ class WatchRepository(IWatchRepository):
         return self.session.query(WatchModel).filter_by(watch_id=watch_id).first()
 
     def list(self) -> List[WatchModel]:
-        self._watchs = Session.query(WatchModel).all()
+        self._watchs = self.session.query(WatchModel).all()
         return self._watchs
 
     def update(self, watch: WatchModel) -> WatchModel:

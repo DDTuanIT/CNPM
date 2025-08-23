@@ -43,9 +43,10 @@ export function RegisterContainer() {
         {
           user_id: crypto.randomUUID(),
           user_name: userNameData,
+          full_name: "",
           user_password: passwordData,
           address: "",
-          email: emailData,
+          email: emailData, 
           phone_number: "",
           role_name: "buyer",
         },
@@ -55,12 +56,19 @@ export function RegisterContainer() {
           },
         }
       );
-
-      console.log(response.data);
+      response;
       alert("Registration successful!");
       navigate("/");
     } catch (error) {
-      alert(`Registration failed! Please try again with error is ${error}`);
+      if (error.response.status === 404) {
+        alert("UserName had been used");
+      }
+      else if (error.response.status === 403) {
+        alert("Email had been used");
+      }
+      else {
+        alert(`Error: ${error}`);
+      }
     }
   };
   return (

@@ -1,13 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import axios from "axios";
+import { UserContext } from "../Context/UserContext";
 
 export function LoginContainer() {
   const [statePassword, setStatePassword] = useState(false);
-  const userRef = useRef(null); //
-  const passwordRef = useRef(null); //
+  const userRef = useRef(null); 
+  const passwordRef = useRef(null); 
   const navigate = useNavigate();
-
+  //
+  const {user, setUser} = useContext(UserContext);
   const handleCheckboxChange = () => {
     statePassword ? setStatePassword(false) : setStatePassword(true);
   };
@@ -22,7 +24,7 @@ export function LoginContainer() {
       alert("Please fill in all information");
       return;
     }
-
+ 
     try {
       const response = await axios.post(
         "http://localhost:6868/api/login",
@@ -36,12 +38,25 @@ export function LoginContainer() {
           },
         }
       );
-      console.log(response.data);
+      setUser(response.data);
       alert("Login sucessfull");
-      navigate("/");
+      // Chỗ chuyển trang dashboard tùy vào role
+      if (user.role_name === "buyer") {
+        navigate('/SellerDashBoard');
+      }
     } catch (err) {
-      alert(`Login failed with error is ${err}`);
+      if (err.response.status === 404) {
+        alert("Invalid account");
+      }
+      else if (err.response.status === 401){
+         alert("Incorrect Password");
+      }
+      else
+        alert("Error System");
+     
     }
+   
+
   };
   //
 
