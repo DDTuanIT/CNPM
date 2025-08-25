@@ -23,3 +23,5 @@ class AppraisalReportService:
 
     def delete_appraisal_report(self, appraisal_report_id: UNIQUEIDENTIFIER) -> None:
         self.repository.delete(appraisal_report_id) 
+
+
