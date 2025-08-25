@@ -12,7 +12,7 @@ from sqlalchemy.orm import Session
 from infrastructure.models.user_model import UserModel
 from infrastructure.databases.mssql import get_db_session
 
-
+ 
 class UserRepository(IUserRepository):
     def __init__(self, session: Optional[Session] = None):
         self.session = session or get_db_session()

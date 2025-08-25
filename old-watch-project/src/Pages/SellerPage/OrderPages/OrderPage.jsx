@@ -1,5 +1,5 @@
-import { Header } from "./Header";
-import { Footer } from "../Footer/Footer";
+import { Header } from "../Header";
+import { Footer } from "../../Footer/Footer";
 export function OrderPage() {
   return (
     <>

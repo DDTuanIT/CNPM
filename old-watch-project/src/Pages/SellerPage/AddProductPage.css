@@ -746,3 +746,32 @@
   color: white;
   border-color: #8b5a2b;
 }
+
+.drop-area {
+  border: 2px dashed #8B4513;
+  border-radius: 8px;
+  padding-top: 10px;
+  background-color: #fafafa;
+  text-align: center;
+}
+
+.drop-area textarea {
+  width: 90%;
+  height: 120px;
+  border: none;
+  resize: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+}
+textarea {
+  width: 100%;          
+  min-height: 200px;       
+  font-size: 16px;     
+  line-height: 1.5;     
+  box-sizing: border-box;
+  border: 2px dashed #8B4513; 
+  border-radius: 8px;
+  background: #fafafa;
+  resize: vertical;     
+}

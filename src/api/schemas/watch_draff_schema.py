@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields, validate
 
-class watchSchema(Schema):
+class watchDraffSchema(Schema):
     watch_id = fields.UUID(required=True)
     seller_id = fields.UUID(required=True)
     name = fields.Str(required=True)
@@ -12,5 +12,4 @@ class watchSchema(Schema):
     status = fields.Str(required=True)
     image = fields.Str(required=True)
     description = fields.Str(required=True)
-    appraisal_report_id = fields.UUID(required=True)
 

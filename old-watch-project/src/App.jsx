@@ -10,8 +10,8 @@ import { ExplorePage } from "./Pages/HomePages/ExplorePage/ExplorePage";
 import { AppraiserHomePage } from "./Pages/HomePages/AppraiserHomePage/AppraiserHomePage";
 import { SellerDashBoard } from "./Pages/SellerPage/SellerDashBoard";
 import { AddProductPage } from "./Pages/SellerPage/AddProductPage";
-import { ProductManagePage } from "./Pages/SellerPage/ProductManagePage";
-import { OrderPage } from "./Pages/SellerPage/OrderPage";
+import {ProductManagePage} from "./Pages/SellerPage/ProductManagePages/ProductManagePage"
+import {OrderPage} from "./Pages/SellerPage/OrderPages/OrderPage"
 import { SettingPage } from "./Pages/SellerPage/SettingPage";
 import { UserProvider } from "./Pages/Context/UserContext";
 
