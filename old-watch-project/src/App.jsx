@@ -15,6 +15,7 @@ import {OrderPage} from "./Pages/SellerPage/OrderPages/OrderPage"
 import { SettingPage } from "./Pages/SellerPage/SettingPage";
 import { UserProvider } from "./Pages/Context/UserContext";
 import { AdminPage } from "./Pages/AdminPage/AdminPage";
+import { EditProductPage } from "./Pages/SellerPage/ProductManagePages/EditProductPage";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
         <Route path="/AddProductPage" element={<AddProductPage />} />
 
         <Route path="/ProductManagePage" element={<ProductManagePage />} />
+
+        <Route path="/EditProductPage" element={<EditProductPage />}/>
 
         <Route path="/OrderPage" element={<OrderPage />} />
 

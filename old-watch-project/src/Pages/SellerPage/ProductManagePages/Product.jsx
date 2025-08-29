@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export function Product({ productDraff, loadProductDraff }) {
   const handleDeleteButton = async () => {
@@ -31,22 +32,6 @@ export function Product({ productDraff, loadProductDraff }) {
               ? "Chờ duyệt"
               : "Đã ẩn"}
           </div>
-          <div className="product-actions">
-            <button className="action-btn" title="Xem chi tiết">
-              👁️
-            </button>
-            <button
-              className="action-btn"
-              title="Xóa sản phẩm"
-              onClick={handleDeleteButton}
-            >
-              <img
-                className="delete-img"
-                src="../../../../public/delete-icon.png"
-                alt=""
-              />
-            </button>
-          </div>
         </div>
         <div className="product-info">
           <h3 className="product-title">{productDraff.name}</h3>
@@ -54,6 +39,18 @@ export function Product({ productDraff, loadProductDraff }) {
           <div className="product-price">
             {productDraff.price.toLocaleString("vi-VN")} VNĐ
           </div>
+        </div>
+        <div className="relation-button">
+          <Link to="/EditProductPage" state={{productDraff}}>
+            <button className="btn  back-button edit-button">Chỉnh sửa</button>
+          </Link>
+
+          <button
+            className="btn back-button edit-button"
+            onClick={handleDeleteButton}
+          >
+            Xóa
+          </button>
         </div>
       </div>
     </>

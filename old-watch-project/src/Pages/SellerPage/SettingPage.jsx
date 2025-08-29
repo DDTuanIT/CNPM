@@ -52,7 +52,7 @@ export function SettingPage() {
           <div className="page-header">
             <div>
               <Link to="/SellerDashBoard">
-                <button className="btn btn-outline back-button">
+                <button className="btn btns-outline back-button">
                   ← Quay lại Dashboard
                 </button>
               </Link>

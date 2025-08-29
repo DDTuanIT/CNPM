@@ -1,8 +1,8 @@
 .back-button {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 .form-bottom {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /* Product List */
@@ -182,11 +182,11 @@
   padding: 1.5rem;
 }
 .card-add-page {
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    margin-bottom: 15px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin-bottom: 15px;
 }
 .chart-placeholder {
   height: 300px;
@@ -567,6 +567,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-card:hover {
@@ -640,7 +643,7 @@
   height: 32px;
   border: none;
   border-radius: 6px;
- 
+
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -748,7 +751,7 @@
 }
 
 .drop-area {
-  border: 2px dashed #8B4513;
+  border: 2px dashed #8b4513;
   border-radius: 8px;
   padding-top: 10px;
   background-color: #fafafa;
@@ -765,15 +768,15 @@
   font-size: 16px;
 }
 textarea {
-  width: 100%;          
-  min-height: 200px;       
-  font-size: 16px;     
-  line-height: 1.5;     
+  width: 100%;
+  min-height: 200px;
+  font-size: 16px;
+  line-height: 1.5;
   box-sizing: border-box;
-  border: 2px dashed #8B4513; 
+  border: 2px dashed #8b4513;
   border-radius: 8px;
   background: #fafafa;
-  resize: vertical;     
+  resize: vertical;
 }
 .x-button {
   position: absolute;
@@ -798,4 +801,25 @@ textarea {
 }
 .delete-img {
   width: 23px;
+}
+
+.edit-button,
+.delete-button {
+
+  background-color: transparent;
+  color: #8f5924;
+  border-color: #8f5924 !important;
+  margin-right: 10px;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #8f5924;
+  color: white;
+}
+.relation-button {
+  display: flex;
+  margin-left: 20px;
+  margin-bottom: 15px;
+
 }

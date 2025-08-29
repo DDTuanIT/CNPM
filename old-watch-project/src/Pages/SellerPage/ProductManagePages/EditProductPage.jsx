@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import { useRef, useState, useContext } from "react";
-import { UserContext } from "../Context/UserContext";
-import "./AddProductPage.css";
+import { Link, useLocation } from "react-router-dom";
+import { useRef, useState } from "react";
+
+import "../AddProductPage.css";
 import axios from "axios";
 
-export function AddProductPage() {
+export function EditProductPage() {
   const nameRef = useRef(null);
   const brandRef = useRef(null);
   const priceRef = useRef(null);
@@ -16,49 +16,64 @@ export function AddProductPage() {
   const yearRef = useRef(null);
 
   //
-  const { user } = useContext(UserContext);
-  const [image, setImage] = useState(null);
+  const location = useLocation();
+  const { productDraff } = location.state;
+
   const fileName = crypto.randomUUID();
-  const handleSubmitButton = async (event) => {
-    event.preventDefault()
-    const nameData = nameRef.current.value;
-    const brandData = brandRef.current.value;
-    const priceData = priceRef.current.value;
-    const originData = originRef.current.value;
-    const modeldata = modelRef.current.value;
-    const conditionData = conditionRef.current.value;
-    const descriptionData = descriptionRef.current.value;
-    const yearData = yearRef.current.value;
-    if (!nameData || !brandData || !priceData || !originData || !modeldata || !conditionData || !descriptionData || !yearData) {
+  const [image, setImage] = useState(productDraff.image);
+
+  const [stateHide, setStateHide] = useState(false);
+  const handleCheckboxChange = () => {
+    stateHide ? setStateHide(false) : setStateHide(true);
+  };
+  //
+  const handleSaveButton = async (event) => {
+    event.preventDefault();
+    const nameData = nameRef.current.value || productDraff.name;
+    const brandData = brandRef.current.value || productDraff.brand;
+    const priceData = priceRef.current.value || productDraff.price;
+    const originData = originRef.current.value || productDraff.origin;
+    const modeldata = modelRef.current.value || productDraff.model;
+    const conditionData = conditionRef.current.value || productDraff.condition;
+    const descriptionData =
+      descriptionRef.current.value || productDraff.description;
+    const yearData = yearRef.current.value || productDraff.produce_at;
+    const imageData = image || productDraff.image;
+    const stateData = stateHide ? "hided" : "selling";
+    if (
+      !nameData ||
+      !brandData ||
+      !priceData ||
+      !originData ||
+      !modeldata ||
+      !conditionData ||
+      !descriptionData ||
+      !yearData ||
+      !imageData
+    ) {
       alert("Please fill all information");
       return;
     }
-      
     try {
-      const response = await axios.post(
-        "http://localhost:6868/api/watchDraff",
+      const response = await axios.put(
+        `http://localhost:6868/api/watchDraff/${productDraff.watch_id}`,
         {
-          watch_id: fileName,
-          seller_id: user.user_id,
           name: nameData,
           brand: brandData,
           price: priceData,
           origin: originData,
           model: modeldata,
           produce_at: yearData,
-          status: "pending",
-          image: image,
+          status: stateData,
+          image: imageData,
           description: descriptionData,
           condition: conditionData,
-        },
-        {
-          headers: { "Content-Type": "application/json" },
         }
       );
-      alert("Thêm sản phẩm thành công");
+      alert("Chỉnh sửa thông tin thành công");
       response;
-    } catch (err) {
-      if (err.target.value == 400) alert("Thêm sản phẩm thất bại");
+    } catch (e) {
+      alert(`ERROR: ${e}`);
     }
   };
   const handleXButton = () => {
@@ -89,13 +104,15 @@ export function AddProductPage() {
         <div className="container">
           <div className="page-header">
             <div>
-              <Link to="/SellerDashBoard">
+              <Link to="/ProductManagePage">
                 <button className="btn btns-outline back-button">
                   ← Quay lại Dashboard
                 </button>
               </Link>
 
-              <h1 className="page-title">Thêm sản phẩm mới</h1>
+              <h1 className="page-title">
+                Chỉnh sửa thông tin sản phẩm đăng bán
+              </h1>
               <p className="page-subtitle">
                 Đăng sản phẩm đồng hồ vintage của bạn
               </p>
@@ -115,6 +132,7 @@ export function AddProductPage() {
                     type="text"
                     className="form-input"
                     required
+                    placeholder={productDraff.name}
                   />
                 </div>
                 <div className="form-group">
@@ -124,6 +142,7 @@ export function AddProductPage() {
                     type="text"
                     className="form-input"
                     required
+                    placeholder={productDraff.brand}
                   />
                 </div>
                 <div className="form-group">
@@ -132,7 +151,7 @@ export function AddProductPage() {
                     ref={priceRef}
                     type="number"
                     className="form-input"
-                    placeholder="VNĐ"
+                    placeholder={productDraff.price.toLocaleString("vi-VN")}
                     required
                   />
                 </div>
@@ -143,6 +162,7 @@ export function AddProductPage() {
                     type="text"
                     className="form-input"
                     required
+                    placeholder={productDraff.origin}
                   />
                 </div>
                 <div className="form-group">
@@ -152,6 +172,7 @@ export function AddProductPage() {
                     type="text"
                     className="form-input"
                     required
+                    placeholder={productDraff.model}
                   />
                 </div>
                 <div className="form-group">
@@ -161,6 +182,7 @@ export function AddProductPage() {
                     type="text"
                     className="form-input"
                     required
+                    placeholder={productDraff.condition}
                   />
                 </div>
                 <div className="form-group">
@@ -172,7 +194,19 @@ export function AddProductPage() {
                     type="date"
                     className="form-input"
                     required
+                    defaultValue={productDraff.produce_at}
                   />
+                </div>
+                <div className="form-group">
+                  <div className="form-options">
+                    <div className="form-label">Ẩn sản phẩm</div>
+                    <input
+                      className="checkbox"
+                      type="checkbox"
+                      checked={stateHide}
+                      onChange={handleCheckboxChange}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -187,14 +221,13 @@ export function AddProductPage() {
                     <textarea
                       ref={descriptionRef}
                       id="description"
-                      placeholder="Nhập mô tả ở đây..."
+                      placeholder={productDraff.description}
                     ></textarea>
                   </div>
                 </div>
                 <div className="image-preview"></div>
               </div>
             </div>
-
             <div className="card">
               <div className="card-header">
                 <h3 className="card-title">Hình ảnh sản phẩm</h3>
@@ -204,7 +237,11 @@ export function AddProductPage() {
                   {image ? (
                     <div className="image-preview">
                       <img src={image} alt="" />
-                      <button className="x-button" onClick={handleXButton}>
+                      <button
+                        type="button"
+                        className="x-button"
+                        onClick={handleXButton}
+                      >
                         X
                       </button>
                     </div>
@@ -228,18 +265,17 @@ export function AddProductPage() {
                 </div>
               </div>
             </div>
-
             <div className="form-actions form-bottom">
-              <Link to="/SellerDashBoard" className="btn btns-outline">
+              <Link to="/ProductManagePage" className="btn btns-outline">
                 <button type="button">Hủy</button>
               </Link>
 
               <button
                 type="submit"
-                className="btn btn-success btns-outline"
-                onClick={handleSubmitButton}
+                className="btn btns-success btns-outline"
+                onClick={handleSaveButton}
               >
-                📝 Đăng sản phẩm
+                Lưu
               </button>
             </div>
           </form>

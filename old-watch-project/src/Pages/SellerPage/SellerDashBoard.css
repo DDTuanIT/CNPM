@@ -27,15 +27,16 @@
     border-color: #6b4423;
 }
 
-.btn-outline {
+.btns-outline {
     background-color: transparent;
     color: #8f5924;
     border-color: #8f5924;
 }
 
-.btn-outline:hover {
+.btns-outline:hover {
     background-color: #8f5924;
     color: white;
+
 }
 
 .btn-ghost {

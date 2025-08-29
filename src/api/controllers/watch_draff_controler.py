@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from infrastructure.databases.mssql import get_db_session 
 from infrastructure.repositories.watch_draff_repository import WatchDraffRepository
 from services.watch_draff_service import WatchDraffService
-from api.schemas.watch_draff_schema import watchDraffSchema
+from api.schemas.watch_draff_schema import watchDraffSchema, UpdateWatchDraffSchema
 from infrastructure.models.watch_model import WatchModel
 
 watch_draff_bp = Blueprint("watch_draff", __name__, url_prefix="/api")
@@ -61,3 +61,32 @@ def deleteWatch(watch_id):
         import traceback
         traceback.print_exc()
         return jsonify({"error": str(e)}), 400
+    
+@watch_draff_bp.route("/watchDraff/<uuid:watch_id>", methods=['PUT'])
+def updateWatch(watch_id):
+    try:
+        data = UpdateWatchDraffSchema().load(request.json)
+        db = get_db_session()
+        watch_repo = WatchDraffRepository(db)
+        service = WatchDraffService(watch_repo)
+        watch = service.get_watch(watch_id)
+        service.update_watch(
+            watch.watch_id,
+            watch.seller_id,
+            data['name'],
+            data['brand'],
+            data['price'],
+            data['origin'],
+            data['model'],
+            data['produce_at'],
+            data['status'],
+            data['image'],
+            data['description'],
+            data['condition']
+        )
+        return jsonify({"sucess": True, "message": "updated successfully"})
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 400
+    

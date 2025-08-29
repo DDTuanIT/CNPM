@@ -17,9 +17,9 @@ class WatchDraffService:
     def list_watchs(self) -> List[WatchDraffModel]:
         return self.repository.list()
 
-    def update_watch(self, watch_id: UNIQUEIDENTIFIER, seller_id: UNIQUEIDENTIFIER, name: str, brand: str, price: float, origin: str, model: str, produce_at , status: str, image: str, description: str, condition: str) -> WatchDraffModel:
-        watchDraff = WatchDraffModel(watch_id=watch_id, seller_id=seller_id, name=name, brand=brand, price=price, origin=origin, model=model, produce_at=produce_at, status=status, image=image, description=description, condition=condition)
+    def update_watch(self,watch_id: UNIQUEIDENTIFIER, seller_id: UNIQUEIDENTIFIER,name: str, brand: str, price: float, origin: str, model: str, produce_at , status: str, image: str, description: str, condition: str) -> WatchDraffModel:
+        watchDraff = WatchDraffModel(watch_id=watch_id, seller_id=seller_id,name=name, brand=brand, price=price, origin=origin, model=model, produce_at=produce_at, status=status, image=image, description=description, condition=condition)
         return self.repository.update(watchDraff)
 
     def delete_watch(self, watch_id: UNIQUEIDENTIFIER) -> None:
-        self.repository.delete(watch_id) 
+        self.repository.delete(watch_id)  
