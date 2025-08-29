@@ -31,7 +31,11 @@ export function TabContainer() {
                   </button>
                 </Link>
 
-                <Link to="/ProductManagePage" className="quick-action-btn">
+                <Link
+                  to="/ProductManagePage"
+                  className="quick-action-btn"
+            
+                >
                   <button>
                     <span className="action-icon">✏️</span>
                     <span className="action-text">Quản lý sản phẩm</span>

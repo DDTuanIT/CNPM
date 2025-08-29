@@ -3,14 +3,14 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { checkBlankInput } from "../../Utils/checkBlankInput";
 import axios from "axios";
-
+//import spinner from "../../assets/loading-spinner.gif";
 export function RegisterContainer() {
   const userNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
   const navigate = useNavigate();
-
+  //const [present, setPresent] = useState(false);
   //
 
   const handleSubmitButton = async (event) => {
@@ -38,6 +38,7 @@ export function RegisterContainer() {
     }
 
     try {
+      //await setPresent(true);
       const response = await axios.post(
         "http://localhost:6868/api/register",
         {
@@ -46,7 +47,7 @@ export function RegisterContainer() {
           full_name: "",
           user_password: passwordData,
           address: "",
-          email: emailData, 
+          email: emailData,
           phone_number: "",
           role_name: "buyer",
         },
@@ -57,65 +58,73 @@ export function RegisterContainer() {
         }
       );
       response;
-      alert("Registration successful!");
-      navigate("/");
+      alert("Registered successfully");
+      //setPresent(false)
+      navigate("/LoginPage");
     } catch (error) {
       if (error.response.status === 404) {
         alert("UserName had been used");
-      }
-      else if (error.response.status === 403) {
+      } else if (error.response.status === 403) {
         alert("Email had been used");
-      }
-      else {
+      } else {
         alert(`Error: ${error}`);
       }
     }
   };
   return (
-    <div className="login-container">
-      <h1 className="title">Register an account</h1>
-      <p className="subtitle">Fill in information</p>
+    <>
+      {/* {present && (
+        <div className="notifi">
+          <img className="spinner" src={spinner} alt="" />
+          <div>please wait ...</div>
+        </div>
+      )} */}
 
-      <div className="toggle-buttons">
-        <Link to="/LoginPage" className="active">
-          <button className="active">Sign In</button>
-        </Link>
-        <button className="inactive">Sign Up</button>
-      </div>
+      <div className="login-container">
+        <h1 className="title">Register an account</h1>
+        <p className="subtitle">Fill in information</p>
 
-      <form className="login-form" onSubmit={handleSubmitButton}>
-        <label>User Name</label>
-        <input
-          ref={userNameRef}
-          type="text"
-          placeholder="Enter your user name"
-        />
-
-        <label>Email Address</label>
-        <input ref={emailRef} type="email" placeholder="Enter your email" />
-
-        <label>Password</label>
-        <input
-          ref={passwordRef}
-          type="password"
-          placeholder="Enter your password"
-        />
-
-        <label>Confirm Password</label>
-        <input
-          ref={confirmPasswordRef}
-          type="password"
-          placeholder="Enter password to confirm"
-        />
-
-        <div className="form-options">
-          <Link to="/LoginPage">Already have an account? Log in now</Link>
+        <div className="toggle-buttons">
+          <Link to="/LoginPage" className="active">
+            <button className="active">Sign In</button>
+          </Link>
+          <button className="inactive">Sign Up</button>
         </div>
 
-        <button type="submit" className="submit-button">
-          Sign Up
-        </button>
-      </form>
-    </div>
+        <form className="login-form" onSubmit={handleSubmitButton}>
+          <label>User Name</label>
+          <input
+            ref={userNameRef}
+            type="text"
+            placeholder="Enter your user name"
+          />
+
+          <label>Email Address</label>
+          <input ref={emailRef} type="email" placeholder="Enter your email" />
+
+          <label>Password</label>
+          <input
+            ref={passwordRef}
+            type="password"
+            placeholder="Enter your password"
+          />
+
+          <label>Confirm Password</label>
+          <input
+            ref={confirmPasswordRef}
+            type="password"
+            placeholder="Enter password to confirm"
+          />
+
+          <div className="form-options">
+            <Link to="/LoginPage">Already have an account? Log in now</Link>
+          </div>
+
+          <button type="submit" className="submit-button">
+            Sign Up
+          </button>
+        </form>
+      </div>
+    </>
   );
 }

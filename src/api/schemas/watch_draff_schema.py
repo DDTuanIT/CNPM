@@ -12,4 +12,5 @@ class watchDraffSchema(Schema):
     status = fields.Str(required=True)
     image = fields.Str(required=True)
     description = fields.Str(required=True)
+    condition = fields.Str(required=True)
 

@@ -12,5 +12,6 @@ class watchSchema(Schema):
     status = fields.Str(required=True)
     image = fields.Str(required=True)
     description = fields.Str(required=True)
+    condition = fields.Str(required=True)
     appraisal_report_id = fields.UUID(required=True)
 

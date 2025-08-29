@@ -18,7 +18,7 @@ class WatchDraffModel(Base):
     model = Column(String(50), nullable=True)
     produce_at = Column(DateTime)
     status = Column(String(10), nullable=False)
-    image = Column(String(50), nullable=False)
+    image = Column(String(500), nullable=False)
     description = Column(TEXT, nullable=True)
-
+    condition = Column(String(100), nullable=False)
     reportWatchDraff = relationship('AppraisalReportModel', foreign_keys='AppraisalReportModel.watch_id', back_populates='watchDraff')

@@ -640,7 +640,7 @@
   height: 32px;
   border: none;
   border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.9);
+ 
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -774,4 +774,28 @@ textarea {
   border-radius: 8px;
   background: #fafafa;
   resize: vertical;     
+}
+.x-button {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: -11px;
+  left: 159px;
+  color: red;
+  border: none;
+  border-radius: 50%;
+}
+.image-preview {
+  position: relative;
+}
+.uploading-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-success {
+  border-color: #8f5924;
+}
+.delete-img {
+  width: 23px;
 }

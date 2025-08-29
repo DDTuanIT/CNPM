@@ -1,28 +1,59 @@
-export function Product() {
+import axios from "axios";
+
+export function Product({ productDraff, loadProductDraff }) {
+  const handleDeleteButton = async () => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:6868/api/watchDraff/${productDraff.watch_id}`
+      );
+      alert("Xóa thành công");
+      loadProductDraff();
+      response;
+    } catch (e) {
+      alert(`ERROR: ${e}`);
+    }
+  };
   return (
     <>
       <div className="product-card">
         <div className="product-image-container">
           <img
-            src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=300&h=200&fit=crop"
+            src={productDraff.image}
             alt="Patek Philippe"
             className="product-image"
           />
-          <div className="product-status status-sold">Đã bán</div>
+          <div className="product-status status-sold">
+            {productDraff.status === "sold"
+              ? "đã bán"
+              : productDraff.status === "selling"
+              ? "đang bán"
+              : productDraff.status === "pending"
+              ? "Chờ duyệt"
+              : "Đã ẩn"}
+          </div>
           <div className="product-actions">
             <button className="action-btn" title="Xem chi tiết">
               👁️
             </button>
-            <button className="action-btn" title="Đăng lại">
-              🔄
+            <button
+              className="action-btn"
+              title="Xóa sản phẩm"
+              onClick={handleDeleteButton}
+            >
+              <img
+                className="delete-img"
+                src="../../../../public/delete-icon.png"
+                alt=""
+              />
             </button>
           </div>
         </div>
         <div className="product-info">
-          <h3 className="product-title">Patek Philippe Calatrava</h3>
-          <p className="product-brand">Patek Philippe</p>
-          <div className="product-price">180,000,000 VNĐ</div>
-          <div className="product-date">Bán 3 ngày trước</div>
+          <h3 className="product-title">{productDraff.name}</h3>
+          <p className="product-brand">{productDraff.brand}</p>
+          <div className="product-price">
+            {productDraff.price.toLocaleString("vi-VN")} VNĐ
+          </div>
         </div>
       </div>
     </>

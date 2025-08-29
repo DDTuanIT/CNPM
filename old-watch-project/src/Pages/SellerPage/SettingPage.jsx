@@ -2,6 +2,7 @@ import { Header } from "./Header";
 import { Footer } from "../Footer/Footer";
 import { UserContext } from "../Context/UserContext";
 import { useContext, useRef } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 export function SettingPage() {
@@ -50,6 +51,11 @@ export function SettingPage() {
         <div className="container">
           <div className="page-header">
             <div>
+              <Link to="/SellerDashBoard">
+                <button className="btn btn-outline back-button">
+                  ← Quay lại Dashboard
+                </button>
+              </Link>
               <h1 className="page-title">Cài đặt tài khoản</h1>
               <p className="page-subtitle">
                 Quản lý thông tin và tùy chọn tài khoản của bạn
@@ -64,18 +70,6 @@ export function SettingPage() {
                 data-settings-tab="profile"
               >
                 👤 Hồ sơ
-              </button>
-              <button className="settings-tab-btn" data-settings-tab="store">
-                🏪 Cửa hàng
-              </button>
-              <button
-                className="settings-tab-btn"
-                data-settings-tab="notifications"
-              >
-                🔔 Thông báo
-              </button>
-              <button className="settings-tab-btn" data-settings-tab="payment">
-                💳 Thanh toán
               </button>
             </div>
 
@@ -145,6 +139,9 @@ export function SettingPage() {
                     >
                       💾 Lưu thay đổi
                     </button>
+                    <Link to="/LoginPage">
+                      <button className="btn btn-primary">Đăng xuất</button>
+                    </Link>
                   </div>
                 </div>
               </div>

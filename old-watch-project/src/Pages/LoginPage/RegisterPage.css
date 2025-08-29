@@ -76,3 +76,23 @@
   color: #7a5c4d;
   text-decoration: none;
 }
+.notifi {
+  background-color: #8f5924;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 70px;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+}
+.spinner {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}

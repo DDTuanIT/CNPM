@@ -39,9 +39,24 @@ def postWatch():
             data['produce_at'],
             data['status'],
             data['image'],
-            data['description']
+            data['description'],
+            data['condition']
         )
         return jsonify({"sucess": True, "message": "Add watch sucessful"}), 200
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 400
+
+@watch_draff_bp.route("/watchDraff/<uuid:watch_id>", methods=["DELETE"])
+def deleteWatch(watch_id):
+    try:
+        db = get_db_session()
+        watch_repo = WatchDraffRepository(db)
+        service = WatchDraffService(watch_repo)
+
+        service.delete_watch(watch_id)
+        return jsonify({"sucess": True, "message": "deleted successfully"}), 200
     except Exception as e:
         import traceback
         traceback.print_exc()

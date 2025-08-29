@@ -2,7 +2,7 @@ from sqlalchemy import Column, Integer, String, DateTime, Boolean, Float
 from infrastructure.databases.base import Base
 
 class WatchDraff:
-    def __init__(self, watch_id: int, seller_id: int, name: str, brand: str, price: float, origin: str, model: str, produce_at, status: str, image: str, description: str):
+    def __init__(self, watch_id: int, seller_id: int, name: str, brand: str, price: float, origin: str, model: str, produce_at, status: str, image: str, description: str, condition: str):
         self.watch_id = watch_id
         self.seller_id = seller_id
         self.name = name
@@ -14,3 +14,4 @@ class WatchDraff:
         self.status = status
         self.image = image
         self.description = description
+        self.condition = condition

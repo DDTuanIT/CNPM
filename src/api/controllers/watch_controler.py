@@ -40,6 +40,7 @@ def postWatch():
             data['status'],
             data['image'],
             data['description'],
+            data['condition'],
             data['appraisal_report_id']
         )
         return jsonify({"sucess": True, "message": "Add watch sucessful"}), 200
