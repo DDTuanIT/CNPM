@@ -32,7 +32,7 @@ class MessageRepository(IMessageRepository):
         return self.session.query(MessageModel).filter_by(message_id=message_id).first()
 
     def list(self) -> List[MessageModel]:
-        self._messages = Session.query(MessageModel).all()
+        self._messages = self.session.query(MessageModel).all()
         return self._messages
 
     def update(self, message: MessageModel) -> MessageModel:
@@ -43,8 +43,8 @@ class MessageRepository(IMessageRepository):
         except Exception:
             self.session.rollback()
             raise ValueError('message not found')
-        finally:
-            self.session.close()
+        #finally:
+            #self.session.close()
 
     def delete(self, message_id: int) -> None:
         message = self.get_by_id(message_id)

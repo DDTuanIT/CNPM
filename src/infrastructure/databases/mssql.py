@@ -27,3 +27,4 @@ def init_mssql(app):
 
 def get_db_session():
     return SessionLocal()
+session = SessionLocal()

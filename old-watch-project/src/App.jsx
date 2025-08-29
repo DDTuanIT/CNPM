@@ -14,6 +14,7 @@ import {ProductManagePage} from "./Pages/SellerPage/ProductManagePages/ProductMa
 import {OrderPage} from "./Pages/SellerPage/OrderPages/OrderPage"
 import { SettingPage } from "./Pages/SellerPage/SettingPage";
 import { UserProvider } from "./Pages/Context/UserContext";
+import { AdminPage } from "./Pages/AdminPage/AdminPage";
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
         <Route path="/ExplorePage" element={<ExplorePage />} />
 
         <Route path="/AppraiserHomePage" element={<AppraiserHomePage />} />
+        
+        <Route path="/AdminPage" element={<AdminPage />} />
+        
       </Routes>
     </UserProvider>
   );

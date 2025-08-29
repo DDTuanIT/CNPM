@@ -1,0 +1,28 @@
+.admin-container {
+  padding: 2rem;
+}
+
+.admin-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.admin-tabs button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 500;
+  color: #555;
+}
+
+.admin-tabs button.active {
+  border-bottom: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.admin-content {
+  margin-top: 1rem;
+}
