@@ -16,6 +16,7 @@ import { SettingPage } from "./Pages/SellerPage/SettingPage";
 import { UserProvider } from "./Pages/Context/UserContext";
 import { AdminPage } from "./Pages/AdminPage/AdminPage";
 import { EditProductPage } from "./Pages/SellerPage/ProductManagePages/EditProductPage";
+import {AppraisalReport} from "./Pages/SellerPage/AppraisalReportPage/AppraisalReport";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
         <Route path="/ProductManagePage" element={<ProductManagePage />} />
 
         <Route path="/EditProductPage" element={<EditProductPage />}/>
+
+        <Route path="/AppraisalReport" element={<AppraisalReport />}/>
 
         <Route path="/OrderPage" element={<OrderPage />} />
 

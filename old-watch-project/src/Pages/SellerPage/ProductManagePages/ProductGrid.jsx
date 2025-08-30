@@ -16,7 +16,7 @@ export function ProductGrid({ tab, productDraffs, loadProductDraff }) {
           return (
             <Product key={productDraff.watch_id} productDraff={productDraff} />
           );
-        } else if (tab === 4 && productDraff.status === "hided") {
+        } else if (tab === 4 && productDraff.status === "hidden") {
           return (
             <Product key={productDraff.watch_id} productDraff={productDraff} />
           );

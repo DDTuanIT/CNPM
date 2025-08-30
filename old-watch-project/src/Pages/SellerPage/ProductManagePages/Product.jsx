@@ -1,7 +1,11 @@
 import axios from "axios";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { AppraisalReport } from "../AppraisalReportPage/AppraisalReport";
+import spinner from "../../../assets/loading-spinner.gif"
+import "../AppraisalReportPage/AppraisalReport.css";
 export function Product({ productDraff, loadProductDraff }) {
+  const [showcard, setShowCart] = useState(false);
   const handleDeleteButton = async () => {
     try {
       const response = await axios.delete(
@@ -14,23 +18,35 @@ export function Product({ productDraff, loadProductDraff }) {
       alert(`ERROR: ${e}`);
     }
   };
+
   return (
     <>
       <div className="product-card">
         <div className="product-image-container">
-          <img
+          {productDraff.image ? <img
             src={productDraff.image}
             alt="Patek Philippe"
             className="product-image"
-          />
-          <div className="product-status status-sold">
+          /> : (<img className="spinner" src={spinner}></img>)}
+          
+          <div
+            className={`product-status ${
+              productDraff.status === "sold"
+                ? "status-hidden"
+                : productDraff.status === "selling"
+                ? "status-active"
+                : productDraff.status === "pending"
+                ? "status-pending"
+                : "status-sold"
+            }`}
+          >
             {productDraff.status === "sold"
-              ? "đã bán"
+              ? "🛑 Đã bán"
               : productDraff.status === "selling"
-              ? "đang bán"
+              ? "🟢 Đang bán"
               : productDraff.status === "pending"
-              ? "Chờ duyệt"
-              : "Đã ẩn"}
+              ? "⏳ Chờ thẩm định"
+              : "🌑 Đã ẩn"}
           </div>
         </div>
         <div className="product-info">
@@ -41,9 +57,16 @@ export function Product({ productDraff, loadProductDraff }) {
           </div>
         </div>
         <div className="relation-button">
-          <Link to="/EditProductPage" state={{productDraff}}>
+          <Link to="/EditProductPage" state={{ productDraff }}>
             <button className="btn  back-button edit-button">Chỉnh sửa</button>
           </Link>
+
+          <button
+            className="btn  back-button edit-button"
+            onClick={() => setShowCart(true)}
+          >
+            Xem thẩm định
+          </button>
 
           <button
             className="btn back-button edit-button"
@@ -53,6 +76,19 @@ export function Product({ productDraff, loadProductDraff }) {
           </button>
         </div>
       </div>
+      {showcard && (
+        <div className="modal-overlay">
+          <section className="card" style={{ marginTop: "20px" }}>
+            <button
+              className="cancel-button"
+              onClick={() => setShowCart(false)}
+            >
+              x
+            </button>
+            <AppraisalReport productDraff={productDraff} />
+          </section>
+        </div>
+      )}
     </>
   );
 }
