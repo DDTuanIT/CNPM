@@ -17,6 +17,12 @@ import { UserProvider } from "./Pages/Context/UserContext";
 import { AdminPage } from "./Pages/AdminPage/AdminPage";
 import { EditProductPage } from "./Pages/SellerPage/ProductManagePages/EditProductPage";
 import {AppraisalReport} from "./Pages/SellerPage/AppraisalReportPage/AppraisalReport";
+import { BuyerDashBoard } from "./Pages/BuyerPage/BuyerDashBoard";
+import { BuyerProductsPage } from "./Pages/BuyerPage/BuyerProductsPage";
+import { BuyerWishlistPage } from "./Pages/BuyerPage/BuyerWishlistPage";
+import { BuyerCartPage } from "./Pages/BuyerPage/BuyerCartPage";
+import { BuyerCheckoutPage } from "./Pages/BuyerPage/BuyerCheckoutPage";
+import { BuyerSettingPage } from "./Pages/BuyerPage/BuyerSettingPage";
 
 function App() {
   return (
@@ -53,6 +59,19 @@ function App() {
         <Route path="/AppraiserHomePage" element={<AppraiserHomePage />} />
         
         <Route path="/AdminPage" element={<AdminPage />} />
+
+        <Route path="/BuyerDashBoard" element={<BuyerDashBoard />} />
+
+        <Route path="/BuyerProducts" element={<BuyerProductsPage />} />
+
+        <Route path="/BuyerWishlist" element={<BuyerWishlistPage />} />
+
+        <Route path="/BuyerCart" element={<BuyerCartPage />} />
+
+        <Route path="/BuyerCheckout" element={<BuyerCheckoutPage />} />
+
+        <Route path="/BuyerSetting" element={<BuyerSettingPage />} />
+
         
       </Routes>
     </UserProvider>
