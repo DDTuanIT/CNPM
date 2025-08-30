@@ -1,0 +1,29 @@
+.tab-container {
+  margin-top: 2rem;
+}
+
+.tab-nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: #f4f4f4;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.tab-btn button:hover {
+  background: #e0e0e0;
+}
+
+.tab-content {
+  margin-top: 2rem;
+  font-size: 15px;
+  color: #555;
+}
