@@ -52,10 +52,6 @@
   transition: color 0.2s;
 }
 
-<<<<<<< HEAD
-.nav-link:hover {
-  color: #8f5924;
-=======
 .buyer-nav a:hover {
   color: #000;
 }
@@ -101,5 +97,4 @@
 
 .btn-primary:hover {
   background: #0056b3;
->>>>>>> b05d707f2217cf1719545fcddc20d43236bed15c
 }
