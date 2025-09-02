@@ -23,6 +23,8 @@ import { BuyerWishlistPage } from "./Pages/BuyerPage/BuyerWishlistPage";
 import { BuyerCartPage } from "./Pages/BuyerPage/BuyerCartPage";
 import { BuyerCheckoutPage } from "./Pages/BuyerPage/BuyerCheckoutPage";
 import { BuyerSettingPage } from "./Pages/BuyerPage/BuyerSettingPage";
+import { BuyerOrdersPage } from "./Pages/BuyerPage/BuyerOrdersPage";
+
 
 function App() {
   return (
@@ -72,7 +74,8 @@ function App() {
 
         <Route path="/BuyerSetting" element={<BuyerSettingPage />} />
 
-        
+        <Route path="/BuyerOrders" element={<BuyerOrdersPage />} />
+      
       </Routes>
     </UserProvider>
   );

@@ -5,25 +5,13 @@ export function BuyerCheckoutPage() {
   return (
     <>
       <BuyerHeader />
-      <div className="container">
-        <div className="page-header">
+      <main className="main">
+        <div className="container">
           <h1 className="page-title">Thanh toán</h1>
+          <p className="page-subtitle">Xác nhận và hoàn tất đơn hàng của bạn.</p>
+          {/* TODO: form thanh toán */}
         </div>
-
-        <form className="checkout-form">
-          <label>Địa chỉ giao hàng</label>
-          <input type="text" placeholder="Nhập địa chỉ..." />
-
-          <label>Phương thức thanh toán</label>
-          <select>
-            <option>Ví Escrow</option>
-            <option>Thẻ tín dụng</option>
-            <option>Chuyển khoản</option>
-          </select>
-
-          <button className="btn btn-primary">Xác nhận thanh toán</button>
-        </form>
-      </div>
+      </main>
       <Footer />
     </>
   );
