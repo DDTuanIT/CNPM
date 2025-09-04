@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Header } from "../Header/Header";
-import { Footer } from "../Footer/Footer";
 import { Dashboard } from "./Dashboard";
 import { UserManagement } from "./UserManagement";
 import { Disputes } from "./Disputes";
@@ -29,45 +27,41 @@ export function AdminPage() {
   };
 
   return (
-    <>
-      <Header />
-      <main className="admin-container">
-        <div className="admin-tabs">
-          <button
-            className={activeTab === "dashboard" ? "active" : ""}
-            onClick={() => setActiveTab("dashboard")}
-          >
-            Tổng quan
-          </button>
-          <button
-            className={activeTab === "users" ? "active" : ""}
-            onClick={() => setActiveTab("users")}
-          >
-            Quản lý người dùng
-          </button>
-          <button
-            className={activeTab === "disputes" ? "active" : ""}
-            onClick={() => setActiveTab("disputes")}
-          >
-            Giám sát giao dịch
-          </button>
-          <button
-            className={activeTab === "security" ? "active" : ""}
-            onClick={() => setActiveTab("security")}
-          >
-            Bảo mật
-          </button>
-          <button
-            className={activeTab === "system" ? "active" : ""}
-            onClick={() => setActiveTab("system")}
-          >
-            Hệ thống
-          </button>
-        </div>
+    <main className="admin-container">
+      <div className="admin-tabs">
+        <button
+          className={activeTab === "dashboard" ? "active" : ""}
+          onClick={() => setActiveTab("dashboard")}
+        >
+          Tổng quan
+        </button>
+        <button
+          className={activeTab === "users" ? "active" : ""}
+          onClick={() => setActiveTab("users")}
+        >
+          Quản lý người dùng
+        </button>
+        <button
+          className={activeTab === "disputes" ? "active" : ""}
+          onClick={() => setActiveTab("disputes")}
+        >
+          Giám sát giao dịch
+        </button>
+        <button
+          className={activeTab === "security" ? "active" : ""}
+          onClick={() => setActiveTab("security")}
+        >
+          Bảo mật
+        </button>
+        <button
+          className={activeTab === "system" ? "active" : ""}
+          onClick={() => setActiveTab("system")}
+        >
+          Hệ thống
+        </button>
+      </div>
 
-        <div className="admin-content">{renderContent()}</div>
-      </main>
-      <Footer />
-    </>
+      <div className="admin-content">{renderContent()}</div>
+    </main>
   );
 }

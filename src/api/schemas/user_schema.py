@@ -33,3 +33,12 @@ class UserDataSchema(Schema):
     email = fields.Str(required=True)
     phone_number = fields.Str(required=True)
     role_name = fields.Str(required=True)
+    
+class UserUpdateSchema(Schema):
+    user_name = fields.Str(required=False)
+    full_name = fields.Str(required=False)
+    user_password = fields.Str(required=False, validate=validate.Length(min=4))
+    address = fields.Str(required=False)
+    email = fields.Email(required=False)
+    phone_number = fields.Str(required=False)
+    role_name = fields.Str(required=False)
