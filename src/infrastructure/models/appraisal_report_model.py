@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Float, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, Float, ForeignKey, TEXT
 from sqlalchemy.dialects.mssql import UNIQUEIDENTIFIER
 from sqlalchemy.orm import relationship
 from infrastructure.databases.base import Base
@@ -12,7 +12,7 @@ class AppraisalReportModel(Base):
     appraiser_id = Column(UNIQUEIDENTIFIER, nullable=False)
     estimate_value = Column(Float, nullable=False)
     create_at = Column(DateTime)   
-    description = Column(String(250), nullable=False)
+    description = Column(TEXT, nullable=False)
 
     watch = relationship('WatchModel', foreign_keys='WatchModel.appraisal_report_id', back_populates='report')
-    watchDraff = relationship('WatchDraffModel',foreign_keys=[watch_id] , back_populates='reportWatchDraff')
+    watchDraff = relationship('WatchDraffModel',foreign_keys=[watch_id] , back_populates='reportWatchDraff') 

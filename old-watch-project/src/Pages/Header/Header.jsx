@@ -38,7 +38,7 @@ export function Header() {
             </nav>
           </div>
           <div className="header-actions">
-            <a href="/LoginPage" className="btn btn-outline">
+            <a href="/LoginPage" className="btn btn-primary">
               Đăng nhập
             </a>
             <a href="/Register" className="btn btn-primary">

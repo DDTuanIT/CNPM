@@ -16,23 +16,19 @@ def _service():
 
 def _bad_request(msg: str):
     return jsonify({"success": False, "error": msg}), 400
+ 
 
-
-@arappraisal_report_bp.route("/appraisal-report", methods=["GET"])
+@arappraisal_report_bp.route("/appraisalReport", methods=["GET"])
 def list_appraisal_reports():
     try:
         service = _service()
         reports = service.list_appraisal_reports()
-        return jsonify({
-            "success": True,
-            "data": appraisalReportSchema(many=True).dump(reports)
-        }), 200
+        return jsonify(appraisalReportSchema(many=True).dump(reports)), 200
     except Exception as e:
         import traceback; traceback.print_exc()
         return _bad_request(str(e))
 
-
-@arappraisal_report_bp.route("/appraisal-report", methods=["POST"])
+@arappraisal_report_bp.route("/appraisalReport", methods=["POST"])
 def create_appraisal_report():
     try:
         payload = appraisalReportSchema().load(request.get_json(force=True) or {})

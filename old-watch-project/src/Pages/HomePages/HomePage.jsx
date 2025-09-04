@@ -57,7 +57,7 @@ export function HomePage() {
                   <path d="m12 5 7 7-7 7" />
                 </svg>
               </Link>
-              <Link to="/AppraiserHomePage" className="btn btn-outline">
+              <Link to="/AppraiserHomePage" className="btn btn-primary">
                 Tìm hiểu thẩm định
               </Link>
             </div>

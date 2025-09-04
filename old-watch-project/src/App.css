@@ -5,7 +5,7 @@ body {
   color: var(--foreground);
   line-height: 1.6;
 
-  /* Vintage background giữ nguyên */
+  
   background-image: radial-gradient(
       circle at 1px 1px,
       rgba(101, 67, 33, 0.08) 1px,
@@ -32,7 +32,7 @@ body {
     );
   background-size: 20px 20px, 40px 40px, 100px 100px;
 
-  /* Sửa lại layout */
+ 
   width: 100vw;
   min-height: 100vh;
   margin: 0;
@@ -49,7 +49,6 @@ body {
 }
 
 :root {
-  /* Authentic Vintage Sepia theme */
   --background: hsl(40, 35%, 92%);
   --foreground: hsl(30, 40%, 18%);
   --card: hsl(42, 40%, 96%);

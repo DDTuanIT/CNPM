@@ -58,7 +58,7 @@ export function AddProductPage() {
       alert("Thêm sản phẩm thành công");
       response;
     } catch (err) {
-      if (err.target.value == 400) alert("Thêm sản phẩm thất bại");
+      alert(`Thêm sản phẩm thất bại ${err}`);
     }
   };
   const handleXButton = () => {
@@ -204,7 +204,7 @@ export function AddProductPage() {
                   {image ? (
                     <div className="image-preview">
                       <img src={image} alt="" />
-                      <button className="x-button" onClick={handleXButton}>
+                      <button type="button" className="x-button" onClick={handleXButton}>
                         X
                       </button>
                     </div>
