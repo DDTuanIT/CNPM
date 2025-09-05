@@ -10,7 +10,11 @@ DATABASE_URL = Config.DATABASE_URI
 
 print(DATABASE_URL)
 # Create a new SQLAlchemy engine instance
-engine = create_engine(DATABASE_URL)
+engine = create_engine(DATABASE_URL,
+                       pool_size=20,
+                       max_overflow=40,
+                       pool_timeout=30,    
+                        pool_recycle=1800 )
 
 # Create a configured "Session" class
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

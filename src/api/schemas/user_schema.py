@@ -33,3 +33,19 @@ class UserDataSchema(Schema):
     email = fields.Str(required=True)
     phone_number = fields.Str(required=True)
     role_name = fields.Str(required=True)
+
+class UserFullDataSchema(Schema):
+    user_id = fields.UUID(required=True)
+    user_name = fields.Str(required=True)
+    full_name = fields.Str(required=True)
+    address = fields.Str(required=True)
+    email = fields.Str(required=True)
+    phone_number = fields.Str(required=True)
+    role_name = fields.Str(required=True)
+    balance = fields.Float(required=True)
+    hold_balance = fields.Float(required=True)
+
+
+class UpdateHoldBalance(Schema):
+    user_name = fields.Str(required=True)
+    hold_balance = fields.Float(required=True)

@@ -32,8 +32,8 @@ class TransactionRepository(ITransactionRepository):
         return self.session.query(TransactionModel).filter_by(transaction_id=transaction_id).first()
 
     def list(self) -> List[TransactionModel]:
-        self._transactions = Session.query(TransactionModel).all()
-        return self._transactions
+        return self.session.query(TransactionModel).all()
+
 
     def update(self, transaction: TransactionModel) -> TransactionModel:
         try:

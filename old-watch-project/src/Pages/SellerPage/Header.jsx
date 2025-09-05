@@ -28,12 +28,10 @@ export function Header() {
             </nav>
 
             <div className="header-actions">
-              <button
-                className="btn btn-primary"
-                onclick="showPage('add-product')"
-              >
-                + Thêm sản phẩm
-              </button>
+              <Link to="/LoginPage">
+                {" "}
+                <button className="btns btns-outline">Đăng xuất</button>
+              </Link>
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from infrastructure.databases.mssql import get_db_session 
 from infrastructure.repositories.user_repository import UserRepository
 from services.user_service import UserService
-from api.schemas.user_schema import RegisterSchema, LoginSchema, Otp_ForgotPassword, ChangePassword, UserDataSchema
+from api.schemas.user_schema import RegisterSchema, LoginSchema, Otp_ForgotPassword, ChangePassword, UserDataSchema, UpdateHoldBalance, UserFullDataSchema
 from services.otp_service import OTPService
 from sqlalchemy.exc import IntegrityError
 from flask_cors import cross_origin
@@ -64,7 +64,7 @@ def login():
             return jsonify({"success": False, "message": "Invalid account"}),404
         
         if user and user.user_password == data['user_password']:
-            return jsonify(UserDataSchema().dump(user)), 200
+            return jsonify(UserFullDataSchema().dump(user)), 200
         else:
             return jsonify({"success": False,"message": "Incorrect password"}), 401
     except Exception as e: 
@@ -95,6 +95,33 @@ def updateIf():
         import traceback
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
+
+@user_bp.route("/Login", methods=["PATCH"])
+def updateHoldBalance():
+    try:
+        data = UpdateHoldBalance().load(request.json)
+        db = get_db_session()
+        user_repo = UserRepository(db)
+        service = UserService(user_repo)
+        user = service.get_user_name(data['user_name'])
+        service.update_hold_balance(
+            user.user_id,
+            user.user_name,
+            user.full_name,
+            user.user_password,
+            user.address,
+            user.email,
+            user.phone_number,
+            user.role_name,
+            user.balance,
+            data['hold_balance']
+        )
+        return jsonify({"success": True, "message": "User update successfully"}), 200
+    except Exception as e: 
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
 
 @user_bp.route("/forgotpassword", methods=["POST"])
 def forgot_password():

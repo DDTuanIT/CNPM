@@ -42,13 +42,7 @@ export function TabContainer() {
                   </button>
                 </Link>
 
-                <button
-                  className="quick-action-btn"
-                  //onclick="showPage('messages')"
-                >
-                  <span className="action-icon">💬</span>
-                  <span className="action-text">Tin nhắn</span>
-                </button>
+
                 <Link className="quick-action-btn" to="/SettingPage">
                   <button>
                     <span className="action-icon">⚙️</span>

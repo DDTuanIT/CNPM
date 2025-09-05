@@ -22,13 +22,32 @@ def get_carts(cart_id):
             ).filter(CartsModel.cart_id == cart_id)
         )
 
-        return jsonify(CartsSchema.dump(carts)), 201
+        return jsonify(CartsSchema(many=True).dump(carts)), 201
     except Exception as e:
         import traceback
         traceback.print_exc()
         return jsonify({"error": str(e)}), 400 
+    
+@cart_bp.route("/carts", methods=["GET"])
+def get_all_carts():
+    try:
+        db = get_db_session()
+        cart = db.query(CartsModel).all()
+        print(cart)
+        carts = (
+            db.query(CartsModel)
+            .options(
+                joinedload(CartsModel.user_cart),
+                joinedload(CartsModel.cart_items).joinedload(CartItemsModel.watch)
+            )
+        )
 
-
+        return jsonify(CartsSchema(many=True).dump(carts)), 201
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 400 
+    
 @cart_bp.route("/cart", methods=['POST'])
 def post_cart():
     try:
@@ -48,3 +67,4 @@ def post_cart():
         import traceback
         traceback.print_exc()
         return jsonify({"error": str(e)}), 400
+    

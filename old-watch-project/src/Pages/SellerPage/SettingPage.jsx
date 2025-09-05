@@ -1,7 +1,7 @@
 import { Header } from "./Header";
 import { Footer } from "../Footer/Footer";
 import { UserContext } from "../Context/UserContext";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -11,6 +11,8 @@ export function SettingPage() {
   const emailRef = useRef(null);
   const addressRef = useRef(null);
   const phoneNumberRef = useRef(null);
+  const newPasswordRef = useRef(null);
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmitButton = async () => {
     const fullNameData = fullNameRef.current.value;
@@ -44,6 +46,24 @@ export function SettingPage() {
       alert(`ERROR: ${err}`);
     }
   };
+  const handleChangePassword = async () => {
+    setShowModal(false);
+    const newPasswordData = newPasswordRef.current.value;
+    const emailData = emailRef.current.value;
+    try {
+      const response = await axios.post(
+        "http://localhost:6868/api/changepassword",
+        {
+          email: emailData,
+          new_password: newPasswordData,
+        }
+      );
+      response;
+      alert("Đổi mật khẩu thành công");
+    } catch (e) {
+      alert(`ERROR ${e}`);
+    }
+  };
   return (
     <>
       <Header />
@@ -52,7 +72,7 @@ export function SettingPage() {
           <div className="page-header">
             <div>
               <Link to="/SellerDashBoard">
-                <button className="btn btns-outline back-button">
+                <button className="btns btns-outline back-button">
                   ← Quay lại Dashboard
                 </button>
               </Link>
@@ -89,7 +109,7 @@ export function SettingPage() {
                         type="text"
                         className="form-input"
                         defaultValue={
-                          !user.full_name
+                          !user?.full_name
                             ? "Vui lòng điền thông tin"
                             : user.full_name
                         }
@@ -102,7 +122,7 @@ export function SettingPage() {
                         type="email"
                         className="form-input"
                         defaultValue={
-                          !user.email ? "Vui lòng điền thông tin" : user.email
+                          !user?.email ? "Vui lòng điền thông tin" : user.email
                         }
                         ref={emailRef}
                       />
@@ -113,7 +133,7 @@ export function SettingPage() {
                         type="text"
                         className="form-input"
                         defaultValue={
-                          !user.address
+                          !user?.address
                             ? "Vui lòng điền thông tin"
                             : user.address
                         }
@@ -126,50 +146,91 @@ export function SettingPage() {
                         type="tel"
                         className="form-input"
                         defaultValue={
-                          !user.phone_number
+                          !user?.phone_number
                             ? "Vui lòng điền thông tin"
                             : user.phone_number
                         }
                         ref={phoneNumberRef}
                       />
                     </div>
-                    <button
-                      className="btn btn-primary"
-                      onClick={handleSubmitButton}
-                    >
-                      💾 Lưu thay đổi
-                    </button>
-                    <Link to="/LoginPage">
-                      <button className="btn btn-primary">Đăng xuất</button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="settings-tab-content" id="store-settings">
-                <div className="card">
-                  <div className="card-header">
-                    <h3 className="card-title">Thông tin cửa hàng</h3>
-                  </div>
-                  <div className="card-content">
                     <div className="form-group">
-                      <label>Tên cửa hàng</label>
+                      <label>Số dư</label>
                       <input
                         type="text"
                         className="form-input"
-                        value="Vintage Watch Store"
+                        value={
+                          !user?.balance
+                            ? "0"
+                            : `${user.balance.toLocaleString("vi-VN")} VNĐ`
+                        }
                       />
                     </div>
                     <div className="form-group">
-                      <label>Mô tả cửa hàng</label>
-                      <textarea className="form-textarea">
-                        Chuyên cung cấp đồng hồ cổ điển chính hãng...
-                      </textarea>
+                      <label>Số dư tạm giữ</label>
+                      <input
+                        type="text"
+                        className="form-input"
+                        value={
+                          !user?.hold_balance
+                            ? "0"
+                            : `${user.hold_balance.toLocaleString("vi-VN")} VNĐ`
+                        }
+                      />
                     </div>
-                    <button className="btn btn-primary">
-                      🔄 Cập nhật cửa hàng
-                    </button>
                   </div>
+                  {
+                    <div>
+                      {showModal && (
+                        <div>
+                          {showModal && (
+                            <div className="modal-overlays">
+                              <div className="modal-box">
+                                <h2 className="modal-title"></h2>
+                                <div className="form-group">
+                                  <label>Nhập mật khẩu mới</label>
+                                  <input
+                                    type="password"
+                                    className="form-input"
+                                    placeholder="Nhập mật khẩu mới"
+                                    ref={newPasswordRef}
+                                  />
+                                </div>
+                                <div className="modal-actions">
+                                  <button
+                                    className="btn-cancel"
+                                    onClick={() => setShowModal(false)}
+                                  >
+                                    Hủy
+                                  </button>
+                                  <button
+                                    className="btn-confirm"
+                                    onClick={handleChangePassword}
+                                  >
+                                    Xác nhận
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  }
+                  <button
+                    className="btns btns-primary save-button"
+                    onClick={() => setShowModal(true)}
+                  >
+                    Đổi mật khẩu
+                  </button>
+                  <button
+                    className="btns btns-primary"
+                    onClick={handleSubmitButton}
+                  >
+                    💾 Lưu thay đổi
+                  </button>
+                  <Link to="/LoginPage">
+                    <button className="btns btns-primary">Đăng xuất</button>
+                  </Link>
                 </div>
               </div>
 
@@ -177,43 +238,6 @@ export function SettingPage() {
                 className="settings-tab-content"
                 id="notifications-settings"
               />
-            </div>
-
-            <div className="settings-tab-content" id="payment-settings">
-              <div className="card">
-                <div className="card-header">
-                  <h3 className="card-title">Thông tin thanh toán</h3>
-                </div>
-                <div className="card-content">
-                  <div className="form-group">
-                    <label>Tên ngân hàng</label>
-                    <select className="form-select">
-                      <option>Vietcombank</option>
-                      <option>Techcombank</option>
-                      <option>BIDV</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label>Số tài khoản</label>
-                    <input
-                      type="text"
-                      className="form-input"
-                      value="1234567890"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Tên chủ tài khoản</label>
-                    <input
-                      type="text"
-                      className="form-input"
-                      value="NGUYEN VAN AN"
-                    />
-                  </div>
-                  <button className="btn btn-primary">
-                    💾 Cập nhật thông tin
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>

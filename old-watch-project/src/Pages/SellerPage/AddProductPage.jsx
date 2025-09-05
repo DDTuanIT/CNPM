@@ -20,7 +20,7 @@ export function AddProductPage() {
   const [image, setImage] = useState(null);
   const fileName = crypto.randomUUID();
   const handleSubmitButton = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const nameData = nameRef.current.value;
     const brandData = brandRef.current.value;
     const priceData = priceRef.current.value;
@@ -29,11 +29,20 @@ export function AddProductPage() {
     const conditionData = conditionRef.current.value;
     const descriptionData = descriptionRef.current.value;
     const yearData = yearRef.current.value;
-    if (!nameData || !brandData || !priceData || !originData || !modeldata || !conditionData || !descriptionData || !yearData) {
+    if (
+      !nameData ||
+      !brandData ||
+      !priceData ||
+      !originData ||
+      !modeldata ||
+      !conditionData ||
+      !descriptionData ||
+      !yearData
+    ) {
       alert("Please fill all information");
       return;
     }
-      
+
     try {
       const response = await axios.post(
         "http://localhost:6868/api/watchDraff",
@@ -90,7 +99,7 @@ export function AddProductPage() {
           <div className="page-header">
             <div>
               <Link to="/SellerDashBoard">
-                <button className="btn btns-outline back-button">
+                <button className="btns btns-outline back-button">
                   ← Quay lại Dashboard
                 </button>
               </Link>
@@ -204,7 +213,11 @@ export function AddProductPage() {
                   {image ? (
                     <div className="image-preview">
                       <img src={image} alt="" />
-                      <button type="button" className="x-button" onClick={handleXButton}>
+                      <button
+                        type="button"
+                        className="x-button"
+                        onClick={handleXButton}
+                      >
                         X
                       </button>
                     </div>
@@ -230,13 +243,13 @@ export function AddProductPage() {
             </div>
 
             <div className="form-actions form-bottom">
-              <Link to="/SellerDashBoard" className="btn btns-outline">
+              <Link to="/SellerDashBoard" className="btns btns-outline">
                 <button type="button">Hủy</button>
               </Link>
 
               <button
                 type="submit"
-                className="btn btn-success btns-outline"
+                className="btns btn-success btns-outline"
                 onClick={handleSubmitButton}
               >
                 📝 Đăng sản phẩm

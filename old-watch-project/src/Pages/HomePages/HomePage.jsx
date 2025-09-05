@@ -44,7 +44,7 @@ export function HomePage() {
               dịch.
             </p>
             <div className="hero-actions">
-              <Link to="/ExplorePage" className="btn btn-primary">
+              <Link to="/ExplorePage" className="btns btns-primary">
                 Khám phá ngay
                 <svg
                   className="icon-sm"
@@ -57,7 +57,7 @@ export function HomePage() {
                   <path d="m12 5 7 7-7 7" />
                 </svg>
               </Link>
-              <Link to="/AppraiserHomePage" className="btn btn-primary">
+              <Link to="/AppraiserHomePage" className="btns btns-primary">
                 Tìm hiểu thẩm định
               </Link>
             </div>
@@ -100,7 +100,7 @@ export function HomePage() {
               </div>
               <div className="form-group">
                 <label>&nbsp;</label>
-                <button className="btn btn-primary" style={{ width: "100%" }}>
+                <button className="btns btns-primary" style={{ width: "100%" }}>
                   <svg
                     className="icon-sm"
                     viewBox="0 0 24 24"
@@ -187,7 +187,7 @@ export function HomePage() {
                   Hỗ trợ 24/7
                 </li>
               </ul>
-              <button className="btn btn-outline" style={{ width: "100%" }}>
+              <button className="btnss btnss-outline" style={{ width: "100%" }}>
                 Tìm hiểu thêm
               </button>
             </div>
@@ -251,7 +251,7 @@ export function HomePage() {
                   Đánh giá minh bạch
                 </li>
               </ul>
-              <button className="btn btn-outline" style={{ width: "100%" }}>
+              <button className="btnss btnss-outline" style={{ width: "100%" }}>
                 Tìm hiểu thêm
               </button>
             </div>
@@ -314,7 +314,7 @@ export function HomePage() {
                   Mạng lưới chuyên gia
                 </li>
               </ul>
-              <button className="btn btn-outline" style={{ width: "100%" }}>
+              <button className="btnss btnss-outline" style={{ width: "100%" }}>
                 Tìm hiểu thêm
               </button>
             </div>
@@ -336,7 +336,7 @@ export function HomePage() {
                 gap: 0.5 + "rem",
               }}
             >
-              <button className="btn btn-outline">
+              <button className="btnss btnss-outline">
                 <svg
                   className="icon-sm"
                   viewBox="0 0 24 24"
@@ -352,7 +352,7 @@ export function HomePage() {
           </div>
           <WatchesGrid />
           <div style={{ textAlign: "center", marginTop: 2 + "rem" }}>
-            <button className="btn btn-outline" onChange={handleSeeDetails}>
+            <button className="btns btns-outline" onChange={handleSeeDetails}>
               Xem tất cả đồng hồ
               <svg
                 className="icon-sm"
@@ -376,7 +376,7 @@ export function HomePage() {
               của chúng tôi
             </p>
             <div className="cta-actions">
-              <button className="btn btn-primary" onClick={handleUploadButton}>
+              <button className="btns btns-primary" onClick={handleUploadButton}>
                 <svg
                   className="icon-sm"
                   viewBox="0 0 24 24"
@@ -389,7 +389,7 @@ export function HomePage() {
                 </svg>
                 Đăng bán đồng hồ
               </button>
-              <Link to="/LoginPage" className="btn btn-outline">
+              <Link to="/LoginPage" className="btns btns-outline">
                 Tìm hiểu thêm
               </Link>
             </div>

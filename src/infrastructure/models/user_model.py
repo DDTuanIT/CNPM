@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, Boolean, ForeignKey, Float
 from sqlalchemy.dialects.mssql import UNIQUEIDENTIFIER
 from infrastructure.databases.base import Base
 from sqlalchemy.orm import relationship
@@ -16,9 +16,11 @@ class UserModel(Base):
     email = Column(String(50), unique=True, nullable=False)
     phone_number = Column(String(10), nullable=True)
     role_name = Column(String(10), nullable=False)
-
+    balance = Column(Float, default=0.0, nullable=True)
+    hold_balance = Column(Float, default=0.0, nullable=True)
     # to transactionModel
     purchase = relationship('TransactionModel', foreign_keys='TransactionModel.buyer_id', back_populates='buyer')
+    sellT = relationship('TransactionModel', foreign_keys='TransactionModel.seller_id', back_populates='seller')
     sell = relationship('WatchModel', foreign_keys='WatchModel.seller_id', back_populates='seller')
     support_tickets = relationship('SupportTicketModel', foreign_keys='SupportTicketModel.user_id', back_populates='user_ticket')
 

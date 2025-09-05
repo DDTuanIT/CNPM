@@ -16,16 +16,16 @@ class WatchSchema(Schema):
 
 class OrderItemsSchema(Schema):
     id = fields.UUID()
-    watch = fields.Nested(WatchSchema) 
     quantity = fields.Integer()
     estimate_delivery_time = fields.DateTime()
+    watch = fields.Nested(WatchSchema) 
 
 class OrdersSchema(Schema):
     order_id = fields.UUID()
     user_id = fields.UUID()
     order_time = fields.DateTime()
     total_cost = fields.Float()
-    items = fields.List(fields.Nested(OrderItemsSchema))
+    order_items = fields.List(fields.Nested(OrderItemsSchema))
 
 
 # POST

@@ -1,8 +1,14 @@
-export function StatusGrid({ productDraffs }) {
-  const quantity = productDraffs.length;
+import { useContext } from "react";
+import { UserContext } from "../Context/UserContext";
+export function StatusGrid({ productDraffs, orders }) {
+  const { user } = useContext(UserContext);
+  let quantity = 0;
   let turnover = 0;
   productDraffs.map((productDraff) => {
-    turnover += productDraff.price;
+    if (productDraff.seller_id === user.user_id) {
+      turnover += productDraff.price;
+      quantity += 1;
+    }
   });
 
   return (
@@ -35,8 +41,8 @@ export function StatusGrid({ productDraffs }) {
           <span className="stat-icon">🛒</span>
         </div>
         <div className="stat-content">
-          <div className="stat-number">8</div>
-          <div className="stat-change neutral">3 chờ xử lý</div>
+          <div className="stat-number">{orders.length}</div>
+          <div className="stat-change neutral"></div>
         </div>
       </div>
     </div>

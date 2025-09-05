@@ -16,14 +16,15 @@ class WatchSchema(Schema):
 
 class CartItemsSchema(Schema):
     id = fields.UUID()
-    watch = fields.Nested(WatchSchema)
     quantity = fields.Integer()
+    watch = fields.Nested(WatchSchema)
+    
 
 class CartsSchema(Schema):
     cart_id = fields.UUID()
     user_id = fields.UUID()
  
-    items = fields.List(fields.Nested(CartItemsSchema))
+    cart_items = fields.List(fields.Nested(CartItemsSchema))
 
 #post
 class CartItemPostSchema(Schema):

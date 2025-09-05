@@ -19,18 +19,38 @@ def get_orders(order_id):
                 joinedload(OrdersModel.user_order),
                 joinedload(OrdersModel.order_items).joinedload(OrderItemsModel.watch)
             ).filter(OrdersModel.order_id == order_id)
-        ).first()
+        )
 
         if not orders:
             return jsonify({"error": "Order not found"}), 404
 
-        return jsonify(OrdersSchema().dump(orders)), 200
+        return jsonify(OrdersSchema(many=True).dump(orders)), 200
     except Exception as e:
         import traceback
         traceback.print_exc()
         return jsonify({"error": str(e)}), 400 
 
+@order_bp.route("/orders", methods=["GET"]) 
+def get_all_orders():
+    try:
+        db = get_db_session()
+        orders = (
+            db.query(OrdersModel)
+            .options(
+                joinedload(OrdersModel.user_order),
+                joinedload(OrdersModel.order_items).joinedload(OrderItemsModel.watch)
+            )
+        )
 
+        if not orders:
+            return jsonify({"error": "Order not found"}), 404
+
+        return jsonify(OrdersSchema(many=True).dump(orders)), 200
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 400 
+    
 @order_bp.route("/orders", methods=['POST'])
 def post_order():
     try:

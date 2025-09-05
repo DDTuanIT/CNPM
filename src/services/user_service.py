@@ -27,6 +27,10 @@ class UserService:
         user = UserModel(user_id = user_id,user_name=user_name, full_name=full_name,user_password=user_password, address=address, email=email, phone_number=phone_number, role_name=role_name)
         return self.repository.update(user)
 
+    def update_hold_balance(self, user_id: UNIQUEIDENTIFIER, user_name: str, full_name: str,user_password: str, address: str, email: str, phone_number: str, role_name: str, balance: float, hold_balance: float) -> UserModel:
+        user = UserModel(user_id = user_id,user_name=user_name, full_name=full_name,user_password=user_password, address=address, email=email, phone_number=phone_number, role_name=role_name, balance=balance, hold_balance=hold_balance)
+        return self.repository.update(user)
+
     def delete_user(self, user_id: UNIQUEIDENTIFIER) -> None:
         self.repository.delete(user_id) 
     

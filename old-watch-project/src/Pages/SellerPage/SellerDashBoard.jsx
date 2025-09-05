@@ -8,12 +8,18 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 export function SellerDashBoard() {
   const [productDraffs, setProductDraffs] = useState([]);
+  const [orders, setOrders] = useState([]);
   const loadProductDraff = async () => {
     const response = await axios.get("http://localhost:6868/api/watchDraff");
     setProductDraffs(response.data);
   };
+  const loadOrder = async () => {
+    const response = await axios.get("http://localhost:6868/api/orders");
+    setOrders(response.data);
+  }
   useEffect(() => {
     loadProductDraff();
+    loadOrder();
   }, []);
   return (
     <>
@@ -24,6 +30,7 @@ export function SellerDashBoard() {
 
           <StatusGrid
             productDraffs={productDraffs}
+            orders={orders}
             loadProductDraff={loadProductDraff}
           />
 

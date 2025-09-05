@@ -58,18 +58,18 @@ export function Product({ productDraff, loadProductDraff }) {
         </div>
         <div className="relation-button">
           <Link to="/EditProductPage" state={{ productDraff }}>
-            <button className="btn  back-button edit-button">Chỉnh sửa</button>
+            <button className="btns  back-button edit-button">Chỉnh sửa</button>
           </Link>
 
           <button
-            className="btn  back-button edit-button"
+            className="btns  back-button edit-button"
             onClick={() => setShowCart(true)}
           >
             Xem thẩm định
           </button>
 
           <button
-            className="btn back-button edit-button"
+            className="btns back-button edit-button"
             onClick={handleDeleteButton}
           >
             Xóa

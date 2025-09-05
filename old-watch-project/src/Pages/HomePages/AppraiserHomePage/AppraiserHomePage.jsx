@@ -669,7 +669,7 @@ export function AppraiserHomePage() {
             chúng tôi
           </p>
           <div className="cta-actions">
-            <button className="btn btn-primary">
+            <button className="btns btns-primary">
               <svg
                 className="icon-sm"
                 viewBox="0 0 24 24"
@@ -682,7 +682,7 @@ export function AppraiserHomePage() {
               </svg>
               Bắt đầu thẩm định
             </button>
-            <a href="#" className="btn btn-outline">
+            <a href="#" className="btns btns-outline">
               Tìm hiểu thêm
             </a>
           </div>

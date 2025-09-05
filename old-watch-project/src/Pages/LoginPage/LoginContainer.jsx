@@ -41,7 +41,7 @@ export function LoginContainer() {
       setUser(response.data);
       alert("Login sucessfull");
       // Chỗ chuyển trang dashboard tùy vào role
-      if (user.role_name === "buyer") {
+      if (response.data.role_name === "seller") {
         navigate('/SellerDashBoard');
       }
     } catch (err) {

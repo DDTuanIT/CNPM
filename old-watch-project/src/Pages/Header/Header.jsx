@@ -38,10 +38,10 @@ export function Header() {
             </nav>
           </div>
           <div className="header-actions">
-            <a href="/LoginPage" className="btn btn-primary">
+            <a href="/LoginPage" className="btns btns-primary">
               Đăng nhập
             </a>
-            <a href="/Register" className="btn btn-primary">
+            <a href="/Register" className="btns btns-primary">
               Đăng ký
             </a>
           </div>

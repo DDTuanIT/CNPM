@@ -60,7 +60,7 @@ export function WatchCard() {
             </div>
           </div>
           <button
-            className="btn btn-primary"
+            className="btns btns-primary"
             style={{ width: "100%", marginTop: 1 + "rem" }}
 						onClick={handleSeeDetails}
           >
