@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from infrastructure.databases.mssql import get_db_session 
 from infrastructure.repositories.user_repository import UserRepository
 from services.user_service import UserService
-from api.schemas.user_schema import RegisterSchema, LoginSchema, Otp_ForgotPassword, ChangePassword, UserDataSchema, UpdateHoldBalance, UserFullDataSchema
+from api.schemas.user_schema import RegisterSchema, LoginSchema, Otp_ForgotPassword, ChangePassword, UserDataSchema, UpdateHoldBalance, UserFullDataSchema, UserUpdateSchema
 from services.otp_service import OTPService
 from sqlalchemy.exc import IntegrityError
 from flask_cors import cross_origin
@@ -181,3 +181,88 @@ def change_password():
         return jsonify({"success": True, "message": "Password changed"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 400
+        
+        
+        
+
+@user_bp.route("/users", methods=["GET"])
+def list_users():
+    try:
+        db = get_db_session()
+        repo = UserRepository(db)
+        service = UserService(repo)
+        users = service.list_users()
+        return jsonify(UserDataSchema(many=True).dump(users)), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@user_bp.route("/users/<uuid:user_id>", methods=["PUT"])
+def update_user(user_id):
+    try:
+        db = get_db_session()
+        repo = UserRepository(db)
+        service = UserService(repo)
+
+        json_data = request.get_json()
+        data = UserUpdateSchema().load(json_data)
+
+        user = service.get_user(user_id)
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+
+        # giữ nguyên password cũ nếu không gửi lên
+        password = data.get("user_password") or user.user_password
+
+        updated = service.update_user(
+            user_id=user.user_id,
+            user_name=data.get("user_name", user.user_name),
+            full_name=data.get("full_name", user.full_name),
+            user_password=password,
+            address=data.get("address", user.address),
+            email=data.get("email", user.email),
+            phone_number=data.get("phone_number", user.phone_number),
+            role_name=data.get("role_name", user.role_name),
+        )
+
+        return jsonify(UserDataSchema().dump(updated)), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@user_bp.route("/users/<uuid:user_id>", methods=["DELETE"])
+def delete_user(user_id):
+    try:
+        db = get_db_session()
+        repo = UserRepository(db)
+        service = UserService(repo)
+
+        user = service.get_user(user_id)
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+
+        service.delete_user(user_id)
+        return jsonify({"success": True, "message": "User deleted"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@user_bp.route("/admin/stats", methods=["GET"])
+def admin_stats():
+    try:
+        db = get_db_session()
+        repo = UserRepository(db)
+        service = UserService(repo)
+
+        all_users = service.list_users()
+        # chỉ đếm buyer + seller
+        count_users = sum(
+            1 for u in all_users if u.role_name not in ["admin", "support", "appraiser"]
+        )
+
+        return jsonify({
+            "users": count_users,
+            "transactions": 456,
+            "disputes": 7 
+        }), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500

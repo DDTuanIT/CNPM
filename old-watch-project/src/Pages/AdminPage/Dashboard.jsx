@@ -12,7 +12,6 @@ export function Dashboard() {
   });
 
   useEffect(() => {
-    // gọi API mock, sau này thay link thật
     axios
       .get("/api/admin/stats")
       .then((res) => {

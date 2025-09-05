@@ -49,3 +49,12 @@ class UserFullDataSchema(Schema):
 class UpdateHoldBalance(Schema):
     user_name = fields.Str(required=True)
     hold_balance = fields.Float(required=True)
+    
+class UserUpdateSchema(Schema):
+    user_name = fields.Str(required=False)
+    full_name = fields.Str(required=False)
+    user_password = fields.Str(required=False, validate=validate.Length(min=4))
+    address = fields.Str(required=False)
+    email = fields.Email(required=False)
+    phone_number = fields.Str(required=False)
+    role_name = fields.Str(required=False)
