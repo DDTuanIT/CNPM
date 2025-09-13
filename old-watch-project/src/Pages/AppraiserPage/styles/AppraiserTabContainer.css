@@ -1,32 +1,18 @@
-.tab-container {
-  margin-top: 2rem;
-}
-
-.tab-nav {
+.appraiser-tabs {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  justify-content: center;
+  border-bottom: 2px solid var(--border, #e0d6c8);
+  margin-bottom: 1.5rem;
 }
 
-.tab-btn {
-  background: #eee;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
+.appraiser-tab {
+  padding: 0.8rem 1.5rem;
   cursor: pointer;
-  transition: background 0.2s;
+  font-weight: 500;
+  color: var(--foreground, #4d3621);
 }
 
-.tab-btn.active,
-.tab-btn:hover {
-  background: #222;
-  color: #fff;
-}
-
-.tab-content {
-  display: none;
-}
-
-.tab-content.active {
-  display: block;
+.appraiser-tab.active {
+  border-bottom: 3px solid var(--primary, #884513);
+  color: var(--primary, #884513);
 }

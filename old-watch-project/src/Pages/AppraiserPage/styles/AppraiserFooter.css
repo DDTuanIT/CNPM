@@ -1,8 +1,8 @@
 .appraiser-footer {
-  background: #f8f8f8;
-  padding: 1.5rem 0;
+  background: #f9f9f9;
+  color: #5b5b5b;
+  padding: 1rem 0;
   text-align: center;
+  margin-top: 2rem;
   font-size: 0.9rem;
-  border-top: 1px solid #ddd;
-  color: #666;
 }

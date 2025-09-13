@@ -1,7 +1,10 @@
 .appraiser-header {
-  background: #222;
-  color: #fff;
-  padding: 1rem 0;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .appraiser-header .container {
@@ -10,17 +13,88 @@
   align-items: center;
 }
 
-.appraiser-nav a {
-  margin: 0 1rem;
-  color: #ddd;
-  text-decoration: none;
+.appraiser-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.appraiser-nav a.active {
+/* Logo */
+.appraiser-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+.appraiser-logo-img {
+  height: 40px;
+}
+
+.appraiser-logo-text {
+  font-size: 1.25rem;
   font-weight: bold;
+  color: #222; /* đậm hơn */
+}
+
+/* Navigation */
+.appraiser-nav {
+  display: flex;
+  gap: 1.5rem;
+  margin-left: 2rem;
+}
+
+.appraiser-nav a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.appraiser-nav a:hover {
+  color: #0d47a1; /* xanh navy */
+}
+
+.appraiser-active {
+  color: #0d47a1;
+  border-bottom: 2px solid #0d47a1;
+  padding-bottom: 0.25rem;
+}
+
+/* Actions */
+.appraiser-header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-outline {
+  border: 1px solid #0d47a1;
+  color: #0d47a1;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: #0d47a1;
   color: #fff;
 }
 
-.appraiser-actions .btn {
-  margin-left: 0.5rem;
+.btn-primary {
+  background: #0d47a1;
+  color: #fff;
+  border: 1px solid #0d47a1;
+}
+
+.btn-primary:hover {
+  background: #08306b; /* navy đậm hơn */
 }

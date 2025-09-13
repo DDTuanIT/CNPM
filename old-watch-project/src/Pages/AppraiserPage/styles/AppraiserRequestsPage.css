@@ -1,25 +1,33 @@
-.requests-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.requests-page {
+  background: var(--secondary, #f9f4ec);
+  padding: 2rem;
 }
 
-.request-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #fff;
-  border: 1px solid #eee;
-  padding: 1rem;
-  border-radius: 8px;
-  transition: box-shadow 0.2s;
+.request-item {
+  border: 1px solid var(--border, #e0d6c8);
+  background: white;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.request-card:hover {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.request-item h4 {
+  color: var(--primary, #884513);
+  margin-bottom: 0.3rem;
 }
 
-.request-info h3 {
-  margin: 0;
-  font-size: 1.1rem;
+.request-status {
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+}
+
+.request-status.success {
+  background: var(--success, #228B22);
+  color: white;
+}
+
+.request-status.pending {
+  background: var(--warning, #DAA520);
+  color: white;
 }
