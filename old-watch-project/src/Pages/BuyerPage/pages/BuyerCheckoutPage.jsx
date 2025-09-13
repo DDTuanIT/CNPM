@@ -1,5 +1,5 @@
-import { BuyerHeader } from "./BuyerHeader";
-import { Footer } from "../Footer/Footer";
+import { BuyerHeader } from "../components/BuyerHeader";
+import { Footer } from "../../Footer/Footer";
 
 export function BuyerCheckoutPage() {
   return (

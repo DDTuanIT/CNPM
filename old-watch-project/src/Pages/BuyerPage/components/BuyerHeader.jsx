@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import "./BuyerHeader.css";
+import "../styles/BuyerHeader.css";
 
 export function BuyerHeader() {
   return (

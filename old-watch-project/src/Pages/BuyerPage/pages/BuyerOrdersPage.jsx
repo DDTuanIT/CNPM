@@ -1,6 +1,5 @@
-import { BuyerHeader } from "./BuyerHeader";
-import { Footer } from "../Footer/Footer";
-import "./BuyerOrdersPage.css";
+import { BuyerHeader } from "../components/BuyerHeader"; 
+import { Footer } from "../../Footer/Footer";
 
 export function BuyerOrdersPage() {
   return (

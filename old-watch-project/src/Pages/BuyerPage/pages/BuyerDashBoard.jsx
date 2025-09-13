@@ -1,10 +1,10 @@
 import { Fragment } from "react";
-import { BuyerHeader } from "./BuyerHeader";
 import { BuyerStatusGrid } from "./BuyerStatusGrid";
-import { BuyerTabContainer } from "./BuyerTabContainer";
-import { Footer } from "../Footer/Footer";
-import "./BuyerDashBoard.css";
-import "./BuyerPageHeader.css";
+import { BuyerTabContainer } from "../components/BuyerTabContainer";
+import { BuyerHeader } from "../components/BuyerHeader";
+import { Footer } from "../../Footer/Footer";
+import "../styles/BuyerDashBoard.css";
+import "../styles/BuyerPageHeader.css";
 
 export function BuyerDashBoard() {
   return (

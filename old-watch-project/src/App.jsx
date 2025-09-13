@@ -17,14 +17,19 @@ import { UserProvider } from "./Pages/Context/UserContext";
 import { AdminPage } from "./Pages/AdminPage/AdminPage";
 import { EditProductPage } from "./Pages/SellerPage/ProductManagePages/EditProductPage";
 import {AppraisalReport} from "./Pages/SellerPage/AppraisalReportPage/AppraisalReport";
-import { BuyerDashBoard } from "./Pages/BuyerPage/BuyerDashBoard";
-import { BuyerProductsPage } from "./Pages/BuyerPage/BuyerProductsPage";
-import { BuyerWishlistPage } from "./Pages/BuyerPage/BuyerWishlistPage";
-import { BuyerCartPage } from "./Pages/BuyerPage/BuyerCartPage";
-import { BuyerCheckoutPage } from "./Pages/BuyerPage/BuyerCheckoutPage";
-import { BuyerSettingPage } from "./Pages/BuyerPage/BuyerSettingPage";
-import { BuyerOrdersPage } from "./Pages/BuyerPage/BuyerOrdersPage";
+import { BuyerDashBoard } from "./Pages/BuyerPage/pages/BuyerDashBoard";
+import { BuyerProductsPage } from "./Pages/BuyerPage/pages/BuyerProductsPage";
+import { BuyerWishlistPage } from "./Pages/BuyerPage/pages/BuyerWishlistPage";
+import { BuyerCartPage } from "./Pages/BuyerPage/pages/BuyerCartPage";
+import { BuyerCheckoutPage } from "./Pages/BuyerPage/pages/BuyerCheckoutPage";
+import { BuyerSettingPage } from "./Pages/BuyerPage/pages/BuyerSettingPage";
+import { BuyerOrdersPage } from "./Pages/BuyerPage/pages/BuyerOrdersPage";
 
+import { AppraiserDashBoard } from "./Pages/AppraiserPage/pages/AppraiserDashBoard";
+import { AppraiserRequestsPage } from "./Pages/AppraiserPage/pages/AppraiserRequestsPage";
+import { AppraiserRequestDetail } from "./Pages/AppraiserPage/pages/AppraiserRequestDetail";
+import { AppraiserReportsPage } from "./Pages/AppraiserPage/pages/AppraiserReportsPage";
+import { AppraiserSettingPage } from "./Pages/AppraiserPage/pages/AppraiserSettingPage";
 
 function App() {
   return (
@@ -76,6 +81,16 @@ function App() {
 
         <Route path="/BuyerOrders" element={<BuyerOrdersPage />} />
       
+        <Route path="/AppraiserDashBoard" element={<AppraiserDashBoard />} />
+        
+        <Route path="/AppraiserRequests" element={<AppraiserRequestsPage />} />
+        
+        <Route path="/AppraiserRequestDetail" element={<AppraiserRequestDetail />} />
+        
+        <Route path="/AppraiserReports" element={<AppraiserReportsPage />} />
+        
+        <Route path="/AppraiserSetting" element={<AppraiserSettingPage />} />
+        
       </Routes>
     </UserProvider>
   );

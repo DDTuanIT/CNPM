@@ -1,0 +1,17 @@
+.reports-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.report-card {
+  background: #fff;
+  padding: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.report-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}

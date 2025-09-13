@@ -1,4 +1,4 @@
-import "./BuyerFooter.css";
+import "../styles/BuyerFooter.css";
 
 export function BuyerFooter() {
   return (

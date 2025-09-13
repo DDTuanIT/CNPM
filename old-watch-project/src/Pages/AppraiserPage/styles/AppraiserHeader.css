@@ -1,0 +1,26 @@
+.appraiser-header {
+  background: #222;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.appraiser-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.appraiser-nav a {
+  margin: 0 1rem;
+  color: #ddd;
+  text-decoration: none;
+}
+
+.appraiser-nav a.active {
+  font-weight: bold;
+  color: #fff;
+}
+
+.appraiser-actions .btn {
+  margin-left: 0.5rem;
+}

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./BuyerTabContainer.css";
+import "../styles/BuyerTabContainer.css";
 
 export function BuyerTabContainer() {
   return (
