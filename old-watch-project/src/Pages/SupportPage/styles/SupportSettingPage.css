@@ -1,0 +1,30 @@
+.support-settings {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.support-settings h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--accent);
+}
+
+.support-settings .form-group {
+  margin-bottom: 14px;
+}
+
+.support-settings label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+.support-settings input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6edf3;
+  border-radius: 8px;
+}

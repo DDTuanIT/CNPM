@@ -1,0 +1,34 @@
+.support-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card);
+  border-bottom: 1px solid #e6edf3;
+  padding: 12px 24px;
+}
+
+.support-header .brand {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.support-header .actions {
+  display: flex;
+  gap: 12px;
+}
+
+.support-header .actions input {
+  padding: 8px 12px;
+  border: 1px solid #e6edf3;
+  border-radius: 8px;
+}
+
+.support-header .actions .btn {
+  background: var(--accent);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}

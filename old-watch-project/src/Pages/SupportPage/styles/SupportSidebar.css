@@ -1,0 +1,35 @@
+.support-sidebar {
+  width: 260px;
+  background: var(--card);
+  border-right: 1px solid #e6edf3;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.support-sidebar nav a {
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.support-sidebar nav a:hover {
+  background: #f3f6fc;
+}
+
+.support-sidebar nav a.active {
+  background: linear-gradient(90deg, #eef6ff, #f8fbff);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.support-sidebar .footer {
+  margin-top: auto;
+  color: var(--muted);
+  font-size: 14px;
+}

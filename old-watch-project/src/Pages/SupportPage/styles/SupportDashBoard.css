@@ -1,0 +1,32 @@
+:root {
+  --bg: #f6f8fa;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+}
+
+.support-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.support-dashboard .content {
+  flex: 1;
+  padding: 24px;
+}
+
+.support-dashboard .page-header {
+  margin-bottom: 20px;
+}
+
+.support-dashboard .page-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.support-dashboard .page-subtitle {
+  font-size: 14px;
+  color: var(--muted);
+}
