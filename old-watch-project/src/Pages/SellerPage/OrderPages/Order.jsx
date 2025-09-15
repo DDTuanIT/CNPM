@@ -4,11 +4,13 @@ import axios from "axios";
 import dayjs from "dayjs";
 export function Order({ orderItems, order }) {
   const { user } = useContext(UserContext);
+
   const [stateOrder, setStateOrder] = useState(false);
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("stateOrder"));
     data ? setStateOrder(data) : console.log(data);
   }, []);
+  if (orderItems.watch.seller_id !== user.user_id) return;
   const loadData = async () => {
     const response = await axios.get("http://localhost:6868/api/transactions");
     const transaction = response.data.find(
@@ -44,7 +46,9 @@ export function Order({ orderItems, order }) {
           Mã đơn hàng: {order.order_id.toUpperCase()}
         </h3>
         <p className="order-product">Tên sản phẩm: {orderItems.watch.name}</p>
-        <p className="order-customer">Khách hàng: Nguyễn Văn A</p>
+        <p className="order-customer">
+          Mã khách hàng: {order.user_id.toUpperCase()}
+        </p>
         <p className="order-date">
           Ngày đặt hàng: {dayjs(order.order_time).format("DD/MM/YYYY")}
         </p>

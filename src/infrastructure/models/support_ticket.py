@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, DateTime, ForeignKey
+from sqlalchemy import Column, String, DateTime, ForeignKey, TEXT
 from sqlalchemy.dialects.mssql import UNIQUEIDENTIFIER
 from sqlalchemy.orm import relationship
 from infrastructure.databases.base import Base
@@ -12,6 +12,7 @@ class SupportTicketModel(Base):
     issue_description = Column(String(1000), nullable=False)
     create_at = Column(DateTime, nullable=False)
     response_at = Column(DateTime, nullable=True)
+    response = Column(TEXT, nullable=True)
     status = Column(String(50), nullable=False)
     
 
@@ -23,6 +24,7 @@ class SupportTicketModel(Base):
             issue_description=self.issue_description,
             create_at=self.create_at,
             response_at=self.response_at,
+            response = self.response,
             status=self.status
         )
     user_ticket = relationship('UserModel', back_populates='support_tickets')

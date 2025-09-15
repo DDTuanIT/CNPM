@@ -1,5 +1,4 @@
-import {Link} from 'react-router-dom'
-
+import {Link, NavLink} from 'react-router-dom'
 import '../Header/Header.css'
 import './Header.css'
 export function Header() {
@@ -13,18 +12,51 @@ export function Header() {
             </Link>
 
             <nav className="nav-menu">
-              <Link to="/SellerDashBoard" className="nav-link active">
-                Trang chủ
-              </Link>
-              <Link to="/ProductManagePage" className="nav-link">
-                Sản phẩm
-              </Link>
-              <Link to="/OrderPage" className="nav-link">
-                Đơn hàng
-              </Link>
-              <Link to="/SettingPage" className="nav-link">
-                Cài đặt
-              </Link>
+              <nav className="nav-menu">
+                <NavLink
+                  to="/SellerDashBoard"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                >
+                  Trang chủ
+                </NavLink>
+
+                <NavLink
+                  to="/ProductManagePage"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                >
+                  Sản phẩm
+                </NavLink>
+
+                <NavLink
+                  to="/OrderPage"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                >
+                  Đơn hàng
+                </NavLink>
+
+                <NavLink
+                  to="/SettingPage"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                >
+                  Cài đặt
+                </NavLink>
+                <NavLink
+                  to="/SupportPage"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                >
+                  Lịch sử hỗ trợ
+                </NavLink>
+              </nav>
             </nav>
 
             <div className="header-actions">

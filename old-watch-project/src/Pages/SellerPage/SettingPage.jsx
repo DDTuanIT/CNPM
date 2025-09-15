@@ -1,9 +1,11 @@
 import { Header } from "./Header";
 import { Footer } from "../Footer/Footer";
 import { UserContext } from "../Context/UserContext";
-import { useContext, useRef, useState } from "react";
+import { use, useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { AppraiserForm } from "./AppraiserForm/AppraisaerForm";
+import { SupportForm } from "./SupportForm/SupportForm";
 
 export function SettingPage() {
   const { user, setUser } = useContext(UserContext);
@@ -13,7 +15,8 @@ export function SettingPage() {
   const phoneNumberRef = useRef(null);
   const newPasswordRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
-
+  const [showcard, setShowCard] = useState(false);
+  const [showSupportForm, setSupportForm] = useState(false);
   const handleSubmitButton = async () => {
     const fullNameData = fullNameRef.current.value;
     const emailData = emailRef.current.value;
@@ -216,20 +219,29 @@ export function SettingPage() {
                       )}
                     </div>
                   }
+                  <button className="btns btns-outline save-button" onClick={()=>setSupportForm(true)}>
+                    Yêu cầu hỗ trợ
+                  </button>
                   <button
-                    className="btns btns-primary save-button"
+                    className="btns btns-outline"
+                    onClick={() => setShowCard(true)}
+                  >
+                    Đăng ký trở thành thẩm định viên
+                  </button>
+                  <button
+                    className="btns btns-outline "
                     onClick={() => setShowModal(true)}
                   >
                     Đổi mật khẩu
                   </button>
                   <button
-                    className="btns btns-primary"
+                    className="btns btns-outline"
                     onClick={handleSubmitButton}
                   >
                     💾 Lưu thay đổi
                   </button>
                   <Link to="/LoginPage">
-                    <button className="btns btns-primary">Đăng xuất</button>
+                    <button className="btns btns-outline">Đăng xuất</button>
                   </Link>
                 </div>
               </div>
@@ -238,6 +250,32 @@ export function SettingPage() {
                 className="settings-tab-content"
                 id="notifications-settings"
               />
+              {showcard && (
+                <div className="modal-overlay">
+                  <section className="card" style={{ marginTop: "20px" }}>
+                    <button
+                      className="cancel-button"
+                      onClick={() => setShowCard(false)}
+                    >
+                      x
+                    </button>
+                    <AppraiserForm />
+                  </section>
+                </div>
+              )}
+              {showSupportForm && (
+                <div className="modal-overlay">
+                  <section className="card" style={{ marginTop: "20px" }}>
+                    <button
+                      className="cancel-button"
+                      onClick={() => setSupportForm(false)}
+                    >
+                      x
+                    </button>
+                    <SupportForm />
+                  </section>
+                </div>
+              )}
             </div>
           </div>
         </div>

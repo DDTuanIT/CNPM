@@ -106,34 +106,35 @@ header {
   text-transform: uppercase;
   font-weight: 700;
 }
-.dls {
+.dl {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   border-top: 1px solid hsl(var(--border));
 }
-.dls .item {
+.dl .item {
   padding: 16px;
   border-right: 1px solid hsl(var(--border));
 }
-.dls .item:nth-child(2n) {
+.dl .item:nth-child(2n) {
   border-right: none;
 }
-.dls .label {
+.dl .label {
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: hsl(var(--fg) / 0.55);
   font-weight: 700;
 }
-.dls .value {
+.dl .value {
   margin-top: 6px;
   background: #fffbe9;
   border: 1px solid hsl(var(--border));
   padding: 10px;
   border-radius: 8px;
   font-weight: 600;
+  width: 300px;
 }
-.dls .value.gold {
+.dl .value.gold {
   color: hsl(var(--primary));
 }
 .desc {
@@ -181,4 +182,10 @@ header {
 }
 .spinner-app {
   width: 130px;
+}
+.send-button {
+  margin-left: 20px;
+}
+.des-zone {
+  width: 100%; !important
 }

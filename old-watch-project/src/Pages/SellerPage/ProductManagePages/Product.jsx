@@ -5,7 +5,7 @@ import { AppraisalReport } from "../AppraisalReportPage/AppraisalReport";
 import spinner from "../../../assets/loading-spinner.gif"
 import "../AppraisalReportPage/AppraisalReport.css";
 export function Product({ productDraff, loadProductDraff }) {
-  const [showcard, setShowCart] = useState(false);
+  const [showcard, setShowCard] = useState(false);
   const handleDeleteButton = async () => {
     try {
       const response = await axios.delete(
@@ -23,12 +23,16 @@ export function Product({ productDraff, loadProductDraff }) {
     <>
       <div className="product-card">
         <div className="product-image-container">
-          {productDraff.image ? <img
-            src={productDraff.image}
-            alt="Patek Philippe"
-            className="product-image"
-          /> : (<img className="spinner" src={spinner}></img>)}
-          
+          {productDraff.image ? (
+            <img
+              src={productDraff.image}
+              alt="Patek Philippe"
+              className="product-image"
+            />
+          ) : (
+            <img className="spinner" src={spinner}></img>
+          )}
+
           <div
             className={`product-status ${
               productDraff.status === "sold"
@@ -58,18 +62,18 @@ export function Product({ productDraff, loadProductDraff }) {
         </div>
         <div className="relation-button">
           <Link to="/EditProductPage" state={{ productDraff }}>
-            <button className="btns  back-button edit-button">Chỉnh sửa</button>
+            <button className="bts back-button btns-outline ">Chỉnh sửa</button>
           </Link>
 
           <button
-            className="btns  back-button edit-button"
-            onClick={() => setShowCart(true)}
+            className="bts  back-button btns-outline"
+            onClick={() => setShowCard(true)}
           >
             Xem thẩm định
           </button>
 
           <button
-            className="btns back-button edit-button"
+            className="bts back-button btns-outline "
             onClick={handleDeleteButton}
           >
             Xóa
@@ -81,7 +85,7 @@ export function Product({ productDraff, loadProductDraff }) {
           <section className="card" style={{ marginTop: "20px" }}>
             <button
               className="cancel-button"
-              onClick={() => setShowCart(false)}
+              onClick={() => setShowCard(false)}
             >
               x
             </button>

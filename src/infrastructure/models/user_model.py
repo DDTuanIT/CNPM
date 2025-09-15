@@ -30,3 +30,5 @@ class UserModel(Base):
     carts = relationship('CartsModel', foreign_keys='CartsModel.user_id', back_populates='user_cart')
 
     orders = relationship('OrdersModel', foreign_keys='OrdersModel.user_id', back_populates='user_order')
+
+    appraiser_form = relationship('AppraiserFormModel', foreign_keys='AppraiserFormModel.user_id', back_populates='user_appraiser_form')

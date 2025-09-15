@@ -8,7 +8,7 @@ class SupportTicketService:
     def __init__(self, repository: ISupportTicketRepository):
         self.repository = repository
 
-    def create_support_ticket(self, support_ticket_id: str = None, user_id: str = None, issue_description: str = None, create_at: datetime = None, response_at: Optional[datetime] = None, status: str = None) -> SupportTicket:
+    def create_support_ticket(self, support_ticket_id: str = None, user_id: str = None, issue_description: str = None, create_at: datetime = None, response_at: Optional[datetime] = None, response: str=None,status: str = None) -> SupportTicket:
         try:
             # Tạo mới hoặc validate UUID
             if not support_ticket_id:
@@ -26,6 +26,7 @@ class SupportTicketService:
             issue_description=issue_description,
             create_at=create_at,
             response_at=response_at,
+            response=response,
             status=status
         )
         return self.repository.add(support_ticket)
@@ -36,13 +37,14 @@ class SupportTicketService:
     def list_support_tickets(self) -> List[SupportTicket]:
         return self.repository.list()
 
-    def update_support_ticket(self, support_ticket_id: str, user_id: str, issue_description: str, create_at: datetime, response_at: Optional[datetime], status: str) -> SupportTicket:
+    def update_support_ticket(self, support_ticket_id: str, user_id: str, issue_description: str, create_at: datetime, response_at: Optional[datetime],response: str, status: str) -> SupportTicket:
         support_ticket = SupportTicket(
             support_ticket_id=support_ticket_id,
             user_id=user_id,
             issue_description=issue_description,
             create_at=create_at,
             response_at=response_at,
+            response=response,
             status=status
         )
         return self.repository.update(support_ticket)

@@ -2,26 +2,23 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { Header } from "../Header";
 import { Footer } from "../../Footer/Footer";
-import { UserContext } from "../../Context/UserContext";
 import axios from "axios";
-import { OrdersGrid } from "./OrdersGrid";
-export function OrderPage() {
-  const [orders, setOrders] = useState([]);
-  const [watchs, setWatchs] = useState([]);
+import { SupportGrid } from "./SupportGrid";
+import { UserContext } from "../../Context/UserContext";
+
+export function SupportPage() {
+  const [supportTickets, setSupportTickets] = useState([]);
   const { user } = useContext(UserContext);
   const loadData = async () => {
-    const response = await axios.get("http://localhost:6868/api/orders");
-    setOrders(response.data);
-  };
-  const loadWatchData = async () => {
-    const response = await axios.get("http://localhost:6868/api/watch");
-    setWatchs(response.data);
+    const response = await axios.get(
+      "http://localhost:6868/api/support_ticket"
+    );
+    setSupportTickets(response.data);
   };
   useEffect(() => {
     loadData();
-    loadWatchData();
   }, []);
-
+  
   return (
     <>
       <Header />
@@ -35,8 +32,7 @@ export function OrderPage() {
                 </button>
               </Link>
 
-              <h1 className="page-title">Đơn hàng</h1>
-              <p className="page-subtitle">Quản lý đơn hàng của bạn</p>
+              <h1 className="page-title">Lịch sử gửi cầu hỗ trợ</h1>
             </div>
           </div>
 
@@ -45,11 +41,13 @@ export function OrderPage() {
               <div className="stat-content">
                 <div className="stat-number">
                   {
-                    orders.filter((order) => order.user_id === user.user_id)
-                      .length
+                    supportTickets.filter(
+                      (sp) =>
+                        sp.user_id.toUpperCase() === user.user_id.toUpperCase()
+                    ).length
                   }
                 </div>
-                <div className="stat-title">Tổng đơn hàng</div>
+                <div className="stat-title">Tổng số yêu cầu đã gửi</div>
               </div>
             </div>
             {/* <div className="stat-card orange">
@@ -72,7 +70,7 @@ export function OrderPage() {
             </div> */}
           </div>
 
-          <OrdersGrid orders={orders} watchs={watchs} loadData={loadData} />
+          <SupportGrid supportTickets={supportTickets} />
         </div>
       </div>
       <Footer />

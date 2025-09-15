@@ -28,10 +28,10 @@ export function AppraisalReport({ productDraff }) {
               <div className="paper">
                 <div className="paper-head">
                   <div className="title">Báo cáo thẩm định</div>
-                  <div className="date">{appraisalReports.create_at}</div>
+                  <div className="date">Ngày tạo: {appraisalReports.create_at}</div>
                 </div>
 
-                <div className="dl">
+                <div className="dls">
                   <div className="item">
                     <div className="label">Mã báo cáo</div>
                     <div className="value">

@@ -3,6 +3,7 @@ from marshmallow import Schema, fields
 # GET
 class WatchSchema(Schema):
     watch_id = fields.UUID()
+    seller_id = fields.UUID()
     name = fields.Str()
     brand = fields.Str()
     price = fields.Float()

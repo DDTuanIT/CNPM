@@ -54,11 +54,19 @@
 }
 
 /* Stats Grid */
+.status-grid {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
+}
+.stat-card {
+  flex: 1; /* Tự giãn đều */
 }
 
 .stat-card {
@@ -68,7 +76,6 @@
   padding: 1.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s;
-
 }
 
 .stat-card:hover {
@@ -190,7 +197,6 @@
   border-radius: 0.75rem;
   overflow: hidden;
   margin-bottom: 30px;
-
 }
 
 .card-header {
@@ -409,7 +415,7 @@
 
 /* Lớp nền đen mờ */
 .modal-overlays {
-   position: fixed;
+  position: fixed;
   inset: 0;
   display: flex;
   align-items: center;

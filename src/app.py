@@ -9,6 +9,7 @@ from api.controllers.appraisal_report_controller import arappraisal_report_bp
 from api.controllers.message_controller import message_bp
 from api.controllers.watch_draff_controler import watch_draff_bp
 from api.controllers.transaction_controller import transaction_bp
+from api.controllers.appraiser_form_controller import appraiser_form_bp
 from api.middleware import middleware
 from api.responses import success_response
 from infrastructure.databases import init_db
@@ -43,6 +44,7 @@ def create_app():
     app.register_blueprint(message_bp)
     app.register_blueprint(watch_draff_bp)
     app.register_blueprint(transaction_bp)
+    app.register_blueprint(appraiser_form_bp)
      # Thêm Swagger UI blueprint
     SWAGGER_URL = '/docs'
     API_URL = '/swagger.json'

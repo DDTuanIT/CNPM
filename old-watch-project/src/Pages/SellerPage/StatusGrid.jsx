@@ -12,7 +12,7 @@ export function StatusGrid({ productDraffs, orders }) {
   });
 
   return (
-    <div className="stats-grid">
+    <div className="status-grid">
       <div className="stat-card">
         <div className="stat-header">
           <span className="stat-title">Tổng sản phẩm</span>
@@ -41,7 +41,9 @@ export function StatusGrid({ productDraffs, orders }) {
           <span className="stat-icon">🛒</span>
         </div>
         <div className="stat-content">
-          <div className="stat-number">{orders.length}</div>
+          <div className="stat-number">
+            {orders.filter((order) => order.user_id === user.user_id).length}
+          </div>
           <div className="stat-change neutral"></div>
         </div>
       </div>

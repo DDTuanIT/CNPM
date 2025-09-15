@@ -17,6 +17,7 @@ class SupportTicketModelRepository(ISupportTicketRepository):
                 issue_description=ticket.issue_description,
                 create_at=ticket.create_at,
                 response_at=ticket.response_at,
+                response = ticket.response,
                 status=ticket.status
             )
             self.session.add(model)

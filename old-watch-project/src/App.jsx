@@ -30,6 +30,9 @@ import { AppraiserRequestsPage } from "./Pages/AppraiserPage/pages/AppraiserRequ
 import { AppraiserRequestDetail } from "./Pages/AppraiserPage/pages/AppraiserRequestDetail";
 import { AppraiserReportsPage } from "./Pages/AppraiserPage/pages/AppraiserReportsPage";
 import { AppraiserSettingPage } from "./Pages/AppraiserPage/pages/AppraiserSettingPage";
+import { AppraiserForm } from "./Pages/SellerPage/AppraiserForm/AppraisaerForm";
+import { SupportForm } from "./Pages/SellerPage/SupportForm/SupportForm";
+import { SupportPage } from "./Pages/SellerPage/SupportPage/SupportPage";
 
 function App() {
   return (
@@ -90,7 +93,12 @@ function App() {
         <Route path="/AppraiserReports" element={<AppraiserReportsPage />} />
         
         <Route path="/AppraiserSetting" element={<AppraiserSettingPage />} />
+
+        <Route path="/AppraiserForm" element={<AppraiserForm />}/>
         
+        <Route path="/SupportForm" element={<SupportForm />} />
+
+        <Route path="/SupportPage" element={<SupportPage />} />
       </Routes>
     </UserProvider>
   );
