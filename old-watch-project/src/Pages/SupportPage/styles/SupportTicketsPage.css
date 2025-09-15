@@ -1,0 +1,44 @@
+.support-tickets {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.support-tickets .ticket {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #e6edf3;
+}
+
+.support-tickets .ticket:last-child {
+  border-bottom: none;
+}
+
+.support-tickets .ticket-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.support-tickets .ticket-info p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.support-tickets .ticket-status {
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.ticket-status.open {
+  background: #eef6ff;
+  color: var(--accent);
+}
+
+.ticket-status.closed {
+  background: #f3f4f6;
+  color: var(--muted);
+}

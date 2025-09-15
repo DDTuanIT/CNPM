@@ -34,6 +34,14 @@ import { AppraiserForm } from "./Pages/SellerPage/AppraiserForm/AppraisaerForm";
 import { SupportForm } from "./Pages/SellerPage/SupportForm/SupportForm";
 import { SupportPage } from "./Pages/SellerPage/SupportPage/SupportPage";
 
+import { SupportDashBoard } from "./Pages/SupportPage/pages/SupportDashBoard";
+import { SupportTicketsPage } from "./Pages/SupportPage/pages/SupportTicketsPage";
+import { SupportTicketDetail } from "./Pages/SupportPage/pages/SupportTicketDetail";
+import { SupportChatPage } from "./Pages/SupportPage/pages/SupportChatPage";
+import { SupportFeedbackPage } from "./Pages/SupportPage/pages/SupportFeedbackPage";
+import { SupportSettingPage } from "./Pages/SupportPage/pages/SupportSettingPage";
+
+
 function App() {
   return (
     <UserProvider>
@@ -99,6 +107,19 @@ function App() {
         <Route path="/SupportForm" element={<SupportForm />} />
 
         <Route path="/SupportPage" element={<SupportPage />} />
+        
+        <Route path="/SupportDashBoard" element={<SupportDashBoard />} />
+
+        <Route path="/SupportTickets" element={<SupportTicketsPage />} />
+        
+        <Route path="/SupportTicketDetail" element={<SupportTicketDetail />} />
+        
+        <Route path="/SupportChat" element={<SupportChatPage />} />
+        
+        <Route path="/SupportFeedback" element={<SupportFeedbackPage />} />
+        
+        <Route path="/SupportSetting" element={<SupportSettingPage />} />
+      
       </Routes>
     </UserProvider>
   );
