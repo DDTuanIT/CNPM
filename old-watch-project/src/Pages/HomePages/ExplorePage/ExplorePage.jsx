@@ -31,14 +31,14 @@ export function ExplorePage() {
               >
                 <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
               </svg>
-              Nền tảng đồng hồ cũ hàng đầu
+              Nền tảng đồng hồ cổ hàng đầu
             </div>
             <h1>
-              Thế giới <span className="text-luxury">đồng hồ cũ</span> <br />
+              Thế giới <span className="text-luxury">đồng hồ cổ </span> <br />
               đẳng cấp và tin cậy
             </h1>
             <p>
-              Nền tảng giao dịch đồng hồ cũ chuyên nghiệp với hệ thống thẩm định
+              Nền tảng giao dịch đồng hồ cổ chuyên nghiệp với hệ thống thẩm định
               minh bạch, đảm bảo tính xác thực và giá trị công bằng cho mọi giao
               dịch.
             </p>
@@ -107,7 +107,7 @@ export function ExplorePage() {
           <div className="cta-card">
             <h2 className="cta-title">Sẵn sàng tham gia cộng đồng?</h2>
             <p className="cta-subtitle">
-              Hàng nghìn người đã tin tưởng giao dịch đồng hồ cũ trên nền tảng
+              Hàng nghìn người đã tin tưởng giao dịch đồng hồ cổ trên nền tảng
               của chúng tôi
             </p>
             <div className="cta-actions">
