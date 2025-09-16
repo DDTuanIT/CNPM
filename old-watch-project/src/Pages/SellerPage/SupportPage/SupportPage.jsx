@@ -70,7 +70,7 @@ export function SupportPage() {
             </div> */}
           </div>
 
-          <SupportGrid supportTickets={supportTickets} />
+          <SupportGrid supportTickets={supportTickets} loadData={loadData}/>
         </div>
       </div>
       <Footer />

@@ -41,11 +41,15 @@ import { SupportChatPage } from "./Pages/SupportPage/pages/SupportChatPage";
 import { SupportFeedbackPage } from "./Pages/SupportPage/pages/SupportFeedbackPage";
 import { SupportSettingPage } from "./Pages/SupportPage/pages/SupportSettingPage";
 
-
 function App() {
   return (
     <UserProvider>
       <Routes>
+
+        <Route path="/SupportPage" element={<SupportPage />} />
+
+        <Route path="/SupportForm" element={<SupportForm />} />
+
         <Route path="/LoginPage" element={<LoginPage />} />
 
         <Route path="/SellerDashBoard" element={<SellerDashBoard />} />

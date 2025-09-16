@@ -72,7 +72,6 @@ def modify_support_ticket():
         response = data.get('response')
         status = data.get('status')
         
-        # Create ticket
         ticket = service.update_support_ticket(
             support_ticket_id,
             user_id,
@@ -83,6 +82,19 @@ def modify_support_ticket():
             status
         )
         return jsonify(ticket.to_dict()), 201
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 400
+
+@support_ticket_bp.route("/api/support_ticket/<uuid:support_ticket_id>", methods=['DELETE'])
+def delSp(support_ticket_id):
+    try:
+        db = get_db_session()
+        repo = SupportTicketModelRepository(db)
+        service = SupportTicketService(repo)
+        service.delete_support_ticket(support_ticket_id)
+        return jsonify({"success": True, "message": "SP deleted"}), 200
     except Exception as e:
         import traceback
         traceback.print_exc()

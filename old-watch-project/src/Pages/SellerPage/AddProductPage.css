@@ -839,3 +839,16 @@ textarea {
   white-space: nowrap;
   
 }
+.card-relative {
+  position: relative;
+}
+.bt-sp {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+}
+.bt-sp-2 {
+  position: absolute;
+  top: 80px;
+  right: 10px;
+}
