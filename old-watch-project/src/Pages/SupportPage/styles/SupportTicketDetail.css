@@ -1,27 +1,18 @@
-.settings-main {
+.ticket-detail-main {
   background: #f9fafc;
   padding: 20px;
 }
 
-.settings-form {
+.ticket-detail {
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 10px;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
-.settings-form label {
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-
-.settings-form input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+.ticket-detail p {
+  margin: 6px 0;
+  color: #333;
 }
 
 .btn-primary {
@@ -31,4 +22,5 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  margin-top: 12px;
 }

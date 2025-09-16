@@ -1,53 +1,44 @@
-.support-chat {
-  background: var(--card);
-  border-radius: 12px;
+.chat-main {
+  background: #f9fafc;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  height: 80vh;
 }
 
-.chat-messages {
-  flex: 1;
+.chat-box {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  height: 300px;
   overflow-y: auto;
   margin-bottom: 12px;
 }
 
 .message {
-  margin: 8px 0;
-  padding: 10px 14px;
-  border-radius: 12px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
   max-width: 70%;
 }
 
 .message.user {
-  background: var(--accent);
-  color: white;
+  background: #007bff;
+  color: #fff;
   margin-left: auto;
 }
 
 .message.support {
-  background: #f3f6fc;
-  color: black;
+  background: #f1f3f5;
+  color: #333;
 }
 
 .chat-input {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .chat-input input {
   flex: 1;
-  padding: 10px;
-  border: 1px solid #e6edf3;
-  border-radius: 8px;
-}
-
-.chat-input button {
-  background: var(--accent);
-  color: white;
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }

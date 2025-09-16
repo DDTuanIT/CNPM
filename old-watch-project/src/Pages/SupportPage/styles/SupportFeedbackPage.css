@@ -1,31 +1,26 @@
-.support-feedback {
-  background: var(--card);
+.feedback-main {
+  background: #f9fafc;
   padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-.support-feedback h2 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: var(--accent);
+.feedback-list {
+  display: grid;
+  gap: 12px;
 }
 
-.support-feedback textarea {
-  width: 100%;
-  min-height: 120px;
-  padding: 12px;
-  border: 1px solid #e6edf3;
-  border-radius: 8px;
-  margin-bottom: 10px;
+.feedback-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px;
 }
 
-.support-feedback button {
-  background: var(--accent);
-  color: white;
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
+.feedback-text {
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.feedback-user {
+  font-size: 13px;
+  color: #555;
 }

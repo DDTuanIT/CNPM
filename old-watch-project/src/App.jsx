@@ -104,12 +104,8 @@ function App() {
 
         <Route path="/AppraiserForm" element={<AppraiserForm />}/>
         
-        <Route path="/SupportForm" element={<SupportForm />} />
-
-        <Route path="/SupportPage" element={<SupportPage />} />
-        
         <Route path="/SupportDashBoard" element={<SupportDashBoard />} />
-
+        
         <Route path="/SupportTickets" element={<SupportTicketsPage />} />
         
         <Route path="/SupportTicketDetail" element={<SupportTicketDetail />} />

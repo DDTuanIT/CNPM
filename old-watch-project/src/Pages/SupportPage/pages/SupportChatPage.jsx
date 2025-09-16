@@ -1,21 +1,25 @@
 import { SupportHeader } from "../components/SupportHeader";
-import { SupportSidebar } from "../components/SupportSidebar";
+import { SupportFooter } from "../components/SupportFooter";
 import "../styles/SupportChatPage.css";
 
 export function SupportChatPage() {
   return (
-    <>
+    <div className="support-layout">
       <SupportHeader />
-      <div className="support-layout">
-        <SupportSidebar />
-        <main className="support-main">
-          <h2>💬 Chat</h2>
+      <div className="main-container">
+        <main className="chat-main">
+          <h1>Hỗ trợ trực tuyến</h1>
           <div className="chat-box">
-            <div className="message user">User: Tôi cần giúp đỡ.</div>
-            <div className="message support">Support: Vâng, tôi sẽ hỗ trợ bạn ngay.</div>
+            <div className="message user">Xin chào, tôi cần hỗ trợ!</div>
+            <div className="message support">Chào bạn, tôi có thể giúp gì?</div>
+          </div>
+          <div className="chat-input">
+            <input type="text" placeholder="Nhập tin nhắn..." />
+            <button className="btn-primary">Gửi</button>
           </div>
         </main>
       </div>
-    </>
+      <SupportFooter />
+    </div>
   );
 }
