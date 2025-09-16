@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { useRef, useState, useContext } from "react";
+import { useRef, useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../Context/UserContext";
 import "./AddProductPage.css";
 import axios from "axios";
@@ -17,6 +18,10 @@ export function AddProductPage() {
 
   //
   const { user } = useContext(UserContext);
+    const nav = useNavigate();
+    useEffect(() => {
+      if (!user) nav("/LoginPage");
+    });
   const [image, setImage] = useState(null);
   const fileName = crypto.randomUUID();
   const handleSubmitButton = async (event) => {

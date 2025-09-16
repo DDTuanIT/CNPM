@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 
@@ -7,10 +7,15 @@ import "./AppraiserForm.css";
 
 export function AppraiserForm() {
   const { user } = useContext(UserContext);
+
   const jobRef = useRef(null);
   const exRef = useRef(null);
   const cerRef = useRef(null);
   const nav = useNavigate();
+
+    useEffect(() => {
+      if (!user) nav("/LoginPage");
+    });
   const handleSubmitButton = async () => {
     const jobData = jobRef.current.value;
     const exData = exRef.current.value;

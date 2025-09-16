@@ -1,10 +1,14 @@
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import axios from "axios";
 import dayjs from "dayjs";
 export function Order({ orderItems, order }) {
   const { user } = useContext(UserContext);
-
+  const nav = useNavigate();
+  useEffect(() => {
+    if (!user) nav("/LoginPage");
+  });
   const [stateOrder, setStateOrder] = useState(false);
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("stateOrder"));

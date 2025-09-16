@@ -48,3 +48,18 @@ def postWatch():
         import traceback
         traceback.print_exc()
         return jsonify({"error": str(e)}), 400
+
+@watch_bp.route("/watch/<uuid:watch_id>", methods=['DELETE'])
+def delWatch(watch_id):
+    try:
+        db = get_db_session()
+        watch_draff_repo = WatchRepository(db)
+        service = WatchService(watch_draff_repo)
+        
+        service.delete_watch(watch_id)
+        return jsonify({"sucess": True, "message": "Delete watch sucessful"}), 200
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 400
+

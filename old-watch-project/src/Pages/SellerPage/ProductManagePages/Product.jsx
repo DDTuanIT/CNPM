@@ -1,13 +1,25 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AppraisalReport } from "../AppraisalReportPage/AppraisalReport";
-import spinner from "../../../assets/loading-spinner.gif"
+import spinner from "../../../assets/loading-spinner.gif";
 import "../AppraisalReportPage/AppraisalReport.css";
 export function Product({ productDraff, loadProductDraff }) {
   const [showcard, setShowCard] = useState(false);
+  const [appraisalReports, setAppraisalReports] = useState(null);
   const handleDeleteButton = async () => {
     try {
+      if (appraisalReports) {
+        const rep = await axios.delete(
+          `http://localhost:6868/api/appraisalReport/${appraisalReports.appraisal_report_id}`
+        );
+        rep;
+        const re = await axios.delete(
+          `http://localhost:6868/api/watch/${productDraff.watch_id}`
+        );
+        re;
+      }
+      //
       const response = await axios.delete(
         `http://localhost:6868/api/watchDraff/${productDraff.watch_id}`
       );
@@ -18,6 +30,22 @@ export function Product({ productDraff, loadProductDraff }) {
       alert(`ERROR: ${e}`);
     }
   };
+  const loadData = async () => {
+    const response = await axios.get(
+      "http://localhost:6868/api/appraisalReport"
+    );
+    response;
+    const watchCurrent = response.data.find(
+      (appr) =>
+        appr.watch_id.toUpperCase() === productDraff.watch_id.toUpperCase()
+    );
+
+    setAppraisalReports(watchCurrent);
+    //
+  };
+  useEffect(() => {
+    loadData();
+  }, []);
 
   return (
     <>

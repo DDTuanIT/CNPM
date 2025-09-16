@@ -17,7 +17,6 @@ export function AppraisalReport({ productDraff }) {
   };
   useEffect(() => {
     loadData();
-    console.log(productDraff);
   }, []);
   return (
     <>

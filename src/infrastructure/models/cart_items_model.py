@@ -8,8 +8,8 @@ class CartItemsModel(Base):
     __table_args__ = {'extend_existing': True}  # Thêm dòng này
 
     id =Column(UNIQUEIDENTIFIER, primary_key=True)
-    cart_id = Column(UNIQUEIDENTIFIER, ForeignKey('carts.cart_id'), nullable=False)
-    watch_id = Column(UNIQUEIDENTIFIER, ForeignKey('watch.watch_id'),nullable=False)
+    cart_id = Column(UNIQUEIDENTIFIER, ForeignKey('carts.cart_id',  ondelete="CASCADE"), nullable=False)
+    watch_id = Column(UNIQUEIDENTIFIER, ForeignKey('watch.watch_id',  ondelete="CASCADE"),nullable=False)
     quantity = Column(Integer, default=1,nullable=False)
 
     carts = relationship('CartsModel', foreign_keys=[cart_id],back_populates='cart_items')

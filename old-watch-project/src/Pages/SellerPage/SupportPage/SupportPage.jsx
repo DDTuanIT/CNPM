@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Header } from "../Header";
 import { Footer } from "../../Footer/Footer";
 import axios from "axios";
@@ -9,6 +10,10 @@ import { UserContext } from "../../Context/UserContext";
 export function SupportPage() {
   const [supportTickets, setSupportTickets] = useState([]);
   const { user } = useContext(UserContext);
+    const nav = useNavigate();
+    useEffect(() => {
+      if (!user) nav("/LoginPage");
+    });
   const loadData = async () => {
     const response = await axios.get(
       "http://localhost:6868/api/support_ticket"

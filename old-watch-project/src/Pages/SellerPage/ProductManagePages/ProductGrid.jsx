@@ -1,8 +1,13 @@
 import { Product } from "./Product";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 export function ProductGrid({ tab, productDraffs, loadProductDraff }) {
   const { user } = useContext(UserContext);
+  const nav = useNavigate();
+  useEffect(() => {
+    if (!user) nav("/LoginPage");
+  });
   return (
     <div className="products-grids">
       {productDraffs.map((productDraff) => {

@@ -44,6 +44,18 @@ export function LoginContainer() {
       if (response.data.role_name === "seller") {
         navigate('/SellerDashBoard');
       }
+      else if (response.data.role_name === "buyer") {
+        navigate("/BuyerDashBoard");
+      }
+      else if (response.data.role_name === "appraiser") {
+        navigate("/AppraiserDashBoard");
+      }
+      else if (response.data.role_name === "supportAgent") {
+        navigate("/SupportDashBoard");
+      }
+      else {
+        navigate("/AdminPage");
+      }
     } catch (err) {
       if (err.response.status === 404) {
         alert("Invalid account");

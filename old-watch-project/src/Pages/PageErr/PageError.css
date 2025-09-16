@@ -1,0 +1,8 @@
+h1 {
+  display: flex;
+  color: rgba(248, 68, 68, 1);
+  justify-content: center;
+  margin-top: 50px;
+  z-index: 100;
+  font-size: 40px;
+}

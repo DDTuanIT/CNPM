@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import dayjs from "dayjs";
@@ -8,6 +8,9 @@ import "./ModifySupportForm.css";
 export function ModifySupportForm({ supportTicket }) {
   const { user } = useContext(UserContext);
   const nav = useNavigate();
+  useEffect(() => {
+    if (!user) nav("/LoginPage");
+  });
   const disRef = useRef(null);
   const timeCurrent = dayjs();
   const handleSubmitButton = async () => {

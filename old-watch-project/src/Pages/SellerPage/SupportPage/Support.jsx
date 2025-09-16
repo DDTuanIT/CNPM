@@ -1,12 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import dayjs from "dayjs";
 import { ModifySupportForm } from "../ModifySupportForm/ModifySupportForm";
-import { AppraiserReportsPage } from "../../AppraiserPage/pages/AppraiserReportsPage";
-import { UNSAFE_ErrorResponseImpl } from "react-router-dom";
 import axios from "axios";
 export function Support({ supportTicket, loadData }) {
   const { user } = useContext(UserContext);
+    const nav = useNavigate();
+    useEffect(() => {
+      if (!user) nav("/LoginPage");
+    });
   const [showSupportForm, setSupportForm] = useState(false);
   const handleDeleteButton = async () => {
     try {

@@ -51,4 +51,17 @@ def create_appraisal_report():
         import traceback; traceback.print_exc()
         return _bad_request(str(e))
 
-
+@arappraisal_report_bp.route("/appraisalReport/<uuid:appraisal_report_id>", methods=["DELETE"])
+def delAp(appraisal_report_id):
+    try:
+        db = get_db_session()
+        rep = AppraisalReportRepository(db)
+        service = AppraisalReportService(rep)
+        service.delete_appraisal_report(appraisal_report_id)
+        return jsonify({
+        "success": True,
+        "message": "xoa thanh cong"
+        }), 201
+    except Exception as e:
+        import traceback; traceback.print_exc()
+        return _bad_request(str(e))

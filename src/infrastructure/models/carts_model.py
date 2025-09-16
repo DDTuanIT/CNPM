@@ -10,5 +10,5 @@ class CartsModel(Base):
     cart_id = Column(UNIQUEIDENTIFIER, primary_key=True)
     user_id = Column(UNIQUEIDENTIFIER, ForeignKey('user.user_id'),nullable=False)
 
-    cart_items = relationship('CartItemsModel', foreign_keys='CartItemsModel.cart_id',back_populates='carts')
+    cart_items = relationship('CartItemsModel', foreign_keys='CartItemsModel.cart_id',back_populates='carts', cascade="all, delete-orphan")
     user_cart = relationship('UserModel', foreign_keys=[user_id], back_populates='carts')

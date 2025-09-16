@@ -27,6 +27,8 @@ class WatchModel(Base):
     transaction = relationship('TransactionModel', foreign_keys='TransactionModel.watch_id',back_populates='watch', uselist=False)
     # one to many
     seller = relationship('UserModel', foreign_keys=[seller_id],back_populates='sell')
-    report = relationship('AppraisalReportModel', foreign_keys=[appraisal_report_id], back_populates='watch')
+    report = relationship('AppraisalReportModel', foreign_keys=[appraisal_report_id], back_populates='watch', cascade="all, delete-orphan", single_parent=True,
+        uselist=False  
+)
 
-    watch_cart = relationship('CartItemsModel', foreign_keys='CartItemsModel.watch_id', back_populates='watch')
+    watch_cart = relationship('CartItemsModel', foreign_keys='CartItemsModel.watch_id', back_populates='watch', cascade="all, delete-orphan")

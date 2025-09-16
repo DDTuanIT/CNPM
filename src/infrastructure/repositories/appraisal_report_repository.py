@@ -30,7 +30,7 @@ class AppraisalReportRepository(IAppraisalReportRepository):
             self.session.close()      
 
     def get_by_id(self, appraisal_report_id: int) -> Optional[AppraisalReportModel]:
-        return self.session.query(AppraisalReportModel).filter_by(id=appraisal_report_id).first()
+        return self.session.query(AppraisalReportModel).filter_by(appraisal_report_id=appraisal_report_id).first()
 
     def list(self) -> List[AppraisalReportModel]:
         self._appraisal_reports = session.query(AppraisalReportModel).all()

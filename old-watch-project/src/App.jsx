@@ -10,13 +10,13 @@ import { ExplorePage } from "./Pages/HomePages/ExplorePage/ExplorePage";
 import { AppraiserHomePage } from "./Pages/HomePages/AppraiserHomePage/AppraiserHomePage";
 import { SellerDashBoard } from "./Pages/SellerPage/SellerDashBoard";
 import { AddProductPage } from "./Pages/SellerPage/AddProductPage";
-import {ProductManagePage} from "./Pages/SellerPage/ProductManagePages/ProductManagePage"
-import {OrderPage} from "./Pages/SellerPage/OrderPages/OrderPage"
+import { ProductManagePage } from "./Pages/SellerPage/ProductManagePages/ProductManagePage";
+import { OrderPage } from "./Pages/SellerPage/OrderPages/OrderPage";
 import { SettingPage } from "./Pages/SellerPage/SettingPage";
 import { UserProvider } from "./Pages/Context/UserContext";
 import { AdminPage } from "./Pages/AdminPage/AdminPage";
 import { EditProductPage } from "./Pages/SellerPage/ProductManagePages/EditProductPage";
-import {AppraisalReport} from "./Pages/SellerPage/AppraisalReportPage/AppraisalReport";
+import { AppraisalReport } from "./Pages/SellerPage/AppraisalReportPage/AppraisalReport";
 import { BuyerDashBoard } from "./Pages/BuyerPage/pages/BuyerDashBoard";
 import { BuyerProductsPage } from "./Pages/BuyerPage/pages/BuyerProductsPage";
 import { BuyerWishlistPage } from "./Pages/BuyerPage/pages/BuyerWishlistPage";
@@ -40,11 +40,13 @@ import { SupportTicketDetail } from "./Pages/SupportPage/pages/SupportTicketDeta
 import { SupportChatPage } from "./Pages/SupportPage/pages/SupportChatPage";
 import { SupportFeedbackPage } from "./Pages/SupportPage/pages/SupportFeedbackPage";
 import { SupportSettingPage } from "./Pages/SupportPage/pages/SupportSettingPage";
+import { PageError } from "./Pages/PageErr/PageError";
 
 function App() {
   return (
     <UserProvider>
       <Routes>
+        <Route path="*" element={<PageError />} />
 
         <Route path="/SupportPage" element={<SupportPage />} />
 
@@ -58,9 +60,9 @@ function App() {
 
         <Route path="/ProductManagePage" element={<ProductManagePage />} />
 
-        <Route path="/EditProductPage" element={<EditProductPage />}/>
+        <Route path="/EditProductPage" element={<EditProductPage />} />
 
-        <Route path="/AppraisalReport" element={<AppraisalReport />}/>
+        <Route path="/AppraisalReport" element={<AppraisalReport />} />
 
         <Route path="/OrderPage" element={<OrderPage />} />
 
@@ -79,7 +81,7 @@ function App() {
         <Route path="/ExplorePage" element={<ExplorePage />} />
 
         <Route path="/AppraiserHomePage" element={<AppraiserHomePage />} />
-        
+
         <Route path="/AdminPage" element={<AdminPage />} />
 
         <Route path="/BuyerDashBoard" element={<BuyerDashBoard />} />
@@ -95,31 +97,33 @@ function App() {
         <Route path="/BuyerSetting" element={<BuyerSettingPage />} />
 
         <Route path="/BuyerOrders" element={<BuyerOrdersPage />} />
-      
+
         <Route path="/AppraiserDashBoard" element={<AppraiserDashBoard />} />
-        
+
         <Route path="/AppraiserRequests" element={<AppraiserRequestsPage />} />
-        
-        <Route path="/AppraiserRequestDetail" element={<AppraiserRequestDetail />} />
-        
+
+        <Route
+          path="/AppraiserRequestDetail"
+          element={<AppraiserRequestDetail />}
+        />
+
         <Route path="/AppraiserReports" element={<AppraiserReportsPage />} />
-        
+
         <Route path="/AppraiserSetting" element={<AppraiserSettingPage />} />
 
-        <Route path="/AppraiserForm" element={<AppraiserForm />}/>
-        
+        <Route path="/AppraiserForm" element={<AppraiserForm />} />
+
         <Route path="/SupportDashBoard" element={<SupportDashBoard />} />
-        
+
         <Route path="/SupportTickets" element={<SupportTicketsPage />} />
-        
+
         <Route path="/SupportTicketDetail" element={<SupportTicketDetail />} />
-        
+
         <Route path="/SupportChat" element={<SupportChatPage />} />
-        
+
         <Route path="/SupportFeedback" element={<SupportFeedbackPage />} />
-        
+
         <Route path="/SupportSetting" element={<SupportSettingPage />} />
-      
       </Routes>
     </UserProvider>
   );

@@ -1,14 +1,19 @@
 import { Header } from "./Header";
 import { Footer } from "../Footer/Footer";
 import { UserContext } from "../Context/UserContext";
-import { use, useContext, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AppraiserForm } from "./AppraiserForm/AppraisaerForm";
 import { SupportForm } from "./SupportForm/SupportForm";
 
 export function SettingPage() {
   const { user, setUser } = useContext(UserContext);
+  const nav = useNavigate();
+  useEffect(() => {
+    if (!user) nav("/LoginPage");
+  });
+
   const fullNameRef = useRef(null);
   const emailRef = useRef(null);
   const addressRef = useRef(null);
@@ -219,7 +224,10 @@ export function SettingPage() {
                       )}
                     </div>
                   }
-                  <button className="btns btns-outline save-button" onClick={()=>setSupportForm(true)}>
+                  <button
+                    className="btns btns-outline save-button"
+                    onClick={() => setSupportForm(true)}
+                  >
                     Yêu cầu hỗ trợ
                   </button>
                   <button
@@ -241,7 +249,12 @@ export function SettingPage() {
                     💾 Lưu thay đổi
                   </button>
                   <Link to="/LoginPage">
-                    <button className="btns btns-outline">Đăng xuất</button>
+                    <button
+                      className="btns btns-outline"
+                      onClick={() => setUser(null)}
+                    >
+                      Đăng xuất
+                    </button>
                   </Link>
                 </div>
               </div>

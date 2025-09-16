@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import dayjs from "dayjs";
@@ -7,7 +7,12 @@ import "./SupportForm.css";
 
 export function SupportForm() {
   const { user } = useContext(UserContext);
+
   const nav = useNavigate();
+
+  useEffect(() => {
+    if (!user) nav("/LoginPage");
+  });
   const disRef = useRef(null);
   const timeCurrent = dayjs();
   const handleSubmitButton = async () => {
@@ -22,7 +27,7 @@ export function SupportForm() {
           create_at: timeCurrent.format("YYYY-MM-DD HH:mm:ss"),
           response_at: null,
           response: null,
-          status: "pending"
+          status: "pending",
         }
       );
       response;

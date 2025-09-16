@@ -1,72 +1,85 @@
-import {Link, NavLink} from 'react-router-dom'
-import '../Header/Header.css'
-import './Header.css'
+import { Link, NavLink } from "react-router-dom";
+import { UserContext } from "../Context/UserContext";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "../Header/Header.css";
+import "./Header.css";
 export function Header() {
-    return (
-      <header className="header">
-        <div className="container">
-          <div className="header-content">
-            <Link to="/" className="logo">
-              <img className="logo-web" src="logo-web.png" alt="" />
-              <span className="logo-text">VintageTime</span>
-            </Link>
+  const { user, SetUser } = useContext(UserContext);
+  const nav = useNavigate();
+  useEffect(() => {
+    if (!user) nav("/LoginPage");
+  });
+  return (
+    <header className="header">
+      <div className="container">
+        <div className="header-content">
+          <Link to="/" className="logo">
+            <img className="logo-web" src="logo-web.png" alt="" />
+            <span className="logo-text">VintageTime</span>
+          </Link>
 
+          <nav className="nav-menu">
             <nav className="nav-menu">
-              <nav className="nav-menu">
-                <NavLink
-                  to="/SellerDashBoard"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                >
-                  Trang chủ
-                </NavLink>
+              <NavLink
+                to="/SellerDashBoard"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                Trang chủ
+              </NavLink>
 
-                <NavLink
-                  to="/ProductManagePage"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                >
-                  Sản phẩm
-                </NavLink>
+              <NavLink
+                to="/ProductManagePage"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                Sản phẩm
+              </NavLink>
 
-                <NavLink
-                  to="/OrderPage"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                >
-                  Đơn hàng
-                </NavLink>
+              <NavLink
+                to="/OrderPage"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                Đơn hàng
+              </NavLink>
 
-                <NavLink
-                  to="/SettingPage"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                >
-                  Cài đặt
-                </NavLink>
-                <NavLink
-                  to="/SupportPage"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                >
-                  Lịch sử hỗ trợ
-                </NavLink>
-              </nav>
+              <NavLink
+                to="/SettingPage"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                Cài đặt
+              </NavLink>
+              <NavLink
+                to="/SupportPage"
+                className={({ isActive }) =>
+                  isActive ? "nav-link active" : "nav-link"
+                }
+              >
+                Lịch sử hỗ trợ
+              </NavLink>
             </nav>
+          </nav>
 
-            <div className="header-actions">
-              <Link to="/LoginPage">
-                {" "}
-                <button className="btns btns-outline">Đăng xuất</button>
-              </Link>
-            </div>
+          <div className="header-actions">
+            <Link to="/LoginPage">
+              {" "}
+              <button
+                className="btns btns-outline"
+                onClick={() => SetUser(null)}
+              >
+                Đăng xuất
+              </button>
+            </Link>
           </div>
         </div>
-      </header>
-    );
+      </div>
+    </header>
+  );
 }
