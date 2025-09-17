@@ -1,0 +1,63 @@
+.product-detail {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.image-section img {
+  width: 350px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info-section {
+  flex: 1;
+}
+
+.info-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-section p {
+  margin: 0.4rem 0;
+  font-size: 1rem;
+}
+
+.price {
+  margin: 1rem 0;
+}
+
+.price .current {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-right: 1rem;
+}
+
+.price .old {
+  font-size: 1rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #f0f0f0;
+}
+
+.btn.primary {
+  background: #007bff;
+  color: white;
+}

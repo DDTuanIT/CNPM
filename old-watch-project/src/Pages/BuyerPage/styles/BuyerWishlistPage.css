@@ -1,0 +1,98 @@
+.wishlist-container {
+  padding: 20px;
+  background: #fafafa;
+}
+
+.wishlist-header {
+  margin-bottom: 20px;
+}
+
+.wishlist-summary {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.wishlist-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wishlist-card {
+  display: flex;
+  gap: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.wishlist-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.wishlist-info {
+  flex: 1;
+}
+
+.wishlist-price {
+  margin: 10px 0;
+}
+
+.price {
+  font-weight: bold;
+  color: green;
+  margin-right: 10px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.status.Còn-hàng { background: #e6ffe6; color: green; }
+.status.Đã-bán { background: #ffe6e6; color: red; }
+.status.Giá-thay-đổi { background: #fff5e6; color: orange; }
+
+.wishlist-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-detail {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-buy {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-remove {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}

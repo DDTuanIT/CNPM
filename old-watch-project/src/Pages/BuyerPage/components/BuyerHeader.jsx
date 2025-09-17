@@ -7,10 +7,10 @@ export function BuyerHeader() {
       <div className="container">
         <div className="buyer-header-content">
           {/* Logo */}
-          <Link to="/" className="buyer-logo">
-            <img className="buyer-logo-img" src="logo-web.png" alt="VintageTime" />
-            <span className="buyer-logo-text">VintageTime</span>
-          </Link>
+          <Link to="/" className="logo">
+              <img className="logo-web" src="logo-web.png" alt="" />
+              <span className="logo-text">VintageTime</span>
+            </Link>
 
           {/* Menu Buyer */}
           <nav className="buyer-nav">
@@ -53,11 +53,8 @@ export function BuyerHeader() {
 
           {/* Action buttons */}
           <div className="buyer-header-actions">
-            <Link to="/LoginPage" className="btn btn-outline">
-              Đăng nhập
-            </Link>
-            <Link to="/Register" className="btn btn-primary">
-              Đăng ký
+            <Link to="/" className="btn btn-primary">
+              Đăng xuất
             </Link>
           </div>
         </div>
