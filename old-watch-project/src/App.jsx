@@ -16,7 +16,12 @@ import { SettingPage } from "./Pages/SellerPage/SettingPage";
 import { UserProvider } from "./Pages/Context/UserContext";
 import { AdminPage } from "./Pages/AdminPage/AdminPage";
 import { EditProductPage } from "./Pages/SellerPage/ProductManagePages/EditProductPage";
+<<<<<<< HEAD
 import { AppraisalReport } from "./Pages/SellerPage/AppraisalReportPage/AppraisalReport";
+=======
+import {AppraisalReport} from "./Pages/SellerPage/AppraisalReportPage/AppraisalReport";
+
+>>>>>>> 17dc545f9270b1b16c3f1c98b5a70cd9ea61930c
 import { BuyerDashBoard } from "./Pages/BuyerPage/pages/BuyerDashBoard";
 import { BuyerProductsPage } from "./Pages/BuyerPage/pages/BuyerProductsPage";
 import { BuyerWishlistPage } from "./Pages/BuyerPage/pages/BuyerWishlistPage";
@@ -24,6 +29,8 @@ import { BuyerCartPage } from "./Pages/BuyerPage/pages/BuyerCartPage";
 import { BuyerCheckoutPage } from "./Pages/BuyerPage/pages/BuyerCheckoutPage";
 import { BuyerSettingPage } from "./Pages/BuyerPage/pages/BuyerSettingPage";
 import { BuyerOrdersPage } from "./Pages/BuyerPage/pages/BuyerOrdersPage";
+import { BuyerProductDetail } from "./Pages/BuyerPage/pages/BuyerProductDetail";
+
 
 import { AppraiserDashBoard } from "./Pages/AppraiserPage/pages/AppraiserDashBoard";
 import { AppraiserRequestsPage } from "./Pages/AppraiserPage/pages/AppraiserRequestsPage";
@@ -98,6 +105,8 @@ function App() {
 
         <Route path="/BuyerOrders" element={<BuyerOrdersPage />} />
 
+        <Route path="/BuyerProductDetail/:id" element={<BuyerProductDetail />} />
+      
         <Route path="/AppraiserDashBoard" element={<AppraiserDashBoard />} />
 
         <Route path="/AppraiserRequests" element={<AppraiserRequestsPage />} />

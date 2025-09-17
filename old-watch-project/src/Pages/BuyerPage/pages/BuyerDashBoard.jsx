@@ -1,8 +1,8 @@
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import { BuyerStatusGrid } from "./BuyerStatusGrid";
 import { BuyerTabContainer } from "../components/BuyerTabContainer";
 import { BuyerHeader } from "../components/BuyerHeader";
-import { Footer } from "../../Footer/Footer";
+import { BuyerFooter } from "../components/BuyerFooter";
 import "../styles/BuyerDashBoard.css";
 import "../styles/BuyerPageHeader.css";
 
@@ -12,20 +12,20 @@ export function BuyerDashBoard() {
       <BuyerHeader />
       <main className="main">
         <div className="container">
+          {/* Header */}
           <div className="buyer-page-header">
             <h2 className="buyer-page-title">Buyer Dashboard</h2>
             <p className="buyer-page-subtitle">Quản lý đơn hàng và Wishlist</p>
-            <div className="buyer-page-actions">
-              <button>Đơn hàng</button>
-              <button>Wishlist</button>
-            </div>
           </div>
 
+          {/* Stats grid */}
           <BuyerStatusGrid />
+
+          {/* Tab container */}
           <BuyerTabContainer />
         </div>
       </main>
-      <Footer />
+      <BuyerFooter />
     </Fragment>
   );
 }
